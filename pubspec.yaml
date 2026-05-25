@@ -1,0 +1,46 @@
+name: life_pilot
+description: "Life Pilot - personal assistance recurring task manager & alarm clock"
+publish_to: "none"
+version: 1.0.0+1
+
+environment: 
+  sdk: ^3.10.7
+
+dependencies: 
+  flutter: 
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # state management
+  flutter_riverpod: ^2.6.1
+
+  # database
+  sqflite: ^2.4.2
+  path: ^1.9.1
+
+  # notification and alarm
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.10.0
+  android_alarm_manager_plus: ^4.0.6
+
+  # UI
+  fl_chart: ^0.70.2
+  table_calendar: ^3.1.3
+  google_fonts: ^6.2.1
+
+  # utils
+  uuid: ^4.5.1
+  intl: ^0.20.0
+  shared_preferences: ^2.3.5
+
+dev_dependencies:
+  flutter_test: 
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/sounds/
