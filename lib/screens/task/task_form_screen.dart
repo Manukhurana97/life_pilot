@@ -151,7 +151,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
       endDate: _endDate != null ? DateFormat('yyyy-MM-dd').format(_endDate!) : null,
       reminderOffsets: _reminderOffsets,
       isAlarm: _isAlarm,
-      alarmSound: _isAlarm ? _alarmSoundId : null,
+      alarmSound: _isAlarm ? (_alarmSoundId ?? AlarmSoundService.defaultSoundId) : null,
       snoozeMinutes: _snoozeMinutes,
       isActive: widget.existingTask?.isActive ?? true,
       createdAt: widget.existingTask?.createdAt ?? now,
@@ -319,11 +319,13 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
                     label: Text(AppConstants.reminderOffSetLabel(offset)),
                     selected: selected,
                     onSelected: (s) {
-                      if(s) {
-                        _reminderOffsets.add(offset);
-                      } else {
-                        _reminderOffsets.remove(offset);
-                      }
+                      setState(() {
+                        if(s) {
+                          _reminderOffsets.add(offset);
+                        } else {
+                          _reminderOffsets.remove(offset);
+                        }
+                      });
                     }
                 );
               }).toList(),
@@ -337,7 +339,12 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
               title: const Text('Ring alarm'),
               subtitle: const Text('Full-screen alarm with sound'),
               value: _isAlarm,
-              onChanged: (v) => setState(() => _isAlarm = v),
+              onChanged: (v) => setState(() {
+                _isAlarm = v;
+                if (v && _alarmSoundId == null) {
+                  _alarmSoundId = AlarmSoundService.defaultSoundId;
+                }
+              }),
               contentPadding: EdgeInsets.zero,
             ),
 
@@ -364,7 +371,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
     final selectedSound = _availableSounds.isEmpty
         ? null
         : _availableSounds.cast<AlarmSound>().firstWhere(
-        (s) => s!.id == _alarmSoundId,
+        (s) => s.id == _alarmSoundId,
         orElse: () => _availableSounds.first,
     );
 
@@ -372,7 +379,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DropdownButtonFormField<String>(
-            initialValue: selectedSound?.id ?? 'default',
+            initialValue: selectedSound?.id ?? AlarmSoundService.defaultSoundId,
             decoration: const InputDecoration(labelText: 'Alarm sound'),
         items: [
           ..._availableSounds.map((s) => DropdownMenuItem(
@@ -482,7 +489,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
             context: context,
             initialTime: value ?? TimeOfDay.now(),
         );
-        if(picked != null) onChanged(null);
+        if(picked != null) onChanged(picked);
       },
       onLongPress: () => onChanged(null),
       child: InputDecorator(
@@ -590,7 +597,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
       case RecurrenceType.monthlyDate:
       case RecurrenceType.quarterly:
         return DropdownButtonFormField<int>(
-          initialValue: _dayOfMonth.clamp(1, 3),
+          initialValue: _dayOfMonth.clamp(1, 31),
           decoration: const InputDecoration(labelText: 'Day of month'),
           items: List.generate(31, (i) {
             return DropdownMenuItem(value: i+1, child: Text('${i + 1}'));

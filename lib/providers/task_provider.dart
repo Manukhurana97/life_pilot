@@ -113,7 +113,7 @@ class TaskNotifier extends ChangeNotifier {
 
     await _db.updateTask(updated);
     final idx = _tasks.indexWhere((t) => t.id == taskId);
-    if(idx == -1) _tasks[idx] = updated;
+    if(idx != -1) _tasks[idx] = updated;
 
     if(!updated.isActive) {
       await _notifSevice.cancelForTask(taskId);

@@ -46,14 +46,18 @@ class AlarmSoundService {
   static const _customSoundsDir = 'alarm_sounds';
 
   /// Build-in alarm sounds (blunder as assets)
-  static const List<AlarmSound> BuiltInSounds = [
-    AlarmSound(id: 'default', name: 'Default Alarm', isBuiltIn: true),
+  static const List<AlarmSound> builtInSounds = [
+    AlarmSound(id: 'android', name: 'Android Alarm', isBuiltIn: true),
+    AlarmSound(id: 'ios', name: 'iOS Alarm', isBuiltIn: true),
   ];
+
+  /// Build-In  alarm sound (bundled as assets)
+  static String get defaultSoundId => Platform.isIOS ? 'ios' : 'android';
 
   /// Get all available sounds (build-in + custom)
   Future<List<AlarmSound>> getAllSounds() async {
     final customs = await getCustomSounds();
-    return [...BuiltInSounds, ...customs];
+    return [...builtInSounds, ...customs];
   }
 
   /// Get custom sounds from storage
@@ -175,10 +179,11 @@ class AlarmSoundService {
 
   /// Find a sound by ID
   Future<AlarmSound?> getSoundById(String? id) async {
-    if (id == null || id.isEmpty) return BuiltInSounds.first;
+    final fallback = builtInSounds.firstWhere((s) => s.id == defaultSoundId);
+    if (id == null || id.isEmpty) return fallback;
 
-    // Check build-in
-    for (final s in BuiltInSounds) {
+    // Check built-in
+    for (final s in builtInSounds) {
       if (s.id == id) return s;
     }
 
@@ -188,7 +193,7 @@ class AlarmSoundService {
       if (s.id == id) return s;
     }
 
-    return BuiltInSounds.first;
+    return fallback;
   }
 
   /// Preview a sound (play / stop toggle)

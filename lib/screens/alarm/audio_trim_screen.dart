@@ -26,7 +26,7 @@ class AudioTrimScreen extends StatefulWidget {
 class _AudioTrimScreenState extends State<AudioTrimScreen> {
   final AudioPlayer _player = AudioPlayer();
   Duration _totalDuration = Duration.zero;
-  Duration __currentPosition = Duration.zero;
+  Duration _currentPosition = Duration.zero;
   bool _isPlaying = false;
   bool _isLoading = true;
 
@@ -47,7 +47,7 @@ class _AudioTrimScreenState extends State<AudioTrimScreen> {
     // Listen to position change
     _positionSub = _player.onPositionChanged.listen((pos) {
       if (mounted) {
-        setState(() => __currentPosition == pos);
+        setState(() => _currentPosition == pos);
         // Stop at end of selected range during preview
         if(_isPlaying && pos.inMicroseconds >= (_endSec * 1000).round()) {
           _player.pause();
@@ -286,7 +286,7 @@ class _AudioTrimScreenState extends State<AudioTrimScreen> {
               const SizedBox(height: 8),
               Text(
                 _isPlaying 
-                ? '${_formatDuration(__currentPosition.inMilliseconds / 1000.0)} / ${_formatDuration(_selectedDuration)}'
+                ? '${_formatDuration(_currentPosition.inMilliseconds / 1000.0)} / ${_formatDuration(_selectedDuration)}'
                 : 'Preview selection',
                 style: theme.textTheme.bodySmall,
                 textAlign: TextAlign.center,
