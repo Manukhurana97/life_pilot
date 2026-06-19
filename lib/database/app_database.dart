@@ -81,7 +81,7 @@ class AppDatabase{
     ''');
 
     await db.execute('''
-      CREATE INDEX idx_tasks_Active ON tasks(is_active
+      CREATE INDEX idx_tasks_Active ON tasks(is_active)
     ''');
 
     for(final cat in TaskCategory.defaults()){

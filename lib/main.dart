@@ -3,11 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:life_pilot/app.dart';
 import 'package:life_pilot/providers/settings_provider.dart';
 import 'package:life_pilot/services/notification_service.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Initialize notifications
+  await initializeDateFormatting();
   await NotificationService().initialize();
   await NotificationService().requestPermissions();
 
