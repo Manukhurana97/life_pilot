@@ -96,7 +96,7 @@ class _CalenderScreenState extends ConsumerState<CalenderScreen> {
             child: Row(
               children: [
                 Text(
-                  DateFormat('EEEE', 'd MMMM').format(_selectedDay),
+                  DateFormat('EEEE, d MMMM').format(_selectedDay),
                   style: theme.textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),

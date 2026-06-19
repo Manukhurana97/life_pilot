@@ -67,10 +67,10 @@ class AppDatabase{
       CREATE TABLE task_logs (
         id TEXT PRIMARY KEY,
         task_id TEXT NOT NULL,
-        date
+        date TEXT NOT NULL
         status TEXT NOT NULL,
         completed_at TEXT,
-        skip_reasion TEXT,
+        skip_reason TEXT,
         notes TEXT,
         FOREIGN KEY (task_id) REFERENCES tasks (id) ON DELETE CASCADE
       )

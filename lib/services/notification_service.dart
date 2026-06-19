@@ -68,13 +68,13 @@ class NotificationService {
     final dueDates = RecurrenceService.getDueDatesInRange(task, now, end);
 
     // use a better spread to reduce collision risk between tasks
-    int intifId = (task.id.hashCode & 0x7FFFFFFF) % 20000000;
+    int notifId = (task.id.hashCode & 0x7FFFFFFF) % 2000000;
 
     for (final dueDate in dueDates) {
       for (final offsetMinutes in task.reminderOffsets) {
         DateTime taskTime;
         if(task.startTime != null) {
-          final parts = task.startDate.split(':');
+          final parts = task.startTime!.split(':');
           taskTime = DateTime(
             dueDate.year, dueDate.month, dueDate.day,
             int.parse(parts[0]), int.parse(parts[1]),
@@ -94,7 +94,7 @@ class NotificationService {
         }
 
         await _plugin.zonedSchedule(
-          id: intifId++,
+          id: notifId++,
           title: task.title,
           body: body.isEmpty ? null : body,
           scheduledDate: tzTime,
@@ -127,12 +127,12 @@ class NotificationService {
     final end = now.add(const Duration(days: 7));
     final dueDates = RecurrenceService.getDueDatesInRange(task, now, end);
 
-    int notifId = ((task.id.hashCode & 0x7FFFFFFF) % 20000000) + 20000000;
+    int notifId = ((task.id.hashCode & 0x7FFFFFFF) % 2000000) + 2000000;
 
     for (final dueDate in dueDates) {
       DateTime alarmTime;
       if (task.startTime != null) {
-        final parts = task.startTime!.split('.');
+        final parts = task.startTime!.split(':');
         alarmTime = DateTime(
           dueDate.year, dueDate.month, dueDate.day,
           int.parse(parts[0]), int.parse(parts[1]),
@@ -146,7 +146,7 @@ class NotificationService {
       final tzTime = tz.TZDateTime.from(alarmTime, tz.local);
 
       await _plugin.zonedSchedule(
-        id: notifId,
+        id: notifId++,
         title: '⏰ ${task.title}',
         body: task.description,
         scheduledDate: tzTime,
@@ -180,7 +180,7 @@ class NotificationService {
 
   Future<void> cancelForTask(String taskId) async {
     // Cancel a range of notification IDs derived from the task
-    final baseId = (taskId.hashCode & 0xFFFFFFF) % 2000000;
+    final baseId = (taskId.hashCode & 0x7FFFFFFF) % 2000000;
     for (int i = 0; i < 50; i++) {
       await _plugin.cancel(id: baseId + i);
     }

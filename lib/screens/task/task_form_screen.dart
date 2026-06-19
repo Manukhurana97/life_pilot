@@ -379,7 +379,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
               value: s.id,
               child: Row(
                 children: [
-                  Icon(s.isBuildIn ? Icons.music_note : Icons.upload_file,
+                  Icon(s.isBuiltIn ? Icons.music_note : Icons.upload_file,
                   size: 18,
                   ),
                   const SizedBox(width: 8,),
@@ -443,7 +443,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
           ],
         ),
         // Delete custom sound button
-        if (selectedSound != null && !selectedSound.isBuildIn)
+        if (selectedSound != null && !selectedSound.isBuiltIn)
           Padding(
             padding: const EdgeInsets.only(top: 4),
             child: TextButton.icon(
