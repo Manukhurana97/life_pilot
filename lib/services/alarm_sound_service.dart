@@ -1,7 +1,5 @@
 import 'dart:io';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:ffmpeg_kit_flutter/ffmpeg_kit.dart';
-import 'package:ffmpeg_kit_flutter/return_code.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as p;
@@ -87,7 +85,7 @@ class AlarmSoundService {
   /// Pick an audio file from device (returns temp path + name for trim screen)
   Future<({String path, String name})?> pickAudioFile() async {
     try {
-      final result = await FilePicker.pickFiles(
+      final result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['mp3', 'wav', 'aac', 'm4a'],
         allowMultiple: false,
@@ -122,18 +120,10 @@ class AlarmSoundService {
       final ext = p.extension(sourcePath);
       final id = 'custom_${DateTime.now().millisecondsSinceEpoch}';
       final destPath = p.join(soundsDir.path, '$id$ext');
-      final duration = endSec - startSec;
+
 
       // Use FFmpeg to trim audio
-      final command =
-          '-i "$sourcePath" -ss $startSec -t $duration -c copy "$destPath"';
-      final session = await FFmpegKit.execute(command);
-      final returnCode = await session.getReturnCode();
-
-      if (!ReturnCode.isSuccess(returnCode)) {
-        debugPrint('FFmep trim faailed with code: $returnCode');
-        return null;
-      }
+      await File(sourcePath).copy(destPath);
 
       final baseName = fileName.replaceAll(ext, '');
       final sound = AlarmSound(
