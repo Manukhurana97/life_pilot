@@ -26,13 +26,18 @@ class _StateScreenState extends ConsumerState<StatsScreen> {
   }
 
   Future<void> _loadWeekData() async {
-    final now = DateTime.now();
-    final start = now.subtract(const Duration(days: 6));
-    final startStr = DateFormat('yyyy-MM-dd').format(start);
-    final endStr = DateFormat('yyyy-MM-dd').format(now);
+    try {
+      final now = DateTime.now();
+      final start = now.subtract(const Duration(days: 6));
+      final startStr = DateFormat('yyyy-MM-dd').format(start);
+      final endStr = DateFormat('yyyy-MM-dd').format(now);
 
-    _weeklyData = await _db.getCompletionCountsForRange(startStr, endStr);
-    if (mounted) setState(() => _loading = false);
+      _weeklyData = await _db.getCompletionCountsForRange(startStr, endStr);
+    } catch (e) {
+      debugPrint('Error loading weekly data: $e');
+    } finally {
+      if (mounted) setState(() => _loading = false);
+    }
   }
 
   @override
