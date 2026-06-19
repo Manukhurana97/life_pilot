@@ -47,7 +47,7 @@ class _AudioTrimScreenState extends State<AudioTrimScreen> {
     // Listen to position change
     _positionSub = _player.onPositionChanged.listen((pos) {
       if (mounted) {
-        setState(() => _currentPosition == pos);
+        setState(() => _currentPosition = pos);
         // Stop at end of selected range during preview
         if(_isPlaying && pos.inMicroseconds >= (_endSec * 1000).round()) {
           _player.pause();

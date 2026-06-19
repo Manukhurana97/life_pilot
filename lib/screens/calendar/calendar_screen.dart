@@ -121,6 +121,7 @@ class _CalenderScreenState extends ConsumerState<CalenderScreen> {
                 )
                 : ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
+                  itemCount: selectedTasks.length,
                   itemBuilder: (context, index) {
                     final task = selectedTasks[index];
                     final category = ref.watch(categoryProvider).getById(task.categoryId); 

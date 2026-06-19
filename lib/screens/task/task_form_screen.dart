@@ -385,12 +385,13 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
           ..._availableSounds.map((s) => DropdownMenuItem(
               value: s.id,
               child: Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(s.isBuiltIn ? Icons.music_note : Icons.upload_file,
                   size: 18,
                   ),
                   const SizedBox(width: 8,),
-                  Expanded(child: Text(s.name, overflow: TextOverflow.ellipsis,)),
+                  Flexible(child: Text(s.name, overflow: TextOverflow.ellipsis,)),
                 ],
               ),
             ),
