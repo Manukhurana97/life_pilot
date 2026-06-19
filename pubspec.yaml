@@ -20,14 +20,20 @@ dependencies:
   path: ^1.9.1
 
   # notification and alarm
-  flutter_local_notifications: ^18.0.1
-  timezone: ^0.10.0
-  android_alarm_manager_plus: ^4.0.6
+  flutter_local_notifications: ^22.0.1
+  timezone: ^0.11.0
+  android_alarm_manager_plus: ^5.0.0
 
   # UI
-  fl_chart: ^0.70.2
+  fl_chart: ^1.2.0
   table_calendar: ^3.1.3
-  google_fonts: ^6.2.1
+  google_fonts: ^8.1.0
+
+  # Audio & File picking 
+  audioplayers: ^6.1.0
+  file_picker: ^11.0.2
+  path_provider: ^2.1.6
+  ffmpeg_kit_flutter: ^6.0.3
 
   # utils
   uuid: ^4.5.1
