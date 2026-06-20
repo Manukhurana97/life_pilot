@@ -73,7 +73,7 @@ class TaskNotifier extends ChangeNotifier {
     if(task.reminderOffsets.isNotEmpty) {
       await _notifSevice.scheduleForTask(task);
     }
-    if(task.isActive) {
+    if(task.isAlarm) {
       await _notifSevice.scheduleAlarm(task);
     }
 
@@ -87,7 +87,7 @@ class TaskNotifier extends ChangeNotifier {
     if(idx != -1) _tasks[idx] = updated;
     await _notifSevice.cancelForTask(task.id);
     if(updated.reminderOffsets.isNotEmpty && updated.isActive) {
-      await _notifSevice.scheduleAlarm(updated);
+      await _notifSevice.scheduleForTask(updated);
     }
     if(updated.isAlarm && updated.isActive) {
       await _notifSevice.scheduleAlarm(updated);

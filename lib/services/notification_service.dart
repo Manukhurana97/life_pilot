@@ -74,8 +74,10 @@ class NotificationService {
   void handlePendingAlarm() {
     if (_pendingAlarmPayload != null) {
       _onNotificationTap(NotificationResponse(
-          notificationResponseType: NotificationResponseType.selectedNotification
+          notificationResponseType: NotificationResponseType.selectedNotification,
+        payload: _pendingAlarmPayload,
       ));
+      _pendingAlarmPayload = null;
     }
   }
 

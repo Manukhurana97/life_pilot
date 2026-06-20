@@ -52,19 +52,15 @@ flutter_launcher_icons:
   adaptive_icon_background: "#FFF8E8"
 
 flutter_native_splash:
-  color: "#FFF8E8"
-  fullscreen: true
-  image: assets/image/orignal/splash/light.png
-
-  color_dark: "#0F3D2E"
-  image_dark: assets/image/orignal/splash/dark.png
+  background_image: assets/image/orignal/splash/light.png
+  background_image_dark: assets/image/orignal/splash/dark.png
 
   android: true
   ios: true
   web: false
 
   android_12:
-    image: assets/image/orignal/splash/light.png
-    image_dark: assets/image/orignal/splash/dark.png
+    image: assets/image/orignal/logo/light.png
+    image_dark: assets/image/orignal/logo/dark.png
     color: "#FFF8E8"
     color_dark: "#0F3D2E"
