@@ -165,7 +165,7 @@ class _AlarmScreenState extends State<AlarmScreen>
                   onPressed: _snooze,
                   style: OutlinedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadiusGeometry.circular(28),
+                      borderRadius: BorderRadius.circular(28),
                     ),
                   ),
                   child: Text(

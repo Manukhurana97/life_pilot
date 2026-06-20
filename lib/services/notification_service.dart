@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:life_pilot/screens/alarm/alarm_screen.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz_data;
 import 'package:life_pilot/models/task.dart';
@@ -11,6 +13,12 @@ class NotificationService {
 
   final FlutterLocalNotificationsPlugin _plugin = FlutterLocalNotificationsPlugin();
   bool _initialized = false;
+
+  /// Global navigator key - set this in MaterialApp
+  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
+  /// Pending alarm payloads (received before navigator is ready)
+  static String? _pendingAlarmPayload;
 
   Future<void> initialize() async {
     if(_initialized) return;
@@ -40,6 +48,35 @@ class NotificationService {
   void _onNotificationTap(NotificationResponse response) {
     // Handle notification tag - navigate to task detail
     // payload contains taskId
+
+    final payload = response.payload;
+    if (payload == null) return;
+
+    if(payload.startsWith("alarm_")) {
+      final _ = payload.replaceFirst('alarm_', '');
+      final navigator = navigatorKey.currentState;
+      if(navigator != null) {
+        navigator.push(
+            MaterialPageRoute(
+                builder: (_) => AlarmScreen(
+                    taskTitle: 'Alarm',
+                  alarmSoundId: null, // Will be resolved by AlarmScreen
+                ),
+            ),
+        );
+      } else {
+        _pendingAlarmPayload = payload;
+      }
+    }
+  }
+
+  /// Call this from app startup to handle any pending alarm
+  void handlePendingAlarm() {
+    if (_pendingAlarmPayload != null) {
+      _onNotificationTap(NotificationResponse(
+          notificationResponseType: NotificationResponseType.selectedNotification
+      ));
+    }
   }
 
   Future<void> requestPermissions() async {

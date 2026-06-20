@@ -7,6 +7,7 @@ import 'package:life_pilot/screens/home/home_screen.dart';
 import 'package:life_pilot/screens/calendar/calendar_screen.dart';
 import 'package:life_pilot/screens/tasks/all_tasks_screen.dart';
 import 'package:life_pilot/screens/stats/stats_screen.dart';
+import 'package:life_pilot/services/notification_service.dart';
 
 
 class LifePilotApp extends ConsumerWidget {
@@ -17,6 +18,7 @@ class LifePilotApp extends ConsumerWidget {
     final settings = ref.watch(settingsProvider);
 
     return MaterialApp(
+      navigatorKey: NotificationService.navigatorKey,
       title: AppConstants.appName,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light(),

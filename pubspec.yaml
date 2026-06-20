@@ -31,15 +31,15 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
-  flutter_native_splash: ^2.4.8
+  flutter_native_splash: ^2.4.3
 
 flutter:
   uses-material-design: true
 
   assets:
     - assets/sounds/
-    - assets/logo/
-    - assets/splash/
+    - assets/image/logo/
+    - assets/image/splash/
 
 
 flutter_launcher_icons:
@@ -53,6 +53,7 @@ flutter_launcher_icons:
 
 flutter_native_splash:
   color: "#FFF8E8"
+  fullScreen: true
   image: assets/image/orignal/splash/light.png
 
   color_dark: "#0F3D2E"
@@ -60,9 +61,10 @@ flutter_native_splash:
 
   android: true
   ios: true
+  web: false
 
   android_12:
     image: assets/image/orignal/splash/light.png
     image_dark: assets/image/orignal/splash/dark.png
-    icon_background_color: "#FFF8E8"
-    icon_background_color_dark: "#0F3D2E"
+    color: "#FFF8E8"
+    color_dark: "#0F3D2E"
