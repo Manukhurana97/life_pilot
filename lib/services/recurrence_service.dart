@@ -108,7 +108,7 @@ class RecurrenceService {
     DateTime end,
   ) {
     final dates = <DateTime>[];
-    var current = DateTime(start.year, start.month, end.day);
+    var current = DateTime(start.year, start.month, start.day);
     final endNorm = DateTime(end.year, end.month, end.day);
 
     while (!current.isAfter(endNorm)) {

@@ -166,6 +166,7 @@ class NotificationService {
     final end = now.add(const Duration(days: 7));
     final dueDates = RecurrenceService.getDueDatesInRange(task, now, end);
 
+    debugPrint('[ALARM] scheduleAlarm for "${task.title}" isAlarm=${task.isAlarm} startTime=${task.startTime} sound=${task.alarmSound} dueDate=${dueDates.length}');
     int notifId = ((task.id.hashCode & 0x7FFFFFFF) % 2000000) + 2000000;
 
     for (final dueDate in dueDates) {
@@ -180,8 +181,12 @@ class NotificationService {
         continue; // Alarm needs a time
       }
 
-      if (alarmTime.isBefore(now)) continue;
+      if (alarmTime.isBefore(now)) {
+        debugPrint('[ALARM] skipping past alarm: $alarmTime');
+        continue;
+      }
 
+      debugPrint('[ALARM] skipping past alarm: $alarmTime');
       final tzTime = tz.TZDateTime.from(alarmTime, tz.local);
 
       await _plugin.zonedSchedule(
