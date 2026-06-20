@@ -69,7 +69,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
     _startDate = DateTime.parse(task.startDate);
     _endDate = task.endDate != null ? DateTime.parse(task.endDate!) : null;
     _reminderOffsets = List.from(task.reminderOffsets);
-    _isAlarm = task.isActive;
+    _isAlarm = task.isAlarm;
     _alarmSoundId = task.alarmSound;
     _snoozeMinutes = task.snoozeMinutes;
 
@@ -462,7 +462,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
               ),
               onPressed: () async {
                 await _soundService.deleteCustomSound(selectedSound.id);
-                setState(() => _alarmSoundId = 'default');
+                setState(() => _alarmSoundId = AlarmSoundService.defaultSoundId);
                 await _loadAvailableSounds();
                 },
             ),

@@ -38,8 +38,8 @@ flutter:
 
   assets:
     - assets/sounds/
-    - assets/image/logo/
-    - assets/image/splash/
+    - assets/image/orignal/logo/
+    - assets/image/orignal/splash/
 
 
 flutter_launcher_icons:
@@ -53,7 +53,7 @@ flutter_launcher_icons:
 
 flutter_native_splash:
   color: "#FFF8E8"
-  fullScreen: true
+  fullscreen: true
   image: assets/image/orignal/splash/light.png
 
   color_dark: "#0F3D2E"
