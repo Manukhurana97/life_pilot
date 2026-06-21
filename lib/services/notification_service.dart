@@ -241,11 +241,12 @@ class NotificationService {
           scheduledDate: tzTime,
           notificationDetails: NotificationDetails(
             android: AndroidNotificationDetails(
-              'alarms',
+              'alarms_v2',
               'Alarms',
               channelDescription: 'Alarm notifications',
               importance: Importance.max,
               priority: Priority.max,
+              category: AndroidNotificationCategory.alarm,
               fullScreenIntent: true,
               playSound: true,
               enableVibration: true,
