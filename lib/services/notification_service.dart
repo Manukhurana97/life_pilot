@@ -87,6 +87,8 @@ class NotificationService {
     if(android != null) {
       await android.requestNotificationsPermission();
       await android.requestExactAlarmsPermission();
+      final canExact = await android.canScheduleExactNotifications();
+      debugPrint('[ALARM] canScheduleExactNotifications=$canExact');
     }
 
     final ios = _plugin.resolvePlatformSpecificImplementation<
@@ -254,11 +256,18 @@ class NotificationService {
               interruptionLevel: InterruptionLevel.timeSensitive,
             ),
           ),
-          androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+          androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
           payload: 'alarm_${task.id}',
         );
         debugPrint('[ALARM] Alarm scheduled (inexact fallback)');
       }
+    }
+
+    // Verify alarms are actually pending
+    final pending = await _plugin.pendingNotificationRequests();
+    debugPrint('[ALARM] Total pending notifications: ${pending.length}');
+    for (final p in pending) {
+      debugPrint('[ALARM] pending id=${p.id} title=${p.title}');
     }
   }
 
