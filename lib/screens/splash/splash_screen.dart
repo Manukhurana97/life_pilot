@@ -46,8 +46,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final splashImage = isDark
-        ? 'assets/image/original/splash/light.png'
-        : 'assets/image/original/splash/dark.png';
+        ? 'assets/image/original/splash/dark.png'
+        : 'assets/image/original/splash/light.png';
 
     return Stack(
       children: [

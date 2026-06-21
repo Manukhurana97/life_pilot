@@ -182,8 +182,15 @@ class NotificationService {
       }
 
       if (alarmTime.isBefore(now)) {
-        debugPrint('[ALARM] skipping past alarm: $alarmTime');
-        continue;
+        // Grace window: if alarm time just passed (within 2 min), schedule for 5s from now
+        final diff = now.difference(alarmTime).inSeconds;
+        if (diff < 120) {
+          debugPrint('[ALARM] alarm at $alarmTime just alarm (${diff}s ago) scheduling for now + 5s');
+          alarmTime = now.add(const Duration(seconds: 5));
+        } else {
+          debugPrint('[ALARM] skipping past alarm: $alarmTime');
+          continue;
+        }
       }
 
       debugPrint('[ALARM] skipping past alarm: $alarmTime');
