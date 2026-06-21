@@ -86,6 +86,7 @@ class NotificationService {
         AndroidFlutterLocalNotificationsPlugin>();
     if(android != null) {
       await android.requestNotificationsPermission();
+      await android.requestExactAlarmsPermission();
     }
 
     final ios = _plugin.resolvePlatformSpecificImplementation<
@@ -182,9 +183,9 @@ class NotificationService {
       }
 
       if (alarmTime.isBefore(now)) {
-        // Grace window: if alarm time just passed (within 2 min), schedule for 5s from now
+        // Grace window: if alarm time just passed (within 5 min), schedule for 5s from now
         final diff = now.difference(alarmTime).inSeconds;
-        if (diff < 120) {
+        if (diff <= 300) {
           debugPrint('[ALARM] alarm at $alarmTime just alarm (${diff}s ago) scheduling for now + 5s');
           alarmTime = now.add(const Duration(seconds: 5));
         } else {
@@ -193,39 +194,71 @@ class NotificationService {
         }
       }
 
-      debugPrint('[ALARM] skipping past alarm: $alarmTime');
+      debugPrint('[ALARM] Scheduling alarm at $alarmTime (notifId=$notifId)');
       final tzTime = tz.TZDateTime.from(alarmTime, tz.local);
 
-      await _plugin.zonedSchedule(
-        id: notifId++,
-        title: '⏰ ${task.title}',
-        body: task.description,
-        scheduledDate: tzTime,
-        notificationDetails: NotificationDetails(
-          android: AndroidNotificationDetails(
-            'alarms',
-            'Alarms', 
-            channelDescription: 'Alarm notifications', 
-            importance: Importance.max,
-            priority: Priority.max,
-            fullScreenIntent: true,
-            sound: task.alarmSound != null && !task.alarmSound!.startsWith('custom_')
-              ? RawResourceAndroidNotificationSound(task.alarmSound!)
-              : null,
-            playSound: true,
-            enableVibration: true,
-            ongoing: true,
-            autoCancel: false,
+      try {
+        await _plugin.zonedSchedule(
+          id: notifId++,
+          title: '⏰ ${task.title}',
+          body: task.description,
+          scheduledDate: tzTime,
+          notificationDetails: NotificationDetails(
+            android: AndroidNotificationDetails(
+              'alarms',
+              'Alarms',
+              channelDescription: 'Alarm notifications',
+              importance: Importance.max,
+              priority: Priority.max,
+              fullScreenIntent: true,
+              sound: task.alarmSound != null && !task.alarmSound!.startsWith('custom_')
+                  ? RawResourceAndroidNotificationSound(task.alarmSound!)
+                  : null,
+              playSound: true,
+              enableVibration: true,
+              ongoing: true,
+              autoCancel: false,
             ),
             iOS: const DarwinNotificationDetails(
               presentAlert: true,
               presentSound: true,
               interruptionLevel: InterruptionLevel.timeSensitive,
             ),
-        ),
-        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-        payload: 'alarm_${task.id}',
-      );
+          ),
+          androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+          payload: 'alarm_${task.id}',
+        );
+        debugPrint('[ALARM] Alarm scheduled successfully');
+      } catch (e) {
+        debugPrint('[ALARM] exact alarm failed: $e - failing back to inexact');
+
+        await _plugin.zonedSchedule(
+          id: notifId,
+          title: '⏰ ${task.title}',
+          body: task.description,
+          scheduledDate: tzTime,
+          notificationDetails: NotificationDetails(
+            android: AndroidNotificationDetails(
+              'alarms',
+              'Alarms',
+              channelDescription: 'Alarm notifications',
+              importance: Importance.max,
+              priority: Priority.max,
+              fullScreenIntent: true,
+              playSound: true,
+              enableVibration: true,
+            ),
+            iOS: const DarwinNotificationDetails(
+              presentAlert: true,
+              presentSound: true,
+              interruptionLevel: InterruptionLevel.timeSensitive,
+            ),
+          ),
+          androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+          payload: 'alarm_${task.id}',
+        );
+        debugPrint('[ALARM] Alarm scheduled (inexact fallback)');
+      }
     }
   }
 

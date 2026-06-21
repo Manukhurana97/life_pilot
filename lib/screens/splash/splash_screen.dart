@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SplashScreen extends StatefulWidget {
   final Widget child;
@@ -16,6 +17,10 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   @override
   void initState() {
     super.initState();
+    debugPrint('[SPLASH] Flutter splash screen initState');
+
+    // HIde system Ui for true fullScreen splash
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
     _fadeController = AnimationController(
         vsync: this,
@@ -28,6 +33,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     Future.delayed(const Duration(milliseconds: 2500), () {
       if (!mounted) return;
+      debugPrint('[SPLASH] Flutter out splash screen');
+      // Restore system UI
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
       _fadeController.forward().then((_) {
         if (mounted) setState(() => _showSplash = false);
       });
@@ -49,15 +57,20 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         ? 'assets/image/original/splash/dark.png'
         : 'assets/image/original/splash/light.png';
 
+    debugPrint('[SPLASH] showing splash: $splashImage (isDark=$isDark)');
     return Stack(
+      fit: StackFit.expand,
       children: [
         widget.child,
         FadeTransition(
           opacity: ReverseAnimation(_fadeAnimation),
-          child: SizedBox.expand(
+          child: Container(
+            color: Colors.black,
             child: Image.asset(
               splashImage,
               fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
             ),
           ),
         ),
