@@ -38,29 +38,29 @@ flutter:
 
   assets:
     - assets/sounds/
-    - assets/image/orignal/logo/
-    - assets/image/orignal/splash/
+    - assets/image/original/logo/
+    - assets/image/original/splash/
 
 
 flutter_launcher_icons:
   android: true
   ios: true
 
-  image_path: "assets/image/orignal/logo/light.png"
+  image_path: "assets/image/original/logo/light.png"
 
-  adaptive_icon_foreground: "assets/image/orignal/logo/light.png"
+  adaptive_icon_foreground: "assets/image/original/logo/light.png"
   adaptive_icon_background: "#FFF8E8"
 
 flutter_native_splash:
-  background_image: assets/image/orignal/splash/light.png
-  background_image_dark: assets/image/orignal/splash/dark.png
+  background_image: assets/image/original/splash/light.png
+  background_image_dark: assets/image/original/splash/dark.png
 
   android: true
   ios: true
   web: false
 
   android_12:
-    image: assets/image/orignal/logo/light.png
-    image_dark: assets/image/orignal/logo/dark.png
+    image: assets/image/original/logo/light.png
+    image_dark: assets/image/original/logo/dark.png
     color: "#FFF8E8"
     color_dark: "#0F3D2E"

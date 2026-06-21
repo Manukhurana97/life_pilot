@@ -5,6 +5,7 @@ import 'package:life_pilot/core/constraints/app_constraints.dart';
 import 'package:life_pilot/providers/settings_provider.dart';
 import 'package:life_pilot/screens/home/home_screen.dart';
 import 'package:life_pilot/screens/calendar/calendar_screen.dart';
+import 'package:life_pilot/screens/splash/splash_screen.dart';
 import 'package:life_pilot/screens/tasks/all_tasks_screen.dart';
 import 'package:life_pilot/screens/stats/stats_screen.dart';
 import 'package:life_pilot/services/notification_service.dart';
@@ -24,7 +25,7 @@ class LifePilotApp extends ConsumerWidget {
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
       themeMode: settings.themeMode,
-      home: const AppShell(),
+      home: const SplashScreen(child: AppShell()),
     );
   }
 }
