@@ -20,14 +20,16 @@ Future<void> alarmManagerCallback(int id) async {
   final body = prefs.getString('alarm_${id}_body');
   final sound = prefs.getString('alarm_${id}_sound');
   final taskId = prefs.getString('alarm_${id}_taskId') ?? '';
+  final snoozeMin = prefs.getInt('alarm_${id}_snoozeMinutes') ?? 5;
 
-  debugPrint('[ALARM] title=$title sound=$sound taskId=$taskId');
+  debugPrint('[ALARM] title=$title sound=$sound taskId=$taskId snoozeMin=$snoozeMin');
 
-  // Store active alarm date to snooze handler can re-use it
+  // Store active alarm date so snooze handler can re-use it
   await prefs.setString('active_alarm_${id}_title', title);
   if (body != null) await prefs.setString('active_alarm_${id}_body', body);
   if (sound != null) await prefs.setString('active_alarm_${id}_sound', sound);
   await prefs.setString('active_alarm_${id}_taskId', taskId);
+  await prefs.setInt('active_alarm_${id}_snoozeMinutes', snoozeMin);
 
   // Initialize a fresh plugin instance in this isolate
   final plugin = FlutterLocalNotificationsPlugin();
@@ -52,14 +54,14 @@ Future<void> alarmManagerCallback(int id) async {
         enableVibration: true,
         ongoing: true,
         autoCancel: false,
-        actions: const [
-          AndroidNotificationAction(
+        actions: [
+          const AndroidNotificationAction(
             'dismiss','Dismiss',
             showsUserInterface: false,
             cancelNotification: true,
           ),
           AndroidNotificationAction(
-              'snooze', 'Snooze (5 min)',
+              'snooze', 'Snooze ($snoozeMin min)',
             showsUserInterface: false,
             cancelNotification: true,
           )
@@ -81,10 +83,11 @@ Future<void> alarmManagerCallback(int id) async {
   await prefs.remove('alarm_${id}_body');
   await prefs.remove('alarm_${id}_sound');
   await prefs.remove('alarm_${id}_taskId');
+  await prefs.remove('alarm_${id}_snoozeMinutes');
 }
 
 /// Top level handler for notification actions when app is in background/killed.
-/// Handles Dissmiss and Snooze button button taps from the notification.
+/// Handles Dismiss and Snooze button button taps from the notification.
 @pragma('vm:entry-point')
 Future<void> onBackgroundNotificationAction(NotificationResponse response) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -103,9 +106,10 @@ Future<void> onBackgroundNotificationAction(NotificationResponse response) async
     final body = prefs.getString('active_alarm_${id}_body');
     final sound = prefs.getString('active_alarm_${id}_sound');
     final taskId = prefs.getString('active_alarm_${id}_taskId') ?? '';
+    final snoozeMin = prefs.getInt('active_alarm_${id}_snoozeMinutes') ?? 5;
 
     // Schedule a new alarm 5 minutes from now
-    final snoozeTime = DateTime.now().add(const Duration(minutes: 5));
+    final snoozeTime = DateTime.now().add(Duration(minutes: snoozeMin));
     final snoozeId = id + 100000;
 
     // Store metadata for the snooze alarm callback
@@ -113,6 +117,7 @@ Future<void> onBackgroundNotificationAction(NotificationResponse response) async
     if (body != null) await prefs.setString('alarm_${snoozeId}_body', body);
     if (sound != null) await prefs.setString('alarm_${snoozeId}_sound', sound);
     await prefs.setString('alarm_${snoozeId}_taskId', taskId);
+    await prefs.setInt('alarm_${snoozeId}_snoozeMinutes', snoozeMin);
 
     await AndroidAlarmManager.initialize();
     await AndroidAlarmManager.oneShotAt(
@@ -128,6 +133,7 @@ Future<void> onBackgroundNotificationAction(NotificationResponse response) async
   await prefs.remove('active_alarm_${id}_body');
   await prefs.remove('active_alarm_${id}_sound');
   await prefs.remove('active_alarm_${id}_taskId');
+  await prefs.remove('active_alarm_${id}_snoozeMinutes');
 }
 
 class NotificationService {
@@ -190,7 +196,10 @@ class NotificationService {
     if (payload == null) return;
 
     if(payload.startsWith("alarm_")) {
-      if(id != null) _cleanupActiveAlarm(id);
+      if(id != null) {
+        _plugin.cancel(id: id);
+        _cleanupActiveAlarm(id);
+      }
       final navigator = navigatorKey.currentState;
       if(navigator != null) {
         navigator.push(
@@ -215,6 +224,7 @@ class NotificationService {
     final sound = prefs.getString('active_alarm_${id}_sound');
     final taskId = prefs.getString('active_alarm_${id}_taskId') ?? '';
 
+    final snoozeMin = prefs.getInt('active_alarm_${id}_snoozeMinutes') ?? 5;
     final snoozeTime = DateTime.now().add(const Duration(minutes: 5));
     final snoozeId = id + 100000;
 
@@ -222,11 +232,12 @@ class NotificationService {
     if (body != null) await prefs.setString('alarm_${snoozeId}_body', body);
     if (sound != null) await prefs.setString('alarm_${snoozeId}_sound', sound);
     await prefs.setString('alarm_${snoozeId}_taskId', taskId);
+    await prefs.setInt('alarm_${snoozeId}_snoozeMinutes', snoozeMin);
 
     await AndroidAlarmManager.oneShotAt(
         snoozeTime, snoozeId, alarmManagerCallback, exact: true, wakeup: true, allowWhileIdle: true);
 
-    debugPrint('[ALARM] Snoozed: new alarm at $snoozeTime (id=$snoozeId)');
+    debugPrint('[ALARM] Snoozed ($snoozeMin min): new alarm at $snoozeTime (id=$snoozeId)');
     _cleanupActiveAlarm(id);
   }
 
@@ -237,6 +248,7 @@ class NotificationService {
     await prefs.remove('active_alarm_${id}_body');
     await prefs.remove('active_alarm_${id}_sound');
     await prefs.remove('active_alarm_${id}_taskId');
+    await prefs.remove('active_alarm_${id}_snoozeMinutes');
   }
 
   /// Call this from app startup to handle any pending alarm
@@ -378,6 +390,7 @@ class NotificationService {
         await prefs.setString('alarm_${currentId}_sound', task.alarmSound!);
       }
       await prefs.setString('alarm_${currentId}_taskId', task.id);
+      await prefs.setInt('alarm_${currentId}_snoozeMinutes', task.snoozeMinutes);
 
       debugPrint('[ALARM] Scheduling alarm at $alarmTime (id=$currentId) via AndroidAlarmManager');
       final tzTime = tz.TZDateTime.from(alarmTime, tz.local);
