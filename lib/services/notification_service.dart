@@ -93,7 +93,7 @@ Future<void> onBackgroundNotificationAction(NotificationResponse response) async
 
   debugPrint('[ALARM-ACTION] Background action=$actionId notificationId=$id');
 
-  if (id == null) true;
+  if (id == null) return ;
 
   final prefs = await SharedPreferences.getInstance();
 
@@ -124,10 +124,10 @@ Future<void> onBackgroundNotificationAction(NotificationResponse response) async
   }
 
   // Clean up active alarm metadata
-  await prefs.remove('alarm_alarm_${id}_title');
-  await prefs.remove('alarm_alarm_${id}_body');
-  await prefs.remove('alarm_alarm_${id}_sound');
-  await prefs.remove('alarm_alarm_${id}_taskId');
+  await prefs.remove('active_alarm_${id}_title');
+  await prefs.remove('active_alarm_${id}_body');
+  await prefs.remove('active_alarm_${id}_sound');
+  await prefs.remove('active_alarm_${id}_taskId');
 }
 
 class NotificationService {
