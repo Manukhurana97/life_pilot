@@ -225,7 +225,7 @@ class NotificationService {
     final taskId = prefs.getString('active_alarm_${id}_taskId') ?? '';
 
     final snoozeMin = prefs.getInt('active_alarm_${id}_snoozeMinutes') ?? 5;
-    final snoozeTime = DateTime.now().add(const Duration(minutes: 5));
+    final snoozeTime = DateTime.now().add(Duration(minutes: snoozeMin));
     final snoozeId = id + 100000;
 
     await prefs.setString('alarm_${snoozeId}_title', title);
