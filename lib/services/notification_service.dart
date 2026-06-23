@@ -308,10 +308,10 @@ class NotificationService {
               interruptionLevel: InterruptionLevel.timeSensitive,
             ),
           ),
-          androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+          androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
           payload: 'alarm_${task.id}',
         );
-        debugPrint('[ALARM] Alarm scheduled (inexact fallback)');
+        debugPrint('[ALARM] Alarm scheduled (exact fallback)');
       }
     }
 
