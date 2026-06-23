@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:life_pilot/app.dart';
 import 'package:life_pilot/providers/settings_provider.dart';
@@ -7,6 +8,9 @@ import 'package:intl/date_symbol_data_local.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize alarm manager (must be before notification init
+  await AndroidAlarmManager.initialize();
 
   // Initialize notifications
   await initializeDateFormatting();

@@ -1,10 +1,69 @@
+import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:life_pilot/screens/alarm/alarm_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz_data;
 import 'package:life_pilot/models/task.dart';
 import 'package:life_pilot/services/recurrence_service.dart';
+
+/// Top-level callback for android_alarm_manager.dart
+/// Runs in a separate isolate - must re-initialize everything.
+@pragma('vm:entry-point')
+Future<void> alarmManagerCallback(int id) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  debugPrint('[ALARM] Callback fired for id=$id');
+
+  final prefs = await SharedPreferences.getInstance();
+  final title = prefs.getString('alarm_${id}_title') ?? 'Alarm';
+  final body = prefs.getString('alarm_${id}_body');
+  final sound = prefs.getString('alarm_${id}_sound');
+  final taskId = prefs.getString('alarm_${id}_taskId') ?? '';
+
+  debugPrint('[ALARM] title=$title sound=$sound taskId=$taskId');
+
+  // Initialize a fresh plugin instance in this isloate
+  final plugin = FlutterLocalNotificationsPlugin();
+  await plugin.initialize(settings: const InitializationSettings(android: AndroidInitializationSettings('@mipmap/ic_launcher')));
+
+  // Show an IMMEDIATE notification (not scheduled - already at the right time)
+  await plugin.show(
+      id: id,
+      title: '⏰ $title',
+    body: body,
+    notificationDetails: NotificationDetails(
+      android: AndroidNotificationDetails(
+        'alarm_v2',
+          'Alarms',
+          channelDescription: 'Alarm notifications',
+          importance: Importance.max,
+        priority: Priority.max,
+        category: AndroidNotificationCategory.alarm,
+        fullScreenIntent: true,
+        sound: sound != null && !sound.startsWith('custom_') ? RawResourceAndroidNotificationSound(sound) : null,
+        playSound: true,
+        enableVibration: true,
+        ongoing: true,
+        autoCancel: false
+      ),
+      iOS: const DarwinNotificationDetails(
+        presentAlert: true,
+        presentSound: true,
+        interruptionLevel: InterruptionLevel.timeSensitive
+      ),
+    ),
+    payload: 'alarm_$taskId',
+  );
+
+  debugPrint('[ALARM-BG] Notification show');
+
+  // Cleanup stored data
+  await prefs.remove('alarm_${id}_title');
+  await prefs.remove('alarm_${id}_body');
+  await prefs.remove('alarm_${id}_sound');
+  await prefs.remove('alarm_${id}_taskId');
+}
 
 class NotificationService {
   static final NotificationService _instance = NotificationService._internal();
@@ -161,7 +220,7 @@ class NotificationService {
     } 
   }
 
-  /// Schedule alarm notification (full-screen intent on Android)
+  /// Schedule alarm notification
   Future<void> scheduleAlarm(Task task) async {
     if(!task.isAlarm || !task.isActive) return;
 
@@ -169,8 +228,10 @@ class NotificationService {
     final end = now.add(const Duration(days: 7));
     final dueDates = RecurrenceService.getDueDatesInRange(task, now, end);
 
-    debugPrint('[ALARM] scheduleAlarm for "${task.title}" isAlarm=${task.isAlarm} startTime=${task.startTime} sound=${task.alarmSound} dueDate=${dueDates.length}');
+    debugPrint('[ALARM] scheduleAlarm for "${task.title}" isAlarm=${task.isAlarm} startTime=${task.startTime} sound=${task.alarmSound} dueDates=${dueDates.length}');
     int notifId = ((task.id.hashCode & 0x7FFFFFFF) % 2000000) + 2000000;
+
+    final prefs = await SharedPreferences.getInstance();
 
     for (final dueDate in dueDates) {
       DateTime alarmTime;
@@ -188,7 +249,7 @@ class NotificationService {
         // Grace window: if alarm time just passed (within 5 min), schedule for 5s from now
         final diff = now.difference(alarmTime).inSeconds;
         if (diff <= 300) {
-          debugPrint('[ALARM] alarm at $alarmTime just alarm (${diff}s ago) scheduling for now + 5s');
+          debugPrint('[ALARM] alarm at $alarmTime just passed (${diff}s ago), scheduling for now+5s');
           alarmTime = now.add(const Duration(seconds: 5));
         } else {
           debugPrint('[ALARM] skipping past alarm: $alarmTime');
@@ -196,22 +257,42 @@ class NotificationService {
         }
       }
 
-      debugPrint('[ALARM] Scheduling alarm at $alarmTime (notifId=$notifId)');
+      final currentId = notifId++;
+
+      // Store alarm metadata for the background callback
+      await prefs.setString('alarm_${currentId}_title', task.title);
+      if (task.description != null) {
+        await prefs.setString('alarm_${currentId}_body', task.description!);
+      }
+      if (task.alarmSound != null) {
+        await prefs.setString('alarm_${currentId}_sound', task.alarmSound!);
+      }
+      await prefs.setString('alarm_${currentId}_taskId', task.id);
+
+      debugPrint('[ALARM] Scheduling alarm at $alarmTime (id=$currentId) via AndroidAlarmManager');
       final tzTime = tz.TZDateTime.from(alarmTime, tz.local);
 
       try {
+        await AndroidAlarmManager.oneShotAt(alarmTime, currentId, alarmManagerCallback, exact: true, wakeup: true, allowWhileIdle: true, rescheduleOnReboot: true);
+        debugPrint('[ALARM] Alarm scheduled via AndroidAlarmManager');
+      }
+      catch (e){
+        debugPrint('[ALARM] AndroidAlarmManager failed: $e, failed back to zonedScheduled');
+        // Fallback: ise flutter_local_notifications zonedScheduled
+        final tzTime = tz.TZDateTime.from(alarmTime,  tz.local);
         await _plugin.zonedSchedule(
-          id: notifId++,
+          id: currentId,
           title: '⏰ ${task.title}',
           body: task.description,
           scheduledDate: tzTime,
           notificationDetails: NotificationDetails(
             android: AndroidNotificationDetails(
-              'alarms',
+              'alarm_v2',
               'Alarms',
               channelDescription: 'Alarm notifications',
               importance: Importance.max,
               priority: Priority.max,
+              category: AndroidNotificationCategory.alarm,
               fullScreenIntent: true,
               sound: task.alarmSound != null && !task.alarmSound!.startsWith('custom_')
                   ? RawResourceAndroidNotificationSound(task.alarmSound!)
@@ -220,36 +301,6 @@ class NotificationService {
               enableVibration: true,
               ongoing: true,
               autoCancel: false,
-            ),
-            iOS: const DarwinNotificationDetails(
-              presentAlert: true,
-              presentSound: true,
-              interruptionLevel: InterruptionLevel.timeSensitive,
-            ),
-          ),
-          androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-          payload: 'alarm_${task.id}',
-        );
-        debugPrint('[ALARM] Alarm scheduled successfully');
-      } catch (e) {
-        debugPrint('[ALARM] exact alarm failed: $e - failing back to inexact');
-
-        await _plugin.zonedSchedule(
-          id: notifId,
-          title: '⏰ ${task.title}',
-          body: task.description,
-          scheduledDate: tzTime,
-          notificationDetails: NotificationDetails(
-            android: AndroidNotificationDetails(
-              'alarms_v2',
-              'Alarms',
-              channelDescription: 'Alarm notifications',
-              importance: Importance.max,
-              priority: Priority.max,
-              category: AndroidNotificationCategory.alarm,
-              fullScreenIntent: true,
-              playSound: true,
-              enableVibration: true,
             ),
             iOS: const DarwinNotificationDetails(
               presentAlert: true,
@@ -280,6 +331,7 @@ class NotificationService {
     }
     final alarmBase = baseId + 2000000;
     for (int i=0; i < 20; i++) {
+      await AndroidAlarmManager.cancel(alarmBase + i);
       await _plugin.cancel(id: alarmBase + i);
     }
   }

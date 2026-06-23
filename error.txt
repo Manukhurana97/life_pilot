@@ -1,8 +1,8 @@
 manu@Manus-MacBook-Air life_pilot % flutter clean
 flutter pub get
 flutter run
-Deleting build...                                                  239ms
-Deleting .dart_tool...                                               2ms
+Deleting build...                                                  256ms
+Deleting .dart_tool...                                               3ms
 Deleting ephemeral...                                                0ms
 Deleting Generated.xcconfig...                                       0ms
 Deleting flutter_export_environment.sh...                            0ms
@@ -57,67 +57,44 @@ an issue against a plugin: https://docs.flutter.dev/release/breaking-changes/mig
 If you are a plugin author, please migrate your plugin to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors
 Note: /Users/manu/.pub-cache/hosted/pub.dev/android_alarm_manager_plus-5.0.0/android/src/main/java/dev/fluttercommunity/plus/androidalarmmanager/AlarmService.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-Running Gradle task 'assembleDebug'...                             15.1s
+Running Gradle task 'assembleDebug'...                             16.1s
 ✓ Built build/app/outputs/flutter-apk/app-debug.apk
-Installing build/app/outputs/flutter-apk/app-debug.apk...          50.8s
-I/FlutterActivityAndFragmentDelegate(15646): If you are attempting to set --enable-dart-profiling via Intent extras to launch a Flutter component outside of using the Flutter CLI, note that support for setting engine flags on Android via Intent will soon be dropped; see https://github.com/flutter/flutter/issues/180686 for more information on this breaking change. To migrate, set --enable-dart-profiling or any other flags specified via Intent extras on the command line instead or see https://github.com/flutter/flutter/blob/main/docs/engine/Flutter-Android-Engine-Flags.md for alternative methods.
-D/FlutterJNI(15646): Beginning load of flutter...
-D/FlutterJNI(15646): flutter (null) was loaded normally!
-I/flutter (15646): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
-D/FlutterRenderer(15646): Width is zero. 0,0
-D/FlutterRenderer(15646): Width is zero. 0,0
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/SurfaceView(15646): 188837036 handleSyncNoBuffer
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-I/Choreographer(15646): Skipped 49 frames!  The application may be doing too much work on its main thread.
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): handleResized, msg:, frameChanged:false, configChanged:false, displayChanged:false, attachedFrameChanged:false, compatScaleChanged:false, pendingDragResizing=false
-I/DynamicFramerate [FRTCConfigManager](15646): initFrameRateConfig:
-I/DynamicFramerate [FRTCConfigManager](15646):  levelsFor120hz: [120, 60]
-I/DynamicFramerate [FRTCConfigManager](15646):  thresholdsFor120hz: [200]
-I/DynamicFramerate [FRTCConfigManager](15646):  levelsFor90hz: [90]
-I/DynamicFramerate [FRTCConfigManager](15646):  thresholdsFor90hz: []
-I/DynamicFramerate [FRTCConfigManager](15646): FRTCConfigManager: FRTC_CAPABILITY = 120, package name = com.mk.life_pilot, WINDOW_ANIMATION_SPEED_RATE = 10, SCROLL_ANIMATION_SPEED_RATE = 20, PACKAGE_ENABLE = false
-I/DynamicFramerate [DynamicFrameRateController](15646): init info: mPackageName = com.mk.life_pilot, mIsEnabled = false
-D/WindowLayoutComponentImpl(15646): app addWindowLayoutInfoListener activity:com.mk.life_pilot.MainActivity@ae3c75c consumer :androidx.window.layout.adapter.extensions.MulticastConsumer@c7b1829
-D/WindowLayoutComponentImpl(15646): Register WindowLayoutInfoListener on Context=com.mk.life_pilot.MainActivity@ae3c75c, of which baseContext=android.app.ContextImpl@a7bf7ae
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-I/PowerHalMgrImpl(15646): perfLockAcq is supported.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-Syncing files to device RMX3944...                                  47ms
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+Installing build/app/outputs/flutter-apk/app-debug.apk...          10.9s
+I/FlutterActivityAndFragmentDelegate(19466): If you are attempting to set --enable-dart-profiling via Intent extras to launch a Flutter component outside of using the Flutter CLI, note that support for setting engine flags on Android via Intent will soon be dropped; see https://github.com/flutter/flutter/issues/180686 for more information on this breaking change. To migrate, set --enable-dart-profiling or any other flags specified via Intent extras on the command line instead or see https://github.com/flutter/flutter/blob/main/docs/engine/Flutter-Android-Engine-Flags.md for alternative methods.
+D/FlutterJNI(19466): Beginning load of flutter...
+D/FlutterJNI(19466): flutter (null) was loaded normally!
+I/flutter (19466): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+D/FlutterRenderer(19466): Width is zero. 0,0
+D/FlutterRenderer(19466): Width is zero. 0,0
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+I/FlutterBackgroundExecutor(19466): Starting AlarmService...
+I/flutter (19466): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+I/Choreographer(19466): Skipped 101 frames!  The application may be doing too much work on its main thread.
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): handleResized, msg:, frameChanged:false, configChanged:false, displayChanged:false, attachedFrameChanged:false, compatScaleChanged:false, pendingDragResizing=false
+I/DynamicFramerate [FRTCConfigManager](19466): initFrameRateConfig:
+I/DynamicFramerate [FRTCConfigManager](19466):  levelsFor120hz: [120, 60]
+I/DynamicFramerate [FRTCConfigManager](19466):  thresholdsFor120hz: [200]
+I/DynamicFramerate [FRTCConfigManager](19466):  levelsFor90hz: [90]
+I/DynamicFramerate [FRTCConfigManager](19466):  thresholdsFor90hz: []
+I/DynamicFramerate [FRTCConfigManager](19466): FRTCConfigManager: FRTC_CAPABILITY = 120, package name = com.mk.life_pilot, WINDOW_ANIMATION_SPEED_RATE = 10, SCROLL_ANIMATION_SPEED_RATE = 20, PACKAGE_ENABLE = false
+I/DynamicFramerate [DynamicFrameRateController](19466): init info: mPackageName = com.mk.life_pilot, mIsEnabled = false
+I/AlarmService(19466): AlarmService started!
+D/WindowLayoutComponentImpl(19466): app addWindowLayoutInfoListener activity:com.mk.life_pilot.MainActivity@ae3c75c consumer :androidx.window.layout.adapter.extensions.MulticastConsumer@181cd12
+D/WindowLayoutComponentImpl(19466): Register WindowLayoutInfoListener on Context=com.mk.life_pilot.MainActivity@ae3c75c, of which baseContext=android.app.ContextImpl@eabfce3
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+I/PowerHalMgrImpl(19466): perfLockAcq is supported.
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+Syncing files to device RMX3944...                                  30ms
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
 
 Flutter run key commands.
 r Hot reload. 🔥🔥🔥
@@ -127,650 +104,834 @@ d Detach (terminate "flutter run" but leave application running).
 c Clear the screen
 q Quit (terminate the application on the device).
 
-A Dart VM Service on RMX3944 is available at: http://127.0.0.1:54108/v3sKBgZd4vw=/
-The Flutter DevTools debugger and profiler on RMX3944 is available at: http://127.0.0.1:54108/v3sKBgZd4vw=/devtools/?uri=ws://127.0.0.1:54108/v3sKBgZd4vw=/ws
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-D/VRI[MainActivity](15646):  debugCancelDraw some OnPreDrawListener onPreDraw return false,cancelDraw=true,count=50,android.view.ViewRootImpl@4d42d38
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-I/m.mk.life_pilot(15646): Compiler allocated 7207KB to compile void android.view.ViewRootImpl.performTraversals()
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-I/libc    (15646): Requested dump for pid 15646 (m.mk.life_pilot)
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-D/ActivityThread(15646): ComponentInfo{com.mk.life_pilot/com.mk.life_pilot.MainActivity} checkFinished=false 4
-D/ResourcesManagerExtImpl(15646): applyConfigurationToAppResourcesLocked app.getDisplayId() return callback.displayId:0
-V/AutofillClientController(15646): onActivityResumed()
-V/AutofillClientController(15646): onActivityPostResumed()
-V/AutofillClientController(15646): onActivityPostResumed(): Relayout fix enabled
-V/AutofillClientController(15646): forResume(): Not attempting refill.
-D/ViewRootImplExtImpl(15646): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=360, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2400), relayoutAsync=false, flags=0, newFlags=1258302720, title=com.mk.life_pilot/com.mk.life_pilot.MainActivity
-D/VRI[MainActivity](15646): relayoutWindow result, sizeChanged:false, surfaceControlChanged:false, transformHintChanged:false, mSurfaceSize:Point(1080, 2400), mLastSurfaceSize:Point(1080, 2400), mWidth:1080, mHeight:2400, requestedWidth:1080, requestedHeight:2400, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:true, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][0,0]}, relayoutAsync:false, mSyncSeqId:0
-W/VRI[MainActivity](15646): updateBlastSurfaceIfNeeded, surfaceSize:Point(1080, 2400), lastSurfaceSize:Point(1080, 2400), format:-3, blastBufferQueue:android.graphics.BLASTBufferQueue@94b8b6b
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-I/flutter (15646): [ALARM] canScheduleExactNotifications=true
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-I/flutter (15646): [SPLASH] Flutter splash screen initState
-I/flutter (15646): [SPLASH] showing splash: assets/image/original/splash/light.png (isDark=false)
-I/Choreographer(15646): Skipped 147 frames!  The application may be doing too much work on its main thread.
-W/VRI[MainActivity](15646): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-I/GrallocExtra(15646): gralloc_extra_query:is_SW3D 0
-D/BLASTBufferQueue(15646): [b416cac SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#1](f:0,a:1) acquireNextBufferLocked size=1080x2400 mFrameNumber=1 applyTransaction=true mTimestamp=442616918687997(auto) mPendingTransactions.size=0 graphicBufferId=67199058313226 transform=0
-D/LibMBrainProxy(15646): Init Paramters
-W/ServiceManagerCppClient(15646): Failed to get isDeclared for vendor.mediatek.hardware.mbrain.IMBrain/default: Status(-1, EX_SECURITY): 'SELinux denied for service.'
-D/SurfaceView(15646): 188837036 finishedDrawing
-D/SurfaceView(15646): 188837036 performDrawFinished mAttachedToWindow true
-I/m.mk.life_pilot(15646): AssetManager2(0xb40000710d739828) locale list changing from [] to [en-IN]
-I/m.mk.life_pilot(15646): AssetManager2(0xb40000710d739b28) locale list changing from [] to [en-IN]
-I/m.mk.life_pilot(15646): AssetManager2(0xb40000710d73a128) locale list changing from [] to [en-IN]
-I/Choreographer(15646): Skipped 42 frames!  The application may be doing too much work on its main thread.
-D/InsetsController(15646): Setting requestedVisibleTypes to -16 (was -9)
-D/ProfileInstaller(15646): Installing profile for com.mk.life_pilot
-D/ViewRootImplExtImpl(15646): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=360, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2400), relayoutAsync=false, flags=0, newFlags=1258302720, title=com.mk.life_pilot/com.mk.life_pilot.MainActivity
-D/VRI[MainActivity](15646): relayoutWindow result, sizeChanged:false, surfaceControlChanged:false, transformHintChanged:false, mSurfaceSize:Point(1080, 2400), mLastSurfaceSize:Point(1080, 2400), mWidth:1080, mHeight:2400, requestedWidth:1080, requestedHeight:2400, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:true, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][0,0]}, relayoutAsync:false, mSyncSeqId:0
-W/VRI[MainActivity](15646): updateBlastSurfaceIfNeeded, surfaceSize:Point(1080, 2400), lastSurfaceSize:Point(1080, 2400), format:-3, blastBufferQueue:android.graphics.BLASTBufferQueue@94b8b6b
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-E/OplusDisplayModeManager(15646): has been initialized.
-D/VRI[MainActivity](15646):  debugCancelDraw  cancelDraw=false,count = 177,android.view.ViewRootImpl@4d42d38
-I/SurfaceControl(15646):  setExtendedRangeBrightness sc=Surface(name=com.mk.life_pilot/com.mk.life_pilot.MainActivity)/@0x48e6536,currentBufferRatio=1.0,desiredRatio=1.0
-D/SurfaceView(15646): 188837036 dispatchDraw mDrawFinished true isAboveParent false (mPrivateFlags & PFLAG_SKIP_DRAW) 128
-D/SurfaceView(15646): 188837036 clearSurfaceViewPort mCornerRadius 0.0
-D/BLASTBufferQueue(15646): [VRI[MainActivity][com.mk.life_pilot/com.mk.life_pilot.MainActivity]#0](f:0,a:1) acquireNextBufferLocked size=1080x2400 mFrameNumber=1 applyTransaction=true mTimestamp=442617696110227(auto) mPendingTransactions.size=0 graphicBufferId=67199058313234 transform=0
-D/VRI[MainActivity](15646): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true syncBuffer=false
-D/ExtensionsLoader(15646): createInstance(64bit) : createExtendedFactory
-D/ExtensionsLoader(15646): Opened libSchedAssistExtImpl.so
-D/VRI[MainActivity](15646): draw finished. seqId=0
-I/HWUI    (15646): Davey! duration=770ms; Flags=1, FrameTimelineVsyncId=154638512, IntendedVsync=442616927006855, Vsync=442617631054031, InputEventId=0, HandleInputStart=442617637994843, AnimationStart=442617637996612, PerformTraversalsStart=442617638036074, DrawStart=442617663993843, FrameDeadline=442616947006855, FrameStartTime=442617637223074, FrameInterval=16763028, WorkloadTarget=20000000, SyncQueued=442617667270843, SyncStart=442617667517612, IssueDrawCommandsStart=442617667827151, SwapBuffers=442617692423151, FrameCompleted=442617697768920, DequeueBufferDuration=2772846, QueueBufferDuration=457000, GpuCompleted=442617697768920, SwapBuffersCompleted=442617696720920, DisplayPresentTime=488755923856, CommandSubmissionCompleted=442617692423151,
-W/VRI[MainActivity](15646): handleResized, msg:, frameChanged:false, configChanged:false, displayChanged:false, attachedFrameChanged:false, compatScaleChanged:false, pendingDragResizing=false
-D/VRI[MainActivity](15646): onFocusEvent true
-D/VRI[MainActivity](15646): Received frameCommittedCallback lastAttemptedDrawFrameNum=3 didProduceBuffer=true syncBuffer=false
-D/VRI[MainActivity](15646): draw finished. seqId=0
-D/InsetsController(15646): hide(ime(), fromIme=false)
-I/ImeTracker(15646): com.mk.life_pilot:e045457b: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
-I/flutter (15646): [SPLASH] Flutter out splash screen
-W/InteractionJankMonitor(15646): Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.mk.life_pilot
-W/m.mk.life_pilot(15646): userfaultfd: MOVE ioctl seems unsupported: Try again
-I/m.mk.life_pilot(15646): Background concurrent mark compact GC freed 15MB AllocSpace bytes, 6(212KB) LOS objects, 66% free, 3118KB/9262KB, paused 521us,23.203ms total 83.875ms
-D/InsetsController(15646): Setting requestedVisibleTypes to -9 (was -16)
-D/ViewRootImplExtImpl(15646): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=360, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2400), relayoutAsync=true, flags=0, newFlags=1258302720, title=com.mk.life_pilot/com.mk.life_pilot.MainActivity
-D/VRI[MainActivity](15646): relayoutWindow result, sizeChanged:false, surfaceControlChanged:false, transformHintChanged:false, mSurfaceSize:Point(1080, 2400), mLastSurfaceSize:Point(1080, 2400), mWidth:1080, mHeight:2400, requestedWidth:1080, requestedHeight:2400, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:true, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][1080,2400]}, relayoutAsync:true, mSyncSeqId:0
-W/VRI[MainActivity](15646): updateBlastSurfaceIfNeeded, surfaceSize:Point(1080, 2400), lastSurfaceSize:Point(1080, 2400), format:-3, blastBufferQueue:android.graphics.BLASTBufferQueue@94b8b6b
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-E/OplusDisplayModeManager(15646): has been initialized.
-I/SurfaceControl(15646):  setExtendedRangeBrightness sc=Surface(name=com.mk.life_pilot/com.mk.life_pilot.MainActivity)/@0x48e6536,currentBufferRatio=1.0,desiredRatio=1.0
-W/VRI[MainActivity](15646): handleResized abandoned!
-D/OplusScrollToTopManager(15646): com.mk.life_pilot/com.mk.life_pilot.MainActivity,This com.android.internal.policy.DecorView{a9bd84c V.E...... R....... 0,0-1080,2400 aid=0 alpha=1.0 viewInfo = }[MainActivity] change focus to true
-I/Choreographer(15646): Skipped 32 frames!  The application may be doing too much work on its main thread.
-I/m.mk.life_pilot(15646): AssetManager2(0xb40000710ce59b28) locale list changing from [] to [en-IN]
-I/m.mk.life_pilot(15646): AssetManager2(0xb40000710ce59e28) locale list changing from [] to [en-IN]
-I/m.mk.life_pilot(15646): AssetManager2(0xb40000710ce5a128) locale list changing from [] to [en-IN]
-E/IJankManager(15646): slideSceneEnd unknown scene 1000 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusSystemUINavigationGestureExtImpl(15646): regionString = null
-D/OplusSystemUINavigationGestureExtImpl(15646): regionString = null
-D/ViewExtract(15646): [OplusViewExtractManager] OplusViewExtractManager init com.mk.life_pilot
-D/OplusInputMethodManagerInternal(15646): get inputMethodManager extension: com.android.internal.view.IInputMethodManager$Stub$Proxy@c0a8735
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-D/OplusPredictiveBackController(15646): should not HookOnBackInvokedCallbackEnabled for application com.mk.life_pilot.MainActivity@ae3c75c sdk: 36
-D/WindowOnBackDispatcher(15646):  predictive settings is disabled for com.mk.life_pilot
-W/WindowOnBackDispatcher(15646): OnBackInvokedCallback is not enabled for the application.
-W/WindowOnBackDispatcher(15646): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/ImeTracker(15646): com.mk.life_pilot:62fb9116: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
-D/InsetsController(15646): show(ime(), fromIme=false)
-D/InsetsController(15646): Setting requestedVisibleTypes to -1 (was -9)
-W/VRI[MainActivity](15646): handleResized abandoned!
-D/InputConnectionAdaptor(15646): The input method toggled cursor monitoring on
-W/VRI[MainActivity](15646): handleResized abandoned!
-W/VRI[MainActivity](15646): handleResized abandoned!
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/ImfJankInfo(15646): reportImfJank: {"client":"com.mk.life_pilot","system_pressure":{"cpu":false,"mem":false,"thermal":false}}
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-I/ImeTracker(15646): com.mk.life_pilot:62fb9116: onShown
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-I/PowerHalMgrImpl(15646): hdl:97861, pid:15646
-I/PowerHalMgrImpl(15646): hdl:97863, pid:15646
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-I/ScrollIdentify(15646): on fling
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:97864, pid:15646
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-I/PowerHalMgrImpl(15646): hdl:97879, pid:15646
-I/PowerHalMgrImpl(15646): hdl:97880, pid:15646
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-I/ScrollIdentify(15646): on fling
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:97883, pid:15646
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/m.mk.life_pilot(15646): legacy_receive_flag: 0
-D/m.mk.life_pilot(15646): /proc/perfmgr_sbe/sbe_ioctl not exists: No such file or directory
-I/ImeTracker(15646): com.mk.life_pilot:94ce8323: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
-D/InsetsController(15646): hide(ime(), fromIme=false)
-W/WindowOnBackDispatcher(15646): sendCancelIfRunning: isInProgress=false callback=ImeCallback=ImeOnBackInvokedCallback@151861932 hash=116774778 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@6c6cb59
-D/InsetsController(15646): Setting requestedVisibleTypes to -9 (was -1)
-D/CompatChangeReporter(15646): Compat change id reported: 395521150; UID 10414; state: ENABLED
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-W/VRI[MainActivity](15646): handleResized abandoned!
-I/ImeTracker(15646): system_server:2af97e80: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-I/Quality (15646): local:ime_anim_jank,pkgName:com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME,flag:2,jankCount:1,jankCountLocal:2,preCount:2
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-W/RemoteInputConnectionImpl(15646): requestCursorUpdates on inactive InputConnection
-W/VRI[MainActivity](15646): handleResized abandoned!
-W/VRI[MainActivity](15646): handleResized abandoned!
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-I/PowerHalMgrImpl(15646): hdl:97894, pid:15646
-I/PowerHalMgrImpl(15646): hdl:97896, pid:15646
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-I/ScrollIdentify(15646): on fling
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:97898, pid:15646
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-I/PowerHalMgrImpl(15646): hdl:97903, pid:15646
-I/PowerHalMgrImpl(15646): hdl:97904, pid:15646
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-I/ScrollIdentify(15646): on fling
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:97906, pid:15646
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-I/PowerHalMgrImpl(15646): hdl:97910, pid:15646
-I/PowerHalMgrImpl(15646): hdl:97912, pid:15646
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-I/ScrollIdentify(15646): on fling
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:97914, pid:15646
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-I/PowerHalMgrImpl(15646): hdl:97919, pid:15646
-I/PowerHalMgrImpl(15646): hdl:97920, pid:15646
-I/VelocityTracker(15646): LSQ2 speed rezero
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-I/VelocityTracker(15646): LSQ2 speed rezero
-I/VelocityTracker(15646): LSQ2 speed rezero
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:97921, pid:15646
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-D/Vibrator(15646): SystemVibrator Created
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-I/PowerHalMgrImpl(15646): hdl:97932, pid:15646
-I/PowerHalMgrImpl(15646): hdl:97934, pid:15646
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:97935, pid:15646
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/flutter (15646): [ALARM] scheduleAlarm for "Test" isAlarm=true startTime=18:00 sound=android dueDate=1
-I/flutter (15646): [ALARM] skipping past alarm: 2026-06-21 18:00:00.000
-I/flutter (15646): [ALARM] Total pending notifications: 0
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-D/OplusPredictiveBackController(15646): should not HookOnBackInvokedCallbackEnabled for application com.mk.life_pilot.MainActivity@ae3c75c sdk: 36
-D/WindowOnBackDispatcher(15646):  predictive settings is disabled for com.mk.life_pilot
-W/WindowOnBackDispatcher(15646): OnBackInvokedCallback is not enabled for the application.
-W/WindowOnBackDispatcher(15646): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/ImeTracker(15646): com.mk.life_pilot:5ecf372: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
-D/InsetsController(15646): show(ime(), fromIme=false)
-D/InsetsController(15646): Setting requestedVisibleTypes to -1 (was -9)
-W/VRI[MainActivity](15646): handleResized abandoned!
-D/InputConnectionAdaptor(15646): The input method toggled cursor monitoring on
-W/VRI[MainActivity](15646): handleResized abandoned!
-W/VRI[MainActivity](15646): handleResized abandoned!
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-I/ImeTracker(15646): com.mk.life_pilot:5ecf372: onShown
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-I/PowerHalMgrImpl(15646): hdl:97968, pid:15646
-I/PowerHalMgrImpl(15646): hdl:97970, pid:15646
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-I/ScrollIdentify(15646): on fling
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:97972, pid:15646
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-I/PowerHalMgrImpl(15646): hdl:97977, pid:15646
-I/PowerHalMgrImpl(15646): hdl:97978, pid:15646
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-I/ScrollIdentify(15646): on fling
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:97980, pid:15646
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/ImeTracker(15646): com.mk.life_pilot:3771ca4e: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
-D/InsetsController(15646): hide(ime(), fromIme=false)
-W/WindowOnBackDispatcher(15646): sendCancelIfRunning: isInProgress=false callback=ImeCallback=ImeOnBackInvokedCallback@151861932 hash=177298296 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@27f228d
-D/InsetsController(15646): Setting requestedVisibleTypes to -9 (was -1)
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-W/VRI[MainActivity](15646): handleResized abandoned!
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-I/ImeTracker(15646): system_server:8ae3ccfe: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-D/FlutterJNI(15646): Sending viewport metrics to the engine.
-W/RemoteInputConnectionImpl(15646): requestCursorUpdates on inactive InputConnection
-W/VRI[MainActivity](15646): handleResized abandoned!
-W/VRI[MainActivity](15646): handleResized abandoned!
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:97988, pid:15646
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-I/PowerHalMgrImpl(15646): hdl:97994, pid:15646
-I/PowerHalMgrImpl(15646): hdl:97995, pid:15646
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:97996, pid:15646
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-I/PowerHalMgrImpl(15646): hdl:98004, pid:15646
-I/PowerHalMgrImpl(15646): hdl:98006, pid:15646
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-I/ScrollIdentify(15646): on fling
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:98008, pid:15646
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/flutter (15646): [ALARM] scheduleAlarm for "Test 1" isAlarm=true startTime=18:56 sound=android dueDate=1
-I/flutter (15646): [ALARM] Scheduling alarm at 2026-06-21 18:56:00.000 (notifId=3781178)
-I/flutter (15646): [ALARM] Alarm scheduled successfully
-I/flutter (15646): [ALARM] Total pending notifications: 2
-I/flutter (15646): [ALARM] pending id=1781178 title=Test 1
-I/flutter (15646): [ALARM] pending id=3781178 title=⏰ Test 1
-I/PowerHalMgrImpl(15646): hdl:98019, pid:15646
-D/VRI[MainActivity](15646): dispatchAppVisibility visible:false mUpcomingWindowFocus:true
-D/VRI[MainActivity](15646): visibilityChanged oldVisibility=true newVisibility=false
-I/SurfaceView(15646): 188837036 surfaceDestroyed
-D/BLASTBufferQueue(15646): [b416cac SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#1](f:0,a:4) destructor()
-D/BufferQueueConsumer(15646): [b416cac SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#1(BLAST Consumer)1](id:3d1e00000001,api:0,p:-1,c:15646) disconnect
-D/SurfaceView(15646): 64641006positionLost mSurfaceControl is null return;
-D/HWUI    (15646): RenderProxy::destroy: this=0xb40000724a2dbb00, mContext=0xb4000071c8ab03c0
-D/HWUI    (15646): SkiaOpenGLPipeline::setSurface: this=0xb400007249032180, surface=NULL
-D/ViewRootImplExtImpl(15646): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=360, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2400), relayoutAsync=false, flags=0, newFlags=1258302720, title=com.mk.life_pilot/com.mk.life_pilot.MainActivity
-D/VRI[MainActivity](15646): relayoutWindow result, sizeChanged:false, surfaceControlChanged:true, transformHintChanged:false, mSurfaceSize:Point(1080, 2400), mLastSurfaceSize:Point(1080, 2400), mWidth:1080, mHeight:2400, requestedWidth:1080, requestedHeight:2400, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:false, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][0,0]}, relayoutAsync:false, mSyncSeqId:0
-D/BLASTBufferQueue(15646): [VRI[MainActivity][com.mk.life_pilot/com.mk.life_pilot.MainActivity]#0](f:0,a:4) destructor()
-D/BufferQueueConsumer(15646): [VRI[MainActivity][com.mk.life_pilot/com.mk.life_pilot.MainActivity]#0(BLAST Consumer)0](id:3d1e00000000,api:0,p:-1,c:15646) disconnect
-D/VRI[MainActivity](15646): onFocusEvent false
-D/VRI[MainActivity](15646): setWindowStopped stopped:true
-D/OplusScrollToTopManager(15646): com.mk.life_pilot/com.mk.life_pilot.MainActivity,This com.android.internal.policy.DecorView{a9bd84c I.E...... R.....ID 0,0-1080,2400 aid=0 alpha=1.0 viewInfo = }[MainActivity] change focus to false
-D/VRI[MainActivity](15646): dispatchAppVisibility visible:true mUpcomingWindowFocus:false
-D/VRI[MainActivity](15646): setWindowStopped stopped:false
-D/ViewRootImpl(15646): Skipping stats log for color mode
-D/ActivityThread(15646): ComponentInfo{com.mk.life_pilot/com.mk.life_pilot.MainActivity} checkFinished=false 2
-D/ResourcesManagerExtImpl(15646): applyConfigurationToAppResourcesLocked app.getDisplayId() return callback.displayId:0
-V/AutofillClientController(15646): onActivityResumed()
-V/AutofillClientController(15646): onActivityPostResumed()
-V/AutofillClientController(15646): onActivityPostResumed(): Relayout fix enabled
-V/AutofillClientController(15646): forResume(): Not attempting refill.
-D/ViewRootImplExtImpl(15646): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=360, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2400), relayoutAsync=false, flags=0, newFlags=1258302720, title=com.mk.life_pilot/com.mk.life_pilot.MainActivity
-D/VRI[MainActivity](15646): relayoutWindow result, sizeChanged:false, surfaceControlChanged:true, transformHintChanged:false, mSurfaceSize:Point(1080, 2400), mLastSurfaceSize:Point(1080, 2400), mWidth:1080, mHeight:2400, requestedWidth:1080, requestedHeight:2400, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:true, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][0,0]}, relayoutAsync:false, mSyncSeqId:0
-W/VRI[MainActivity](15646): updateBlastSurfaceIfNeeded, surfaceSize:Point(1080, 2400), lastSurfaceSize:Point(1080, 2400), format:-3, blastBufferQueue:null
-D/BufferQueueConsumer(15646): [](id:3d1e00000002,api:0,p:-1,c:15646) connect: controlledByApp=false
-D/BufferQueueConsumer(15646): [VRI[MainActivity][com.mk.life_pilot/com.mk.life_pilot.MainActivity]#2(BLAST Consumer)2](id:3d1e00000002,api:0,p:-1,c:15646) setMaxAcquiredBufferCount: 5
-D/HWUI    (15646): createSurface new attribs array
-D/libEGL  (15646): this is from skia gles
-D/SurfaceView(15646): 188837036, SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity], layerid: 42772 createBlastSurfaceControls
-D/BufferQueueConsumer(15646): [](id:3d1e00000003,api:0,p:-1,c:15646) connect: controlledByApp=false
-D/BufferQueueConsumer(15646): [b416cac SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#3(BLAST Consumer)3](id:3d1e00000003,api:0,p:-1,c:15646) setMaxAcquiredBufferCount: 5
-I/SurfaceView(15646): 188837036 visibleChanged -- surfaceCreated
-D/Surface (15646): Surface::dispatchSetGameApi
-D/Surface (15646): dispatchSetGameApi pid[15646] tid[15951] GameApi[1]
-D/Surface (15646): dispatchSetGameApi res:0
-D/vulkan  (15646): set game api vulkan successfully
-D/BLASTBufferQueue(15646): b416cac SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#3 getBufferCacheFlag 0
-D/BLASTBufferQueue(15646): b416cac SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#3 getMaxAcquireBufferCount 5
-D/BLASTBufferQueue(15646): b416cac SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#3 getOrignalMaxAcquireBufferCount 5
-E/mali_gralloc(15646): ERROR: Format allocation info not found for format: 38
-E/mali_gralloc(15646): ERROR: Format allocation info not found for format: 0
-E/m.mk.life_pilot(15646): Invalid base format! req_base_format = 0x0, req_format = 0x38
-E/mali_gralloc(15646): ERROR: Unrecognized and/or unsupported format 0x38 and usage 0xb00
-E/mali_gralloc(15646): ERROR: Format allocation info not found for format: 3b
-E/mali_gralloc(15646): ERROR: Format allocation info not found for format: 0
-E/m.mk.life_pilot(15646): Invalid base format! req_base_format = 0x0, req_format = 0x3b
-E/mali_gralloc(15646): ERROR: Unrecognized and/or unsupported format 0x3b and usage 0xb00
-E/mali_gralloc(15646): ERROR: Format allocation info not found for format: 38
-E/mali_gralloc(15646): ERROR: Format allocation info not found for format: 0
-E/m.mk.life_pilot(15646): Invalid base format! req_base_format = 0x0, req_format = 0x38
-E/mali_gralloc(15646): ERROR: Unrecognized and/or unsupported format 0x38 and usage 0xb00
-E/mali_gralloc(15646): ERROR: Format allocation info not found for format: 3b
-E/mali_gralloc(15646): ERROR: Format allocation info not found for format: 0
-E/m.mk.life_pilot(15646): Invalid base format! req_base_format = 0x0, req_format = 0x3b
-E/mali_gralloc(15646): ERROR: Unrecognized and/or unsupported format 0x3b and usage 0xb00
-D/BLASTBufferQueue(15646): b416cac SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#3 getBufferCacheFlag 0
-D/BLASTBufferQueue(15646): b416cac SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#3 getMaxAcquireBufferCount 5
-D/BLASTBufferQueue(15646): b416cac SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#3 getOrignalMaxAcquireBufferCount 5
-D/SurfaceView(15646): 188837036 handleSyncNoBuffer
-I/SurfaceControl(15646):  setExtendedRangeBrightness sc=Surface(name=com.mk.life_pilot/com.mk.life_pilot.MainActivity)/@0x48e6536,currentBufferRatio=1.0,desiredRatio=1.0
-D/SurfaceView(15646): 188837036 dispatchDraw mDrawFinished true isAboveParent false (mPrivateFlags & PFLAG_SKIP_DRAW) 128
-D/SurfaceView(15646): 188837036 clearSurfaceViewPort mCornerRadius 0.0
-D/BLASTBufferQueue(15646): [VRI[MainActivity][com.mk.life_pilot/com.mk.life_pilot.MainActivity]#2](f:0,a:1) acquireNextBufferLocked size=1080x2400 mFrameNumber=1 applyTransaction=true mTimestamp=442980234269018(auto) mPendingTransactions.size=0 graphicBufferId=67199058313259 transform=0
-D/VRI[MainActivity](15646): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true syncBuffer=false
-D/BLASTBufferQueue(15646): [b416cac SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#3](f:0,a:1) acquireNextBufferLocked size=1080x2400 mFrameNumber=1 applyTransaction=true mTimestamp=442980260954172(auto) mPendingTransactions.size=0 graphicBufferId=67199058313251 transform=0
-D/VRI[MainActivity](15646): draw finished. seqId=0
-D/SurfaceView(15646): 188837036 finishedDrawing
-D/SurfaceView(15646): 188837036 performDrawFinished mAttachedToWindow true
-D/SurfaceView(15646): 188837036 dispatchDraw mDrawFinished true isAboveParent false (mPrivateFlags & PFLAG_SKIP_DRAW) 128
-D/SurfaceView(15646): 188837036 clearSurfaceViewPort mCornerRadius 0.0
-W/VRI[MainActivity](15646): handleResized abandoned!
-D/VRI[MainActivity](15646): onFocusEvent true
-D/InsetsController(15646): hide(ime(), fromIme=false)
-I/ImeTracker(15646): com.mk.life_pilot:43686e8f: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
-D/OplusScrollToTopManager(15646): com.mk.life_pilot/com.mk.life_pilot.MainActivity,This com.android.internal.policy.DecorView{a9bd84c V.E...... R....... 0,0-1080,2400 aid=0 alpha=1.0 viewInfo = }[MainActivity] change focus to true
-E/IJankManager(15646): slideSceneEnd unknown scene 1000 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-I/PowerHalMgrImpl(15646): hdl:98033, pid:15646
-I/PowerHalMgrImpl(15646): hdl:98035, pid:15646
-I/VelocityTracker(15646): LSQ2 speed rezero
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-I/VelocityTracker(15646): LSQ2 speed rezero
-I/ScrollIdentify(15646): on fling
-I/VelocityTracker(15646): LSQ2 speed rezero
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:98036, pid:15646
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-D/OplusPredictiveBackController(15646): should not HookOnBackInvokedCallbackEnabled for application com.mk.life_pilot.MainActivity@ae3c75c sdk: 36
-D/WindowOnBackDispatcher(15646):  predictive settings is disabled for com.mk.life_pilot
-W/WindowOnBackDispatcher(15646): OnBackInvokedCallback is not enabled for the application.
-W/WindowOnBackDispatcher(15646): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-I/PowerHalMgrImpl(15646): hdl:98045, pid:15646
-I/PowerHalMgrImpl(15646): hdl:98046, pid:15646
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-I/ScrollIdentify(15646): on fling
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-I/PowerHalMgrImpl(15646): hdl:98048, pid:15646
-I/PowerHalMgrImpl(15646): hdl:98049, pid:15646
-D/WindowOnBackDispatcher(15646): onBackInvoked callback: android.view.ViewRootImpl$$ExternalSyntheticLambda13@2ffdd75, animationCallback is null
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-D/OplusPredictiveBackController(15646): should not HookOnBackInvokedCallbackEnabled for application com.mk.life_pilot.MainActivity@ae3c75c sdk: 36
-D/WindowOnBackDispatcher(15646):  predictive settings is disabled for com.mk.life_pilot
-D/OplusPredictiveBackController(15646): should not HookOnBackInvokedCallbackEnabled for application com.mk.life_pilot.MainActivity@ae3c75c sdk: 36
-D/WindowOnBackDispatcher(15646):  predictive settings is disabled for com.mk.life_pilot
-D/Activity(15646): dispatchKeyEvent to com.mk.life_pilot.MainActivity@ae3c75c will call onBackPressed
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
-E/IJankManager(15646): slideSceneEnd unknown scene 1003 mScene:-1
-V/AutofillManager(15646): requestHideFillUi(null): anchor = null
-D/OplusViewDragTouchViewHelper(15646): dispatchTouchView action = 1
-D/ViewRootImplExtImpl(15646): the up motion event handled by client, just return
+A Dart VM Service on RMX3944 is available at: http://127.0.0.1:62325/965ySc8L638=/
+The Flutter DevTools debugger and profiler on RMX3944 is available at: http://127.0.0.1:62325/965ySc8L638=/devtools/?uri=ws://127.0.0.1:62325/965ySc8L638=/ws
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+D/VRI[MainActivity](19466):  debugCancelDraw some OnPreDrawListener onPreDraw return false,cancelDraw=true,count=50,android.view.ViewRootImpl@4d42d38
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+I/libc    (19466): Requested dump for pid 19466 (m.mk.life_pilot)
+I/m.mk.life_pilot(19466): Compiler allocated 7207KB to compile void android.view.ViewRootImpl.performTraversals()
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+D/ActivityThread(19466): ComponentInfo{com.mk.life_pilot/com.mk.life_pilot.MainActivity} checkFinished=false 4
+D/ResourcesManagerExtImpl(19466): applyConfigurationToAppResourcesLocked app.getDisplayId() return callback.displayId:0
+V/AutofillClientController(19466): onActivityResumed()
+V/AutofillClientController(19466): onActivityPostResumed()
+V/AutofillClientController(19466): onActivityPostResumed(): Relayout fix enabled
+V/AutofillClientController(19466): forResume(): Not attempting refill.
+D/ViewRootImplExtImpl(19466): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=360, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2400), relayoutAsync=false, flags=0, newFlags=1258302720, title=com.mk.life_pilot/com.mk.life_pilot.MainActivity
+D/VRI[MainActivity](19466): relayoutWindow result, sizeChanged:false, surfaceControlChanged:false, transformHintChanged:false, mSurfaceSize:Point(1080, 2400), mLastSurfaceSize:Point(1080, 2400), mWidth:1080, mHeight:2400, requestedWidth:1080, requestedHeight:2400, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:true, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][0,0]}, relayoutAsync:false, mSyncSeqId:0
+W/VRI[MainActivity](19466): updateBlastSurfaceIfNeeded, surfaceSize:Point(1080, 2400), lastSurfaceSize:Point(1080, 2400), format:-3, blastBufferQueue:android.graphics.BLASTBufferQueue@705ec6a
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+I/flutter (19466): [ALARM] canScheduleExactNotifications=true
+W/VRI[MainActivity](19466): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+I/flutter (19466): [SPLASH] Flutter splash screen initState
+I/flutter (19466): [SPLASH] showing splash: assets/image/original/splash/light.png (isDark=false)
+I/GrallocExtra(19466): gralloc_extra_query:is_SW3D 0
+D/BLASTBufferQueue(19466): [b416cac SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#1](f:0,a:1) acquireNextBufferLocked size=1080x2400 mFrameNumber=1 applyTransaction=true mTimestamp=511069004447615(auto) mPendingTransactions.size=0 graphicBufferId=83605833383946 transform=0
+D/LibMBrainProxy(19466): Init Paramters
+W/ServiceManagerCppClient(19466): Failed to get isDeclared for vendor.mediatek.hardware.mbrain.IMBrain/default: Status(-1, EX_SECURITY): 'SELinux denied for service.'
+D/SurfaceView(19466): 188837036 finishedDrawing
+D/SurfaceView(19466): 188837036 performDrawFinished mAttachedToWindow true
+I/Choreographer(19466): Skipped 171 frames!  The application may be doing too much work on its main thread.
+D/VRI[MainActivity](19466):  debugCancelDraw  cancelDraw=false,count = 213,android.view.ViewRootImpl@4d42d38
+I/SurfaceControl(19466):  setExtendedRangeBrightness sc=Surface(name=com.mk.life_pilot/com.mk.life_pilot.MainActivity)/@0xd635f0d,currentBufferRatio=1.0,desiredRatio=1.0
+D/SurfaceView(19466): 188837036 dispatchDraw mDrawFinished true isAboveParent false (mPrivateFlags & PFLAG_SKIP_DRAW) 128
+D/SurfaceView(19466): 188837036 clearSurfaceViewPort mCornerRadius 0.0
+D/BLASTBufferQueue(19466): [VRI[MainActivity][com.mk.life_pilot/com.mk.life_pilot.MainActivity]#0](f:0,a:1) acquireNextBufferLocked size=1080x2400 mFrameNumber=1 applyTransaction=true mTimestamp=511069593832154(auto) mPendingTransactions.size=0 graphicBufferId=83605833383954 transform=0
+D/VRI[MainActivity](19466): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true syncBuffer=false
+D/ExtensionsLoader(19466): createInstance(64bit) : createExtendedFactory
+D/ExtensionsLoader(19466): Opened libSchedAssistExtImpl.so
+D/VRI[MainActivity](19466): draw finished. seqId=0
+W/m.mk.life_pilot(19466): userfaultfd: MOVE ioctl seems unsupported: Connection timed out
+I/HWUI    (19466): Davey! duration=2894ms; Flags=1, FrameTimelineVsyncId=193366874, IntendedVsync=511066700905335, Vsync=511069550905392, InputEventId=0, HandleInputStart=511069567878692, AnimationStart=511069567880461, PerformTraversalsStart=511069567908769, DrawStart=511069569686077, FrameDeadline=511066720905335, FrameStartTime=511069567350692, FrameInterval=16666667, WorkloadTarget=20000000, SyncQueued=511069573912846, SyncStart=511069574160461, IssueDrawCommandsStart=511069574699231, SwapBuffers=511069590093154, FrameCompleted=511069595597154, DequeueBufferDuration=1785615, QueueBufferDuration=426461, GpuCompleted=511069595597154, SwapBuffersCompleted=511069594398692, DisplayPresentTime=488747681800, CommandSubmissionCompleted=511069590093154,
+D/VRI[MainActivity](19466): onFocusEvent true
+D/ProfileInstaller(19466): Installing profile for com.mk.life_pilot
+I/m.mk.life_pilot(19466): AssetManager2(0xb40000710f30dd28) locale list changing from [] to [en-IN]
+I/m.mk.life_pilot(19466): AssetManager2(0xb400007105cb8428) locale list changing from [] to [en-IN]
+I/m.mk.life_pilot(19466): AssetManager2(0xb400005ff3c59328) locale list changing from [] to [en-IN]
+D/InsetsController(19466): Setting requestedVisibleTypes to -16 (was -9)
+D/ViewRootImplExtImpl(19466): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=360, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2400), relayoutAsync=true, flags=0, newFlags=1258302720, title=com.mk.life_pilot/com.mk.life_pilot.MainActivity
+D/VRI[MainActivity](19466): relayoutWindow result, sizeChanged:false, surfaceControlChanged:false, transformHintChanged:false, mSurfaceSize:Point(1080, 2400), mLastSurfaceSize:Point(1080, 2400), mWidth:1080, mHeight:2400, requestedWidth:1080, requestedHeight:2400, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:true, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][1080,2400]}, relayoutAsync:true, mSyncSeqId:0
+W/VRI[MainActivity](19466): updateBlastSurfaceIfNeeded, surfaceSize:Point(1080, 2400), lastSurfaceSize:Point(1080, 2400), format:-3, blastBufferQueue:android.graphics.BLASTBufferQueue@705ec6a
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+E/OplusDisplayModeManager(19466): has been initialized.
+I/SurfaceControl(19466):  setExtendedRangeBrightness sc=Surface(name=com.mk.life_pilot/com.mk.life_pilot.MainActivity)/@0xd635f0d,currentBufferRatio=1.0,desiredRatio=1.0
+D/InsetsController(19466): hide(ime(), fromIme=false)
+I/ImeTracker(19466): com.mk.life_pilot:7ba46997: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+W/VRI[MainActivity](19466): handleResized abandoned!
+I/flutter (19466): [SPLASH] Flutter out splash screen
+W/InteractionJankMonitor(19466): Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.mk.life_pilot
+D/InsetsController(19466): Setting requestedVisibleTypes to -9 (was -16)
+D/ViewRootImplExtImpl(19466): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=360, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2400), relayoutAsync=true, flags=0, newFlags=1258302720, title=com.mk.life_pilot/com.mk.life_pilot.MainActivity
+D/VRI[MainActivity](19466): relayoutWindow result, sizeChanged:false, surfaceControlChanged:false, transformHintChanged:false, mSurfaceSize:Point(1080, 2400), mLastSurfaceSize:Point(1080, 2400), mWidth:1080, mHeight:2400, requestedWidth:1080, requestedHeight:2400, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:true, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][1080,2400]}, relayoutAsync:true, mSyncSeqId:0
+W/VRI[MainActivity](19466): updateBlastSurfaceIfNeeded, surfaceSize:Point(1080, 2400), lastSurfaceSize:Point(1080, 2400), format:-3, blastBufferQueue:android.graphics.BLASTBufferQueue@705ec6a
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+E/OplusDisplayModeManager(19466): has been initialized.
+I/SurfaceControl(19466):  setExtendedRangeBrightness sc=Surface(name=com.mk.life_pilot/com.mk.life_pilot.MainActivity)/@0xd635f0d,currentBufferRatio=1.0,desiredRatio=1.0
+W/VRI[MainActivity](19466): handleResized abandoned!
+D/OplusScrollToTopManager(19466): com.mk.life_pilot/com.mk.life_pilot.MainActivity,This com.android.internal.policy.DecorView{a9bd84c V.E...... R....... 0,0-1080,2400 aid=0 alpha=1.0 viewInfo = }[MainActivity] change focus to true
 
-Lost connection to device.
-manu@Manus-MacBook-Air life_pilot %
+
+E/IJankManager(19466): slideSceneEnd unknown scene 1000 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusSystemUINavigationGestureExtImpl(19466): regionString = null
+D/OplusSystemUINavigationGestureExtImpl(19466): regionString = null
+D/ViewExtract(19466): [OplusViewExtractManager] OplusViewExtractManager init com.mk.life_pilot
+D/OplusInputMethodManagerInternal(19466): get inputMethodManager extension: com.android.internal.view.IInputMethodManager$Stub$Proxy@a0167ed
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+D/OplusPredictiveBackController(19466): should not HookOnBackInvokedCallbackEnabled for application com.mk.life_pilot.MainActivity@ae3c75c sdk: 36
+D/WindowOnBackDispatcher(19466):  predictive settings is disabled for com.mk.life_pilot
+W/WindowOnBackDispatcher(19466): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(19466): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/VelocityTracker(19466): LSQ2 speed rezero
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/ImeTracker(19466): com.mk.life_pilot:b5aece7d: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+D/InsetsController(19466): show(ime(), fromIme=false)
+D/InsetsController(19466): Setting requestedVisibleTypes to -1 (was -9)
+W/VRI[MainActivity](19466): handleResized abandoned!
+D/InputConnectionAdaptor(19466): The input method toggled cursor monitoring on
+W/VRI[MainActivity](19466): handleResized abandoned!
+W/VRI[MainActivity](19466): handleResized abandoned!
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/ImfJankInfo(19466): reportImfJank: {"client":"com.mk.life_pilot","system_pressure":{"cpu":false,"mem":false,"thermal":false}}
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+I/ImeTracker(19466): com.mk.life_pilot:b5aece7d: onShown
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122717, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122718, pid:19466
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+I/ScrollIdentify(19466): on fling
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122720, pid:19466
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122724, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122726, pid:19466
+I/VelocityTracker(19466): LSQ2 speed rezero
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+I/VelocityTracker(19466): LSQ2 speed rezero
+I/ScrollIdentify(19466): on fling
+I/VelocityTracker(19466): LSQ2 speed rezero
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122727, pid:19466
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/ImeTracker(19466): com.mk.life_pilot:e8ea8bc2: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+D/InsetsController(19466): hide(ime(), fromIme=false)
+W/WindowOnBackDispatcher(19466): sendCancelIfRunning: isInProgress=false callback=ImeCallback=ImeOnBackInvokedCallback@92788703 hash=64216018 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@ab58c91
+D/InsetsController(19466): Setting requestedVisibleTypes to -9 (was -1)
+D/CompatChangeReporter(19466): Compat change id reported: 395521150; UID 10415; state: ENABLED
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+W/VRI[MainActivity](19466): handleResized abandoned!
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+I/ImeTracker(19466): system_server:7bf1d2db: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+I/Quality (19466): local:ime_anim_jank,pkgName:com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME,flag:2,jankCount:1,jankCountLocal:1,preCount:2
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+W/RemoteInputConnectionImpl(19466): requestCursorUpdates on inactive InputConnection
+W/VRI[MainActivity](19466): handleResized abandoned!
+W/VRI[MainActivity](19466): handleResized abandoned!
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+D/Vibrator(19466): SystemVibrator Created
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122738, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122740, pid:19466
+I/VelocityTracker(19466): LSQ2 speed rezero
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+I/VelocityTracker(19466): LSQ2 speed rezero
+I/VelocityTracker(19466): LSQ2 speed rezero
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122741, pid:19466
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122749, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122751, pid:19466
+I/VelocityTracker(19466): LSQ2 speed rezero
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+I/VelocityTracker(19466): LSQ2 speed rezero
+I/VelocityTracker(19466): LSQ2 speed rezero
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122752, pid:19466
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122763, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122765, pid:19466
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+I/ScrollIdentify(19466): on fling
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122767, pid:19466
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122771, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122773, pid:19466
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+I/ScrollIdentify(19466): on fling
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122775, pid:19466
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+E/m.mk.life_pilot(19466): legacy_receive_flag: 0
+D/m.mk.life_pilot(19466): /proc/perfmgr_sbe/sbe_ioctl not exists: No such file or directory
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/flutter (19466): [ALARM] scheduleAlarm for "Test" isAlarm=true startTime=23:40 sound=android dueDates=1
+I/flutter (19466): [ALARM] Scheduling alarm at 2026-06-23 23:40:00.000 (id=2345256) via AndroidAlarmManager
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466): Failed to handle method call
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466): java.lang.IllegalArgumentException: Component class dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver does not exist in com.mk.life_pilot
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Parcel.createExceptionOrNull(Parcel.java:3373)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Parcel.createException(Parcel.java:3353)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Parcel.readException(Parcel.java:3336)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Parcel.readException(Parcel.java:3278)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.content.pm.IPackageManager$Stub$Proxy.setComponentEnabledSetting(IPackageManager.java:6467)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.app.ApplicationPackageManager.setComponentEnabledSetting(ApplicationPackageManager.java:3375)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver.scheduleOnReboot(RebootBroadcastReceiver.java:59)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver.enableRescheduleOnReboot(RebootBroadcastReceiver.java:45)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at dev.fluttercommunity.plus.androidalarmmanager.AlarmService.addPersistentAlarm(AlarmService.java:281)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at dev.fluttercommunity.plus.androidalarmmanager.AlarmService.scheduleAlarm(AlarmService.java:111)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at dev.fluttercommunity.plus.androidalarmmanager.AlarmService.setOneShot(AlarmService.java:190)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at dev.fluttercommunity.plus.androidalarmmanager.AndroidAlarmManagerPlugin.onMethodCall(AndroidAlarmManagerPlugin.java:121)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at io.flutter.plugin.common.MethodChannel$IncomingMethodCallHandler.onMessage(MethodChannel.java:267)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at io.flutter.embedding.engine.dart.DartMessenger.invokeHandler(DartMessenger.java:286)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at io.flutter.embedding.engine.dart.DartMessenger.lambda$dispatchMessageToQueue$0$io-flutter-embedding-engine-dart-DartMessenger(DartMessenger.java:313)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at io.flutter.embedding.engine.dart.DartMessenger$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Handler.handleCallback(Handler.java:1027)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Handler.dispatchMessage(Handler.java:108)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Looper.loopOnce(Looper.java:298)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Looper.loop(Looper.java:408)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.app.ActivityThread.main(ActivityThread.java:9964)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at java.lang.reflect.Method.invoke(Native Method)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:613)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1074)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466): Caused by: android.os.RemoteException: Remote stack trace:
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at com.android.server.pm.PackageManagerService.setEnabledSettings(PackageManagerService.java:4324)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at com.android.server.pm.PackageManagerService.-$$Nest$msetEnabledSettings(Unknown Source:0)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at com.android.server.pm.PackageManagerService$IPackageManagerImpl.setComponentEnabledSetting(PackageManagerService.java:6536)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:3207)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:7131)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):
+I/flutter (19466): [ALARM] AndroidAlarmManager failed: PlatformException(error, Component class dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver does not exist in com.mk.life_pilot, null, java.lang.IllegalArgumentException: Component class dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver does not exist in com.mk.life_pilot
+I/flutter (19466):      at android.os.Parcel.createExceptionOrNull(Parcel.java:3373)
+I/flutter (19466):      at android.os.Parcel.createException(Parcel.java:3353)
+I/flutter (19466):      at android.os.Parcel.readException(Parcel.java:3336)
+I/flutter (19466):      at android.os.Parcel.readException(Parcel.java:3278)
+I/flutter (19466):      at android.content.pm.IPackageManager$Stub$Proxy.setComponentEnabledSetting(IPackageManager.java:6467)
+I/flutter (19466):      at android.app.ApplicationPackageManager.setComponentEnabledSetting(ApplicationPackageManager.java:3375)
+I/flutter (19466):      at dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver.scheduleOnReboot(RebootBroadcastReceiver.java:59)
+I/flutter (19466):      at dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver.enableRescheduleOnReboot(RebootBroadcastReceiver.java:45)
+I/flutter (19466):      at dev.fluttercommunity.plus.androidalarmmanager.AlarmService.addPersistentAlarm(AlarmService.java:281)
+I/flutter (19466):      at dev.fluttercommunity.plus.androidalarmmanager.AlarmService.scheduleAlarm(AlarmService.java:111)
+I/flutter (19466):      at dev.fluttercommunity.plus.androidalarmmanager.AlarmService.setOneShot(AlarmService.java:190)
+I/flutter (19466):      at dev.fluttercommunity.plus.androidalarmmanager.AndroidAlarmManagerPlugin.onMethodCall(AndroidAlarmManagerPlugin.java:121)
+I/flutter (19466):      at io.flutter.plugin.common.MethodChannel$IncomingMethodCallHandler.onMessage(MethodChannel.java:267)
+I/flutter (19466):      at io.flutter.embedding.engine.dart.DartMessenger.invokeHandler(DartMessenger.java:286)
+I/flutter (19466):      at io.flutter.embedding.engine.dart.DartMessenger.lambda$dispatchMessageToQueue$0$io-flutter-embedding-engine-dart-DartMessenger(DartMessenger.java:313)
+I/flutter (19466):      at io.flutter.embedding.engine.dart.DartMessenger$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+I/flutter (19466):      at android.os.Handler.handleCallback(Handler.java:1027)
+I/flutter (19466):      at android.os.Handler.dispatchMessage(Handler.java:108)
+I/flutter (19466):      at android.os.Looper.loopOnce(Looper.java:298)
+I/flutter (19466):      at android.os.Looper.loop(Looper.java:408)
+I/flutter (19466):      at android.app.ActivityThread.main(ActivityThread.java:9964)
+I/flutter (19466):      at java.lang.reflect.Method.invoke(Native Method)
+I/flutter (19466):      at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:613)
+I/flutter (19466):      at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1074)
+I/flutter (19466): Caused by: android.os.RemoteException: Remote stack trace:
+I/flutter (19466):      at com.android.server.pm.PackageManagerService.setEnabledSettings(PackageManagerService.java:4324)
+I/flutter (19466):      at com.android.server.pm.PackageManagerService.-$$Nest$msetEnabledSettings(Unknown Source:0)
+I/flutter (19466):      at com.android.server.pm.PackageManagerService$IPackageManagerImpl.setComponentEnabledSetting(PackageManagerService.java:6536)
+I/flutter (19466):      at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:3207)
+I/flutter (19466):      at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:7131)
+I/flutter (19466):
+I/flutter (19466): ), failed back to zonedScheduled
+I/flutter (19466): [ALARM] Alarm scheduled (inexact fallback)
+I/flutter (19466): [ALARM] Total pending notifications: 2
+I/flutter (19466): [ALARM] pending id=345256 title=Test
+I/flutter (19466): [ALARM] pending id=2345256 title=⏰ Test
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+D/OplusPredictiveBackController(19466): should not HookOnBackInvokedCallbackEnabled for application com.mk.life_pilot.MainActivity@ae3c75c sdk: 36
+D/WindowOnBackDispatcher(19466):  predictive settings is disabled for com.mk.life_pilot
+W/WindowOnBackDispatcher(19466): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(19466): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+I/PowerHalMgrImpl(19466): hdl:122784, pid:19466
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/ImeTracker(19466): com.mk.life_pilot:8635545d: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+D/InsetsController(19466): show(ime(), fromIme=false)
+D/InsetsController(19466): Setting requestedVisibleTypes to -1 (was -9)
+W/VRI[MainActivity](19466): handleResized abandoned!
+D/InputConnectionAdaptor(19466): The input method toggled cursor monitoring on
+W/VRI[MainActivity](19466): handleResized abandoned!
+W/VRI[MainActivity](19466): handleResized abandoned!
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+I/ImeTracker(19466): com.mk.life_pilot:8635545d: onShown
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122809, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122809, pid:19466
+I/VelocityTracker(19466): LSQ2 speed rezero
+I/VelocityTracker(19466): LSQ2 speed rezero
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+I/VelocityTracker(19466): LSQ2 speed rezero
+I/VelocityTracker(19466): LSQ2 speed rezero
+I/VelocityTracker(19466): LSQ2 speed rezero
+I/VelocityTracker(19466): LSQ2 speed rezero
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122811, pid:19466
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/ImeTracker(19466): com.mk.life_pilot:41096529: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+D/InsetsController(19466): hide(ime(), fromIme=false)
+W/WindowOnBackDispatcher(19466): sendCancelIfRunning: isInProgress=false callback=ImeCallback=ImeOnBackInvokedCallback@92788703 hash=181806223 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@fe88508
+D/InsetsController(19466): Setting requestedVisibleTypes to -9 (was -1)
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+W/VRI[MainActivity](19466): handleResized abandoned!
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+I/ImeTracker(19466): system_server:77e972a: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+W/RemoteInputConnectionImpl(19466): requestCursorUpdates on inactive InputConnection
+W/VRI[MainActivity](19466): handleResized abandoned!
+W/VRI[MainActivity](19466): handleResized abandoned!
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122822, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122824, pid:19466
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122825, pid:19466
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/ImeTracker(19466): com.mk.life_pilot:c37b2fd0: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+D/InsetsController(19466): show(ime(), fromIme=false)
+D/InsetsController(19466): Setting requestedVisibleTypes to -1 (was -9)
+W/VRI[MainActivity](19466): handleResized abandoned!
+D/InputConnectionAdaptor(19466): The input method toggled cursor monitoring on
+W/VRI[MainActivity](19466): handleResized abandoned!
+W/VRI[MainActivity](19466): handleResized abandoned!
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+I/ImeTracker(19466): com.mk.life_pilot:c37b2fd0: onShown
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122834, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122835, pid:19466
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+I/ScrollIdentify(19466): on fling
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122836, pid:19466
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122841, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122843, pid:19466
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+I/ScrollIdentify(19466): on fling
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122844, pid:19466
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122850, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122851, pid:19466
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+I/ScrollIdentify(19466): on fling
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122853, pid:19466
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122865, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122866, pid:19466
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+I/ScrollIdentify(19466): on fling
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122868, pid:19466
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/AlarmService(19466): cancel: broadcast receiver not found
+I/flutter (19466): [ALARM] scheduleAlarm for "Task 2" isAlarm=true startTime=23:45 sound=android dueDates=1
+I/flutter (19466): [ALARM] Scheduling alarm at 2026-06-23 23:45:00.000 (id=3393170) via AndroidAlarmManager
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466): Failed to handle method call
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466): java.lang.IllegalArgumentException: Component class dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver does not exist in com.mk.life_pilot
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Parcel.createExceptionOrNull(Parcel.java:3373)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Parcel.createException(Parcel.java:3353)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Parcel.readException(Parcel.java:3336)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Parcel.readException(Parcel.java:3278)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.content.pm.IPackageManager$Stub$Proxy.setComponentEnabledSetting(IPackageManager.java:6467)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.app.ApplicationPackageManager.setComponentEnabledSetting(ApplicationPackageManager.java:3375)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver.scheduleOnReboot(RebootBroadcastReceiver.java:59)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver.enableRescheduleOnReboot(RebootBroadcastReceiver.java:45)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at dev.fluttercommunity.plus.androidalarmmanager.AlarmService.addPersistentAlarm(AlarmService.java:281)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at dev.fluttercommunity.plus.androidalarmmanager.AlarmService.scheduleAlarm(AlarmService.java:111)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at dev.fluttercommunity.plus.androidalarmmanager.AlarmService.setOneShot(AlarmService.java:190)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at dev.fluttercommunity.plus.androidalarmmanager.AndroidAlarmManagerPlugin.onMethodCall(AndroidAlarmManagerPlugin.java:121)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at io.flutter.plugin.common.MethodChannel$IncomingMethodCallHandler.onMessage(MethodChannel.java:267)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at io.flutter.embedding.engine.dart.DartMessenger.invokeHandler(DartMessenger.java:286)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at io.flutter.embedding.engine.dart.DartMessenger.lambda$dispatchMessageToQueue$0$io-flutter-embedding-engine-dart-DartMessenger(DartMessenger.java:313)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at io.flutter.embedding.engine.dart.DartMessenger$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Handler.handleCallback(Handler.java:1027)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Handler.dispatchMessage(Handler.java:108)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Looper.loopOnce(Looper.java:298)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.os.Looper.loop(Looper.java:408)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.app.ActivityThread.main(ActivityThread.java:9964)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at java.lang.reflect.Method.invoke(Native Method)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:613)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1074)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466): Caused by: android.os.RemoteException: Remote stack trace:
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at com.android.server.pm.PackageManagerService.setEnabledSettings(PackageManagerService.java:4324)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at com.android.server.pm.PackageManagerService.-$$Nest$msetEnabledSettings(Unknown Source:0)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at com.android.server.pm.PackageManagerService$IPackageManagerImpl.setComponentEnabledSetting(PackageManagerService.java:6536)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:3207)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):         at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:7131)
+E/MethodChannel#dev.fluttercommunity.plus/android_alarm_manager(19466):
+I/flutter (19466): [ALARM] AndroidAlarmManager failed: PlatformException(error, Component class dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver does not exist in com.mk.life_pilot, null, java.lang.IllegalArgumentException: Component class dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver does not exist in com.mk.life_pilot
+I/flutter (19466):      at android.os.Parcel.createExceptionOrNull(Parcel.java:3373)
+I/flutter (19466):      at android.os.Parcel.createException(Parcel.java:3353)
+I/flutter (19466):      at android.os.Parcel.readException(Parcel.java:3336)
+I/flutter (19466):      at android.os.Parcel.readException(Parcel.java:3278)
+I/flutter (19466):      at android.content.pm.IPackageManager$Stub$Proxy.setComponentEnabledSetting(IPackageManager.java:6467)
+I/flutter (19466):      at android.app.ApplicationPackageManager.setComponentEnabledSetting(ApplicationPackageManager.java:3375)
+I/flutter (19466):      at dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver.scheduleOnReboot(RebootBroadcastReceiver.java:59)
+I/flutter (19466):      at dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver.enableRescheduleOnReboot(RebootBroadcastReceiver.java:45)
+I/flutter (19466):      at dev.fluttercommunity.plus.androidalarmmanager.AlarmService.addPersistentAlarm(AlarmService.java:281)
+I/flutter (19466):      at dev.fluttercommunity.plus.androidalarmmanager.AlarmService.scheduleAlarm(AlarmService.java:111)
+I/flutter (19466):      at dev.fluttercommunity.plus.androidalarmmanager.AlarmService.setOneShot(AlarmService.java:190)
+I/flutter (19466):      at dev.fluttercommunity.plus.androidalarmmanager.AndroidAlarmManagerPlugin.onMethodCall(AndroidAlarmManagerPlugin.java:121)
+I/flutter (19466):      at io.flutter.plugin.common.MethodChannel$IncomingMethodCallHandler.onMessage(MethodChannel.java:267)
+I/flutter (19466):      at io.flutter.embedding.engine.dart.DartMessenger.invokeHandler(DartMessenger.java:286)
+I/flutter (19466):      at io.flutter.embedding.engine.dart.DartMessenger.lambda$dispatchMessageToQueue$0$io-flutter-embedding-engine-dart-DartMessenger(DartMessenger.java:313)
+I/flutter (19466):      at io.flutter.embedding.engine.dart.DartMessenger$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+I/flutter (19466):      at android.os.Handler.handleCallback(Handler.java:1027)
+I/flutter (19466):      at android.os.Handler.dispatchMessage(Handler.java:108)
+I/flutter (19466):      at android.os.Looper.loopOnce(Looper.java:298)
+I/flutter (19466):      at android.os.Looper.loop(Looper.java:408)
+I/flutter (19466):      at android.app.ActivityThread.main(ActivityThread.java:9964)
+I/flutter (19466):      at java.lang.reflect.Method.invoke(Native Method)
+I/flutter (19466):      at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:613)
+I/flutter (19466):      at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1074)
+I/flutter (19466): Caused by: android.os.RemoteException: Remote stack trace:
+I/flutter (19466):      at com.android.server.pm.PackageManagerService.setEnabledSettings(PackageManagerService.java:4324)
+I/flutter (19466):      at com.android.server.pm.PackageManagerService.-$$Nest$msetEnabledSettings(Unknown Source:0)
+I/flutter (19466):      at com.android.server.pm.PackageManagerService$IPackageManagerImpl.setComponentEnabledSetting(PackageManagerService.java:6536)
+I/flutter (19466):      at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:3207)
+I/flutter (19466):      at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:7131)
+I/flutter (19466):
+I/flutter (19466): ), failed back to zonedScheduled
+I/flutter (19466): [ALARM] Alarm scheduled (inexact fallback)
+I/flutter (19466): [ALARM] Total pending notifications: 5
+I/flutter (19466): [ALARM] pending id=345256 title=Test
+I/flutter (19466): [ALARM] pending id=2345256 title=⏰ Test
+I/flutter (19466): [ALARM] pending id=1393170 title=Task 2
+I/flutter (19466): [ALARM] pending id=1393171 title=Task 2
+I/flutter (19466): [ALARM] pending id=3393170 title=⏰ Task 2
+I/ImeTracker(19466): com.mk.life_pilot:5e82b1dc: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+D/InsetsController(19466): hide(ime(), fromIme=false)
+W/WindowOnBackDispatcher(19466): sendCancelIfRunning: isInProgress=false callback=ImeCallback=ImeOnBackInvokedCallback@92788703 hash=190724434 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@24b4038
+D/InsetsController(19466): Setting requestedVisibleTypes to -9 (was -1)
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+W/VRI[MainActivity](19466): handleResized abandoned!
+I/ImeTracker(19466): system_server:92ff48b2: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+D/FlutterJNI(19466): Sending viewport metrics to the engine.
+W/RemoteInputConnectionImpl(19466): requestCursorUpdates on inactive InputConnection
+W/VRI[MainActivity](19466): handleResized abandoned!
+W/VRI[MainActivity](19466): handleResized abandoned!
+I/PowerHalMgrImpl(19466): hdl:122876, pid:19466
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122881, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122883, pid:19466
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122884, pid:19466
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+E/IJankManager(19466): slideSceneEnd unknown scene 1003 mScene:-1
+V/AutofillManager(19466): requestHideFillUi(null): anchor = null
+I/PowerHalMgrImpl(19466): hdl:122892, pid:19466
+I/PowerHalMgrImpl(19466): hdl:122894, pid:19466
+D/OplusViewDragTouchViewHelper(19466): dispatchTouchView action = 1
+I/ScrollIdentify(19466): on fling
+D/ViewRootImplExtImpl(19466): the up motion event handled by client, just return
+I/PowerHalMgrImpl(19466): hdl:122896, pid:19466
