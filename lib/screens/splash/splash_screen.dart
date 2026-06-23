@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         curve: Curves.easeOut,
     );
 
-    Future.delayed(const Duration(milliseconds: 2500), () {
+    Future.delayed(const Duration(milliseconds: 1000), () {
       if (!mounted) return;
       debugPrint('[SPLASH] Flutter out splash screen');
       // Restore system UI
