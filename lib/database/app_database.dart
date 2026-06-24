@@ -26,6 +26,7 @@ class AppDatabase{
       path,
       version: 2,
       onCreate: _onCreate,
+      onUpgrade: _onUpgrade,
     );
   }
 
