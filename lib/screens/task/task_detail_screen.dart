@@ -6,6 +6,7 @@ import 'package:life_pilot/models/enums.dart';
 import 'package:life_pilot/providers/task_provider.dart';
 import 'package:life_pilot/providers/category_provider.dart';
 import 'package:life_pilot/screens/task/task_form_screen.dart';
+import 'package:life_pilot/models/subtask.dart';
 
 class TaskDetailScreen extends ConsumerStatefulWidget {
   final String taskId;
@@ -17,6 +18,7 @@ class TaskDetailScreen extends ConsumerStatefulWidget {
 
 class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
   List<TaskLog> _logs = [];
+  List<Subtask> _subtasks = [];
   int _bestStreak = 0;
   int _totalCompletions = 0;
 
@@ -29,6 +31,7 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
   Future<void> _loadStats() async {
     final notifier = ref.read(taskProvider);
     _logs = await notifier.getLogsForTask(widget.taskId);
+    _subtasks = await notifier.getSubtasks(widget.taskId);
     _bestStreak = await notifier.getBestStreak(widget.taskId);
     _totalCompletions = await notifier.getTotalCompletitions(widget.taskId);
     if (mounted) setState(() {});
@@ -201,6 +204,46 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
             ],
           ),
           const SizedBox(height: 24),
+
+          if (_subtasks.isNotEmpty) ...[
+            _sectionTitle('Checklist'),
+            const SizedBox(height: 24),
+            ..._subtasks.map((st) {
+              final checked = taskNotifier.getCheckedSubtaskIds(task.id);
+              final isChecked = checked.contains(st.id);
+              return InkWell(
+                onTap: task.isActive && log == null
+                    ? () => taskNotifier.toggleSubtaskChecked(task.id, st.id)
+                    : null,
+                borderRadius: BorderRadius.circular(8),
+                child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: Row(
+                    children: [
+                      Icon(
+                        isChecked ? Icons.check_box : Icons.check_box_outline_blank,
+                        size: 22,
+                        color: isChecked
+                          ? theme.colorScheme.primary
+                            : theme.colorScheme.outline,
+                      ),
+                      const SizedBox(width: 10,),
+                      Expanded(
+                          child: Text(
+                            st.title,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              decoration: isChecked ? TextDecoration.lineThrough : null,
+                              color: isChecked ? theme.colorScheme.outline : null,
+                            ),
+                          )
+                      )
+                    ],
+                  ),
+                ),
+              );
+            }),
+            const SizedBox(height: 24,)
+          ],
 
           // Today's action
           if (task.isActive) ...[

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:life_pilot/models/subtask.dart';
 import 'package:uuid/uuid.dart';
 import 'package:life_pilot/models/task.dart';
 import 'package:life_pilot/models/enums.dart';
@@ -43,6 +44,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
   String? _alarmSoundId;
   List<AlarmSound> _availableSounds = [];
   final AlarmSoundService _soundService = AlarmSoundService();
+  final List<TextEditingController> _subtaskControllers = [];
 
   bool get _isEditing => widget.existingTask != null;
 
@@ -51,6 +53,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
     super.initState();
     if (_isEditing) {
       _populateFromTask(widget.existingTask!);
+      _loadSubtasks();
     }
     _loadAvailableSounds();
   }
@@ -93,11 +96,25 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
     _ordinal = data['ordinal'] ?? 1;
   }
 
+  Future<void> _loadSubtasks() async {
+    final subtasks = await ref.read(taskProvider).getSubtasks(widget.existingTask!.id);
+    if (mounted) {
+      setState(() {
+        for (final st in subtasks) {
+          _subtaskControllers.add(TextEditingController(text: st.title));
+        }
+      });
+    }
+  }
+
   @override
   void dispose() {
     _soundService.stopPreview();
     _titleController.dispose();
     _descriptionController.dispose();
+    for (final c in _subtaskControllers) {
+      c.dispose();
+    }
     super.dispose();
   }
 
@@ -159,12 +176,28 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
     );
 
     try {
+      final notifier = ref.read(taskProvider);
       if (_isEditing) {
-        await ref.read(taskProvider).updateTask(task);
+        await notifier.updateTask(task);
       } else {
-        await ref.read(taskProvider).addTask(task);
+        await notifier.addTask(task);
       }
-
+      
+      final subtasks = <Subtask>[];
+      for (int i=0; i < _subtaskControllers.length; i++) {
+        final title = _subtaskControllers[i].text.trim();
+        if (title.isNotEmpty) {
+          subtasks.add(
+              Subtask(
+                  id: '${task.id}_sub_$i', 
+                  taskId: task.id, 
+                  title: title,
+                sortOrder: i,
+              )
+          );
+        }
+      }
+      await notifier.saveSubtasks(task.id, subtasks);
       if (mounted) Navigator.of(context).pop();
     } catch (e) {
       if (mounted) {
@@ -213,6 +246,20 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
               ),
               maxLines: 2,
               textCapitalization: TextCapitalization.sentences,
+            ),
+            const SizedBox(height: 24),
+            
+            _sectionTitle('Checklist'),
+            const SizedBox(height: 8),
+            ..._buildSubtaskFields(),
+            TextButton.icon(
+                onPressed: () {
+                  setState(() {
+                    _subtaskControllers.add(TextEditingController());
+                  });
+                }, 
+                icon: const Icon(Icons.add, size: 18,),
+                label: const Text('Add Step'),
             ),
             const SizedBox(height: 24),
 
@@ -650,5 +697,41 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
           },
         );
     }
+  }
+
+  List<Widget> _buildSubtaskFields() {
+    return List.generate(_subtaskControllers.length, (index) {
+      return Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: Row(
+            children: [
+              Icon(Icons.drag_handle, size: 20, color: Theme.of(context).colorScheme.outline),
+              const SizedBox(width: 8),
+              Expanded(
+                  child: TextField(
+                    controller: _subtaskControllers[index],
+                    decoration: InputDecoration(
+                      hintText: 'Stop ${index + 1}',
+                      isDense: true,
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                    ),
+                    textCapitalization: TextCapitalization.sentences,
+                  ),
+              ),
+              IconButton(
+                  icon: const Icon(Icons.close, size: 18),
+                  onPressed: () {
+                    setState(() {
+                      _subtaskControllers[index].dispose();
+                      _subtaskControllers.removeAt(index);
+                    });
+                  },
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+              )
+            ],
+          ),
+      );
+    });
   }
 }

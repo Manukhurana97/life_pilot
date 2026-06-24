@@ -13,6 +13,8 @@ class TaskCard extends ConsumerWidget {
   final VoidCallback? onCompleted;
   final VoidCallback? onSkipped;
   final VoidCallback? onUndo;
+  final int subtaskCount;
+  final int checkedCount;
 
   const TaskCard({
     super.key,
@@ -22,6 +24,8 @@ class TaskCard extends ConsumerWidget {
     this.onCompleted,
     this.onSkipped,
     this.onUndo,
+    this.subtaskCount = 0,
+    this.checkedCount = 0,
   });
 
   @override
@@ -194,6 +198,20 @@ class TaskCard extends ConsumerWidget {
                           ],
                         ),
                       ),
+
+                      if(subtaskCount > 0)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            '$checkedCount/$subtaskCount',
+                            style: theme.textTheme.labelSmall?.copyWith(
+                              color: checkedCount == subtaskCount
+                                  ? Colors.green
+                                  : theme.colorScheme.outline,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
 
                       if(task.isAlarm) 
                         Padding(

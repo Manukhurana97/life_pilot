@@ -3,6 +3,7 @@ import 'package:path/path.dart';
 import 'package:life_pilot/models/task.dart';
 import 'package:life_pilot/models/category.dart';
 import 'package:life_pilot/models/task_log.dart';
+import 'package:life_pilot/models/subtask.dart';
 
 class AppDatabase{
   static final AppDatabase _instance = AppDatabase._internal();
@@ -23,7 +24,7 @@ class AppDatabase{
 
     return await openDatabase(
       path,
-      version: 1,
+      version: 2,
       onCreate: _onCreate,
     );
   }
@@ -81,15 +82,46 @@ class AppDatabase{
     ''');
 
     await db.execute('''
-      CREATE INDEX idx_tasks_Active ON tasks(is_active)
+      CREATE INDEX idx_tasks_Active ON tasks(is_active);
     ''');
+
+    await db.execute(''' 
+      CREATE TABLE subtasks (
+        id TEXT PRIMARY KEY,
+        task_id TEXT NOT NULL,
+        title TEXT NOT NULL,
+        sort_order INTEGER DEFAULT 0,
+        FOREIGN KEY (task_id) REFERENCES tasks (id) ON DELETE CASCADE
+      )
+    ''');
+
+    await db.execute(''' 
+      CREATE INDEX idx_subtasks_task ON subtasks(task_id)
+     ''');
 
     for(final cat in TaskCategory.defaults()){
       await db.insert('categories', cat.toMap());
     }
   }
 
-  // categorries
+  // -- Migrations --
+
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      await db.execute(''' 
+        CREATE TABLE subtasks (
+          id TEXT PRIMARY KEY,
+          task_id TEXT NOT NULL,
+          title TEXT NOT NULL,
+          sort_order INTEGER DEFAULT 0,
+          FOREIGN KEY (task_id) REFERENCE tasks (id) ON DELETE CASCADE
+        )
+      ''');
+      await db.execute('CREATE INDEX idx_subtasks_task ON subtasks(task_id)');
+    }
+  }
+
+  // Categories
   
   Future<List<TaskCategory>> getCategories() async {
     final db = await database;
@@ -289,5 +321,43 @@ class AppDatabase{
     , [taskId, 'done']);
 
     return result.first['c'] as int;
+  }
+
+  // -- Subtasks --
+
+  Future<List<Subtask>> getSubtasks(String taskId) async {
+    final db = await database;
+    final maps = await db.query('subtasks', where: 'task_id = ?', whereArgs: [taskId], orderBy: 'sort_order ASC');
+    return maps.map((m) => Subtask.fromMap(m)).toList();
+  }
+
+  Future<void> insertSubtask(Subtask subtask) async {
+    final db = await database;
+    await db.insert('subtasks', subtask.toMap(), conflictAlgorithm: ConflictAlgorithm.replace);
+  }
+
+  Future<void> updateSubtask(Subtask subtask) async {
+    final db = await database;
+    await db.update('subtasks', subtask.toMap(), where: 'id = ?', whereArgs: [subtask.id]);
+  }
+
+  Future<void> deleteSubtask(String id) async {
+    final db = await database;
+    await db.delete('subtasks', where: 'id = ?', whereArgs: [id]);
+  }
+
+  Future<void> deleteSubtaskForTask(String taskId) async {
+    final db = await database;
+    await db.delete('subtasks', where: 'task_id = ?', whereArgs: [taskId]);
+  }
+
+  Future<void> replaceSubtasks(String taskId, List<Subtask> subtasks) async {
+    final db = await database;
+    await db.transaction((txn) async {
+      await txn.delete('subtasks', where: 'task_id = ?', whereArgs: [taskId]);
+      for (final st in subtasks) {
+        await txn.insert('subtasks', st.toMap());
+      }
+    });
   }
 }
