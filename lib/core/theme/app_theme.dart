@@ -49,7 +49,7 @@ class AppTheme {
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: colorScheme.primaryContainer,
-        foregroundColor: ColorScheme.dark().onPrimaryContainer,
+        foregroundColor: colorScheme.onPrimaryContainer,
         elevation: 2,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),

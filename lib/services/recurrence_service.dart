@@ -82,8 +82,8 @@ class RecurrenceService {
         return monthsDiff >= 0 && monthsDiff % 3 == 0;
 
       case RecurrenceType.yearly:
-        // recurrence {"intervalDays": 10}
-        final month = task.recurrenceDate['intervalDays'] as int? ?? 1;
+        // recurrence {"month": 6, "dayOfMonth": 15}
+        final month = task.recurrenceDate['month'] as int? ?? startDate.day;
         final dayOfMonth =
             task.recurrenceDate['dayOfMonth'] as int? ?? startDate.day;
         final effectiveDay = _clampDay(date.year, date.month, dayOfMonth);

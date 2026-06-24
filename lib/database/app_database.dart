@@ -41,7 +41,7 @@ class AppDatabase{
 
     await db.execute('''
       CREATE TABLE tasks (
-        id TEXT PRMARY KEY,
+        id TEXT PRIMARY KEY,
         title TEXT NOT NULL,
         description TEXT,
         category_id TEXT,
@@ -211,48 +211,48 @@ class AppDatabase{
     final db = await database;
     final logs = await db.query('task_logs', 
         where: 'task_id = ? AND status = ?', 
-        whereArgs: [taskId, 'completed'], 
+        whereArgs: [taskId, 'done'],
         orderBy: 'date DESC');
     if(logs.isEmpty) return 0;
 
-    int steak = 0;
+    int streak = 0;
     final today = DateTime.now();
     final todayNorm = DateTime(today.year, today.month, today.day);
 
     for(int i = 0; i<logs.length; i++){
       final logDate = DateTime.parse(logs[i]['date'] as String);
-      final logDataNorm = DateTime(logDate.year, logDate.month, logDate.day);
+      final logDateNorm = DateTime(logDate.year, logDate.month, logDate.day);
 
       if(i == 0) {
         // Most recent log must be today or  yesterday to have an active streak
-        final diff = todayNorm.difference(logDataNorm).inDays;
+        final diff = todayNorm.difference(logDateNorm).inDays;
         if(diff > 1) return 0;
-        steak = 1;
+        streak = 1;
       } else {
-        final prevData = DateTime.parse(logs[i-1]['date'] as String);
-        final prevDataNorm = DateTime(prevData.year, prevData.month, prevData.day);
-        final diff = prevDataNorm.difference(logDataNorm).inDays;
+        final prevDate = DateTime.parse(logs[i-1]['date'] as String);
+        final prevDataNorm = DateTime(prevDate.year, prevDate.month, prevDate.day);
+        final diff = prevDataNorm.difference(logDateNorm).inDays;
         if(diff == 1){
-          steak++;
+          streak++;
         } else {
           break;
         }
       }
     }
 
-    return steak;
+    return streak;
   }
 
   Future<int> getBestStreakForTask(String taskId) async {
     final db = await database;
     final logs = await db.query('task_logs', 
         where: 'task_id = ? AND status = ?', 
-        whereArgs: [taskId, 'completed'], 
+        whereArgs: [taskId, 'done'],
         orderBy: 'date DESC');
     if(logs.isEmpty) return 0;
 
-    int bestSteak = 1;
-    int currentSteak = 1;
+    int bestStreak = 1;
+    int currentStreak = 1;
 
     for(int i = 1; i<logs.length; i++){
         final prevDate = DateTime.parse(logs[i-1]['date'] as String);
@@ -261,13 +261,13 @@ class AppDatabase{
 
 
       if(diff == 1){
-        currentSteak++;
-        if(currentSteak > bestSteak) bestSteak = currentSteak;
+        currentStreak++;
+        if(currentStreak > bestStreak) bestStreak = currentStreak;
       } else if(diff > 1){
-        currentSteak = 1;
+        currentStreak = 1;
       }
     }
-    return bestSteak;
+    return bestStreak;
   }
 
   Future<Map<String, int>> getCompletionCountsForRange(

@@ -154,7 +154,7 @@ class _StateScreenState extends ConsumerState<StatsScreen> {
     final bars = <BarChartGroupData>[];
 
     for (int i=6; i>=0; i--) {
-      final day = now.subtract(Duration(days: 1));
+      final day = now.subtract(Duration(days: i));
       final dateStr = DateFormat('yyyy-MM-dd').format(day);
       final count = _weeklyData[dateStr] ?? 0;
 

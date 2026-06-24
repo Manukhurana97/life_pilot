@@ -33,7 +33,7 @@ class _AllTasksScreenState extends ConsumerState<AllTasksScreen> {
     }
 
     if (_filterCategory != null) {
-      tasks = tasks.where((t) => t.isActive).toList();
+      tasks = tasks.where((t) => t.categoryId == _filterCategory).toList();
     }
     if (_searchQuery.isNotEmpty) {
       final q = _searchQuery.toLowerCase();

@@ -55,12 +55,12 @@ class TaskCategory {
   static List<TaskCategory> defaults() {
     return [
       TaskCategory(id: 'health', name: 'Health', colorValue: 0xFF4CAF50, icon: Icons.monitor_heart, sortOrder: 0),
-      TaskCategory(id: 'fitness', name: 'fitness', colorValue: 0xFFFF5722, icon: Icons.fitness_center, sortOrder: 0),
-      TaskCategory(id: 'learning', name: 'learning', colorValue: 0xFF2196F3, icon: Icons.school, sortOrder: 0),
-      TaskCategory(id: 'finance', name: 'finance', colorValue: 0xFF9C27B0, icon: Icons.savings, sortOrder: 0),
-      TaskCategory(id: 'medical', name: 'medical', colorValue: 0xFF91E63, icon: Icons.medical_services, sortOrder: 0),
-      TaskCategory(id: 'work', name: 'work', colorValue: 0xFFFF9800, icon: Icons.business_center, sortOrder: 0),
-      TaskCategory(id: 'personal', name: 'personal', colorValue: 0xFF607D8B, icon: Icons.self_improvement, sortOrder: 0),
+      TaskCategory(id: 'fitness', name: 'Fitness', colorValue: 0xFFFF5722, icon: Icons.fitness_center, sortOrder: 0),
+      TaskCategory(id: 'learning', name: 'Learning', colorValue: 0xFF2196F3, icon: Icons.school, sortOrder: 0),
+      TaskCategory(id: 'finance', name: 'Finance', colorValue: 0xFF9C27B0, icon: Icons.savings, sortOrder: 0),
+      TaskCategory(id: 'medical', name: 'Medical', colorValue: 0xFF8BC34A, icon: Icons.medical_services, sortOrder: 0),
+      TaskCategory(id: 'work', name: 'Work', colorValue: 0xFFFF9800, icon: Icons.business_center, sortOrder: 0),
+      TaskCategory(id: 'personal', name: 'Personal', colorValue: 0xFF607D8B, icon: Icons.self_improvement, sortOrder: 0),
     ];
   }
 }
