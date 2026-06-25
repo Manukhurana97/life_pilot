@@ -1,7 +1,7 @@
 manu@Manus-MacBook-Air life_pilot % flutter clean
 flutter pub get
 flutter run
-Deleting build...                                                  256ms
+Deleting build...                                                    4ms
 Deleting .dart_tool...                                               2ms
 Deleting ephemeral...                                                0ms
 Deleting Generated.xcconfig...                                       0ms
@@ -73,50 +73,24 @@ an issue against a plugin: https://docs.flutter.dev/release/breaking-changes/mig
 If you are a plugin author, please migrate your plugin to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors
 Note: /Users/manu/.pub-cache/hosted/pub.dev/android_alarm_manager_plus-5.0.0/android/src/main/java/dev/fluttercommunity/plus/androidalarmmanager/AlarmService.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
-Running Gradle task 'assembleDebug'...                             14.0s
+Running Gradle task 'assembleDebug'...                             19.3s
 ✓ Built build/app/outputs/flutter-apk/app-debug.apk
-Installing build/app/outputs/flutter-apk/app-debug.apk...          12.9s
-I/FlutterActivityAndFragmentDelegate( 9290): If you are attempting to set --enable-dart-profiling via Intent extras to launch a Flutter component outside of using the Flutter CLI, note that support for setting engine flags on Android via Intent will soon be dropped; see https://github.com/flutter/flutter/issues/180686 for more information on this breaking change. To migrate, set --enable-dart-profiling or any other flags specified via Intent extras on the command line instead or see https://github.com/flutter/flutter/blob/main/docs/engine/Flutter-Android-Engine-Flags.md for alternative methods.
-D/FlutterJNI( 9290): Beginning load of flutter...
-D/FlutterJNI( 9290): flutter (null) was loaded normally!
-I/flutter ( 9290): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
-D/FlutterRenderer( 9290): Width is zero. 0,0
-D/FlutterRenderer( 9290): Width is zero. 0,0
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-I/FlutterBackgroundExecutor( 9290): Starting AlarmService...
-I/flutter ( 9290): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
-I/Choreographer( 9290): Skipped 66 frames!  The application may be doing too much work on its main thread.
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): handleResized, msg:, frameChanged:false, configChanged:false, displayChanged:false, attachedFrameChanged:false, compatScaleChanged:false, pendingDragResizing=false
-I/DynamicFramerate [FRTCConfigManager]( 9290): initFrameRateConfig:
-I/DynamicFramerate [FRTCConfigManager]( 9290):  levelsFor120hz: [120, 60]
-I/DynamicFramerate [FRTCConfigManager]( 9290):  thresholdsFor120hz: [200]
-I/DynamicFramerate [FRTCConfigManager]( 9290):  levelsFor90hz: [90]
-I/DynamicFramerate [FRTCConfigManager]( 9290):  thresholdsFor90hz: []
-I/DynamicFramerate [FRTCConfigManager]( 9290): FRTCConfigManager: FRTC_CAPABILITY = 120, package name = com.mk.life_pilot, WINDOW_ANIMATION_SPEED_RATE = 10, SCROLL_ANIMATION_SPEED_RATE = 20, PACKAGE_ENABLE = false
-I/DynamicFramerate [DynamicFrameRateController]( 9290): init info: mPackageName = com.mk.life_pilot, mIsEnabled = false
-I/AlarmService( 9290): AlarmService started!
-D/WindowLayoutComponentImpl( 9290): app addWindowLayoutInfoListener activity:com.mk.life_pilot.MainActivity@3f7a39e consumer :androidx.window.layout.adapter.extensions.MulticastConsumer@788da91
-D/WindowLayoutComponentImpl( 9290): Register WindowLayoutInfoListener on Context=com.mk.life_pilot.MainActivity@3f7a39e, of which baseContext=android.app.ContextImpl@5036df6
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-I/PowerHalMgrImpl( 9290): perfLockAcq is supported.
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-I/m.mk.life_pilot( 9290): Compiler allocated 7207KB to compile void android.view.ViewRootImpl.performTraversals()
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-Syncing files to device RMX3944...                                  34ms
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+Installing build/app/outputs/flutter-apk/app-debug.apk...           4.9s
+I/FlutterActivityAndFragmentDelegate(25160): If you are attempting to set --enable-dart-profiling via Intent extras to launch a Flutter component outside of using the Flutter CLI, note that support for setting engine flags on Android via Intent will soon be dropped; see https://github.com/flutter/flutter/issues/180686 for more information on this breaking change. To migrate, set --enable-dart-profiling or any other flags specified via Intent extras on the command line instead or see https://github.com/flutter/flutter/blob/main/docs/engine/Flutter-Android-Engine-Flags.md for alternative methods.
+D/FlutterJNI(25160): Beginning load of flutter...
+D/FlutterJNI(25160): flutter (null) was loaded normally!
+I/flutter (25160): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+D/FlutterRenderer(25160): Width is zero. 0,0
+D/FlutterRenderer(25160): Width is zero. 0,0
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/SurfaceView(25160): 196093619 handleSyncNoBuffer
+W/VRI[MainActivity](25160): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+I/FlutterBackgroundExecutor(25160): Starting AlarmService...
+I/AndroidAlarmManagerPlugin(25160): onAttachedToEngine
+I/m.mk.life_pilot(25160): Compiler allocated 7207KB to compile void android.view.ViewRootImpl.performTraversals()
+D/colorx  (25160): I can't find colorx layer , let's enumerate colorx layers first.
+I/flutter (25160): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+Syncing files to device RMX3944...                                 134ms
 
 Flutter run key commands.
 r Hot reload. 🔥🔥🔥
@@ -126,341 +100,417 @@ d Detach (terminate "flutter run" but leave application running).
 c Clear the screen
 q Quit (terminate the application on the device).
 
-A Dart VM Service on RMX3944 is available at: http://127.0.0.1:49359/nUMl_BaFptk=/
-The Flutter DevTools debugger and profiler on RMX3944 is available at: http://127.0.0.1:49359/nUMl_BaFptk=/devtools/?uri=ws://127.0.0.1:49359/nUMl_BaFptk=/ws
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-D/VRI[MainActivity]( 9290):  debugCancelDraw some OnPreDrawListener onPreDraw return false,cancelDraw=true,count=50,android.view.ViewRootImpl@d575b3c
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-D/ActivityThread( 9290): ComponentInfo{com.mk.life_pilot/com.mk.life_pilot.MainActivity} checkFinished=false 4
-D/ResourcesManagerExtImpl( 9290): applyConfigurationToAppResourcesLocked app.getDisplayId() return callback.displayId:0
-I/flutter ( 9290): [ALARM] canScheduleExactNotifications=true
-D/ViewRootImplExtImpl( 9290): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=360, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2400), relayoutAsync=false, flags=0, newFlags=1258302720, title=com.mk.life_pilot/com.mk.life_pilot.MainActivity
-D/VRI[MainActivity]( 9290): relayoutWindow result, sizeChanged:false, surfaceControlChanged:false, transformHintChanged:false, mSurfaceSize:Point(1080, 2400), mLastSurfaceSize:Point(1080, 2400), mWidth:1080, mHeight:2400, requestedWidth:1080, requestedHeight:2400, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:true, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][0,0]}, relayoutAsync:false, mSyncSeqId:0
-W/VRI[MainActivity]( 9290): updateBlastSurfaceIfNeeded, surfaceSize:Point(1080, 2400), lastSurfaceSize:Point(1080, 2400), format:-3, blastBufferQueue:android.graphics.BLASTBufferQueue@34acef
-W/VRI[MainActivity]( 9290): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
-I/flutter ( 9290): [SPLASH] Flutter splash screen initState
-I/flutter ( 9290): [SPLASH] showing splash: assets/image/original/splash/light.png (isDark=false)
-I/flutter ( 9290): [SPLASH] Flutter out splash screen
-I/GrallocExtra( 9290): gralloc_extra_query:is_SW3D 0
-D/BLASTBufferQueue( 9290): [73d3470 SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#1](f:0,a:1) acquireNextBufferLocked size=1080x2400 mFrameNumber=1 applyTransaction=true mTimestamp=33695791408084(auto) mPendingTransactions.size=0 graphicBufferId=39900246179850 transform=0
-D/LibMBrainProxy( 9290): Init Paramters
-W/ServiceManagerCppClient( 9290): Failed to get isDeclared for vendor.mediatek.hardware.mbrain.IMBrain/default: Status(-1, EX_SECURITY): 'SELinux denied for service.'
-D/SurfaceView( 9290): 121451632 finishedDrawing
-D/SurfaceView( 9290): 121451632 performDrawFinished mAttachedToWindow true
-I/Choreographer( 9290): Skipped 166 frames!  The application may be doing too much work on its main thread.
-D/VRI[MainActivity]( 9290):  debugCancelDraw  cancelDraw=false,count = 107,android.view.ViewRootImpl@d575b3c
-I/SurfaceControl( 9290):  setExtendedRangeBrightness sc=Surface(name=com.mk.life_pilot/com.mk.life_pilot.MainActivity)/@0x64140a6,currentBufferRatio=1.0,desiredRatio=1.0
-D/SurfaceView( 9290): 121451632 dispatchDraw mDrawFinished true isAboveParent false (mPrivateFlags & PFLAG_SKIP_DRAW) 128
-D/SurfaceView( 9290): 121451632 clearSurfaceViewPort mCornerRadius 0.0
-D/BLASTBufferQueue( 9290): [VRI[MainActivity][com.mk.life_pilot/com.mk.life_pilot.MainActivity]#0](f:0,a:1) acquireNextBufferLocked size=1080x2400 mFrameNumber=1 applyTransaction=true mTimestamp=33696324101084(auto) mPendingTransactions.size=0 graphicBufferId=39900246179858 transform=0
-D/VRI[MainActivity]( 9290): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true syncBuffer=false
-D/ExtensionsLoader( 9290): createInstance(64bit) : createExtendedFactory
-D/ExtensionsLoader( 9290): Opened libSchedAssistExtImpl.so
-D/VRI[MainActivity]( 9290): draw finished. seqId=0
-I/HWUI    ( 9290): Davey! duration=2791ms; Flags=1, FrameTimelineVsyncId=4101532, IntendedVsync=33693533047668, Vsync=33696299714390, InputEventId=0, HandleInputStart=33696302228161, AnimationStart=33696302229392, PerformTraversalsStart=33696302257315, DrawStart=33696303845700, FrameDeadline=33693553047668, FrameStartTime=33696301548392, FrameInterval=16666667, WorkloadTarget=20000000, SyncQueued=33696308149007, SyncStart=33696308253007, IssueDrawCommandsStart=33696308507854, SwapBuffers=33696321120777, FrameCompleted=33696324986623, DequeueBufferDuration=1762461, QueueBufferDuration=419923, GpuCompleted=33696324986623, SwapBuffersCompleted=33696324673084, DisplayPresentTime=487731441640, CommandSubmissionCompleted=33696321120777,
-D/VRI[MainActivity]( 9290): onFocusEvent true
-I/m.mk.life_pilot( 9290): AssetManager2(0xb4000070bde41028) locale list changing from [] to [en-IN]
-I/m.mk.life_pilot( 9290): AssetManager2(0xb4000070bdf85428) locale list changing from [] to [en-IN]
-I/m.mk.life_pilot( 9290): AssetManager2(0xb4000070bdf85a28) locale list changing from [] to [en-IN]
-D/ProfileInstaller( 9290): Installing profile for com.mk.life_pilot
-D/ViewRootImplExtImpl( 9290): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=360, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2400), relayoutAsync=true, flags=0, newFlags=1258302720, title=com.mk.life_pilot/com.mk.life_pilot.MainActivity
-D/VRI[MainActivity]( 9290): relayoutWindow result, sizeChanged:false, surfaceControlChanged:false, transformHintChanged:false, mSurfaceSize:Point(1080, 2400), mLastSurfaceSize:Point(1080, 2400), mWidth:1080, mHeight:2400, requestedWidth:1080, requestedHeight:2400, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:true, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][1080,2400]}, relayoutAsync:true, mSyncSeqId:0
-W/VRI[MainActivity]( 9290): updateBlastSurfaceIfNeeded, surfaceSize:Point(1080, 2400), lastSurfaceSize:Point(1080, 2400), format:-3, blastBufferQueue:android.graphics.BLASTBufferQueue@34acef
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-I/SurfaceControl( 9290):  setExtendedRangeBrightness sc=Surface(name=com.mk.life_pilot/com.mk.life_pilot.MainActivity)/@0x64140a6,currentBufferRatio=1.0,desiredRatio=1.0
-D/InsetsController( 9290): hide(ime(), fromIme=false)
-I/ImeTracker( 9290): com.mk.life_pilot:d95b424d: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
-D/OplusScrollToTopManager( 9290): com.mk.life_pilot/com.mk.life_pilot.MainActivity,This com.android.internal.policy.DecorView{ee16e10 V.E...... R....... 0,0-1080,2400 aid=0 alpha=1.0 viewInfo = }[MainActivity] change focus to true
-E/IJankManager( 9290): slideSceneEnd unknown scene 1000 mScene:-1
-D/OplusSystemUINavigationGestureExtImpl( 9290): regionString = null
-D/OplusSystemUINavigationGestureExtImpl( 9290): regionString = null
-D/ViewExtract( 9290): [OplusViewExtractManager] OplusViewExtractManager init com.mk.life_pilot
-D/OplusInputMethodManagerInternal( 9290): get inputMethodManager extension: com.android.internal.view.IInputMethodManager$Stub$Proxy@3b7dae2
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-D/WindowOnBackDispatcher( 9290):  predictive settings is disabled for com.mk.life_pilot
-W/WindowOnBackDispatcher( 9290): OnBackInvokedCallback is not enabled for the application.
-W/WindowOnBackDispatcher( 9290): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-I/ImeTracker( 9290): com.mk.life_pilot:1d358454: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
-D/InsetsController( 9290): show(ime(), fromIme=false)
-D/InsetsController( 9290): Setting requestedVisibleTypes to -1 (was -9)
-W/VRI[MainActivity]( 9290): handleResized abandoned!
-D/InputConnectionAdaptor( 9290): The input method toggled cursor monitoring on
-W/VRI[MainActivity]( 9290): handleResized abandoned!
-W/VRI[MainActivity]( 9290): handleResized abandoned!
-W/InteractionJankMonitor( 9290): Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.mk.life_pilot
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-I/ImeTracker( 9290): com.mk.life_pilot:1d358454: onShown
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-W/m.mk.life_pilot( 9290): userfaultfd: MOVE ioctl seems unsupported: Connection timed out
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-I/PowerHalMgrImpl( 9290): hdl:8740, pid:9290
-I/PowerHalMgrImpl( 9290): hdl:8742, pid:9290
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-I/ScrollIdentify( 9290): on fling
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-I/PowerHalMgrImpl( 9290): hdl:8743, pid:9290
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-I/PowerHalMgrImpl( 9290): hdl:8749, pid:9290
-I/PowerHalMgrImpl( 9290): hdl:8750, pid:9290
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-I/ScrollIdentify( 9290): on fling
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-I/PowerHalMgrImpl( 9290): hdl:8751, pid:9290
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-I/VelocityTracker( 9290): LSQ2 speed rezero
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-I/ImeTracker( 9290): com.mk.life_pilot:f1208ed4: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
-D/InsetsController( 9290): hide(ime(), fromIme=false)
-W/WindowOnBackDispatcher( 9290): sendCancelIfRunning: isInProgress=false callback=ImeCallback=ImeOnBackInvokedCallback@104583564 hash=93587596 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@1af253
-D/InsetsController( 9290): Setting requestedVisibleTypes to -9 (was -1)
-D/CompatChangeReporter( 9290): Compat change id reported: 395521150; UID 10422; state: ENABLED
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-E/m.mk.life_pilot( 9290): legacy_receive_flag: 0
-D/m.mk.life_pilot( 9290): /proc/perfmgr_sbe/sbe_ioctl not exists: No such file or directory
-W/VRI[MainActivity]( 9290): handleResized abandoned!
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-I/ImeTracker( 9290): system_server:2b418e18: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-W/RemoteInputConnectionImpl( 9290): requestCursorUpdates on inactive InputConnection
-W/VRI[MainActivity]( 9290): handleResized abandoned!
-W/VRI[MainActivity]( 9290): handleResized abandoned!
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-D/Vibrator( 9290): SystemVibrator Created
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-I/PowerHalMgrImpl( 9290): hdl:8763, pid:9290
-I/PowerHalMgrImpl( 9290): hdl:8765, pid:9290
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-I/ScrollIdentify( 9290): on fling
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-I/PowerHalMgrImpl( 9290): hdl:8767, pid:9290
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-I/PowerHalMgrImpl( 9290): hdl:8774, pid:9290
-I/PowerHalMgrImpl( 9290): hdl:8776, pid:9290
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-I/PowerHalMgrImpl( 9290): hdl:8778, pid:9290
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-I/PowerHalMgrImpl( 9290): hdl:8786, pid:9290
-I/PowerHalMgrImpl( 9290): hdl:8788, pid:9290
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-I/ScrollIdentify( 9290): on fling
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-I/PowerHalMgrImpl( 9290): hdl:8790, pid:9290
-I/m.mk.life_pilot( 9290): AssetManager2(0xb4000070bb5dbe28) locale list changing from [] to [en-IN]
-I/m.mk.life_pilot( 9290): AssetManager2(0xb4000070bb5dcd28) locale list changing from [] to [en-IN]
-I/m.mk.life_pilot( 9290): AssetManager2(0xb4000070bb665428) locale list changing from [] to [en-IN]
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-I/ImeTracker( 9290): com.mk.life_pilot:7a28430: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
-D/InsetsController( 9290): show(ime(), fromIme=false)
-D/InsetsController( 9290): Setting requestedVisibleTypes to -1 (was -9)
-W/VRI[MainActivity]( 9290): handleResized abandoned!
-I/AssistStructure( 9290): Flattened final assist data: 476 bytes, containing 1 windows, 3 views
-D/InputConnectionAdaptor( 9290): The input method toggled cursor monitoring on
-W/VRI[MainActivity]( 9290): handleResized abandoned!
-W/VRI[MainActivity]( 9290): handleResized abandoned!
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-I/ImeTracker( 9290): com.mk.life_pilot:7a28430: onShown
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-D/FlutterJNI( 9290): Sending viewport metrics to the engine.
-I/PowerHalMgrImpl( 9290): hdl:8802, pid:9290
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-I/ImeTracker( 9290): com.mk.life_pilot:d88d3d61: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
-D/InsetsController( 9290): show(ime(), fromIme=false)
-I/ImeTracker( 9290): com.mk.life_pilot:d88d3d61: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
-D/InputConnectionAdaptor( 9290): The input method toggled cursor monitoring on
-I/AssistStructure( 9290): Flattened final assist data: 476 bytes, containing 1 windows, 3 views
-D/InputConnectionAdaptor( 9290): The input method toggled cursor monitoring off
-D/InputConnectionAdaptor( 9290): The input method toggled cursor monitoring on
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-I/PowerHalMgrImpl( 9290): hdl:8822, pid:9290
-I/PowerHalMgrImpl( 9290): hdl:8824, pid:9290
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-I/ScrollIdentify( 9290): on fling
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-I/PowerHalMgrImpl( 9290): hdl:8826, pid:9290
-I/PowerHalMgrImpl( 9290): hdl:8830, pid:9290
-I/PowerHalMgrImpl( 9290): hdl:8832, pid:9290
-I/VelocityTracker( 9290): LSQ2 speed rezero
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-I/VelocityTracker( 9290): LSQ2 speed rezero
-I/ScrollIdentify( 9290): on fling
-I/VelocityTracker( 9290): LSQ2 speed rezero
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-I/PowerHalMgrImpl( 9290): hdl:8834, pid:9290
-E/IJankManager( 9290): slideSceneEnd unknown scene 1003 mScene:-1
-D/OplusViewDragTouchViewHelper( 9290): dispatchTouchView action = 1
-D/ViewRootImplExtImpl( 9290): the up motion event handled by client, just return
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-I/AlarmService( 9290): cancel: broadcast receiver not found
-E/SQLiteLog( 9290): (1) table subtasks has no column named sortOrder in "INSERT INTO subtasks (id, task_id, title, sortOrder) VALUES (?, ?, ?, ?)"
-I/PowerHalMgrImpl( 9290): hdl:8839, pid:9290
-
+A Dart VM Service on RMX3944 is available at: http://127.0.0.1:50966/8cMxqFELbNE=/
+The Flutter DevTools debugger and profiler on RMX3944 is available at: http://127.0.0.1:50966/8cMxqFELbNE=/devtools/?uri=ws://127.0.0.1:50966/8cMxqFELbNE=/ws
+I/Choreographer(25160): Skipped 81 frames!  The application may be doing too much work on its main thread.
+W/VRI[MainActivity](25160): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+W/VRI[MainActivity](25160): handleResized, msg:, frameChanged:false, configChanged:false, displayChanged:false, attachedFrameChanged:false, compatScaleChanged:false, pendingDragResizing=false
+I/DynamicFramerate [FRTCConfigManager](25160): initFrameRateConfig:
+I/DynamicFramerate [FRTCConfigManager](25160):  levelsFor120hz: [120, 60]
+I/DynamicFramerate [FRTCConfigManager](25160):  thresholdsFor120hz: [200]
+I/DynamicFramerate [FRTCConfigManager](25160):  levelsFor90hz: [90]
+I/DynamicFramerate [FRTCConfigManager](25160):  thresholdsFor90hz: []
+I/DynamicFramerate [FRTCConfigManager](25160): FRTCConfigManager: FRTC_CAPABILITY = 120, package name = com.mk.life_pilot, WINDOW_ANIMATION_SPEED_RATE = 10, SCROLL_ANIMATION_SPEED_RATE = 20, PACKAGE_ENABLE = false
+I/DynamicFramerate [DynamicFrameRateController](25160): init info: mPackageName = com.mk.life_pilot, mIsEnabled = false
+I/AlarmService(25160): AlarmService started!
+D/WindowLayoutComponentImpl(25160): app addWindowLayoutInfoListener activity:com.mk.life_pilot.MainActivity@3f7a39e consumer :androidx.window.layout.adapter.extensions.MulticastConsumer@3af5f7
+D/WindowLayoutComponentImpl(25160): Register WindowLayoutInfoListener on Context=com.mk.life_pilot.MainActivity@3f7a39e, of which baseContext=android.app.ContextImpl@4162c64
+W/VRI[MainActivity](25160): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+I/flutter (25160): [ALARM] canScheduleExactNotifications=true
+W/VRI[MainActivity](25160): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+I/flutter (25160): [SPLASH] Flutter splash screen initState
+I/flutter (25160): [SPLASH] showing splash: assets/image/original/splash/light.png (isDark=false)
+I/Choreographer(25160): Skipped 136 frames!  The application may be doing too much work on its main thread.
+W/VRI[MainActivity](25160): performTraversals: cancelAndRedraw, mLastPerformTraversalsSkipDrawReasonpredraw_io.flutter.embedding.android.FlutterActivityAndFragmentDelegate$2
+I/flutter (25160): [SPLASH] Flutter out splash screen
+I/GrallocExtra(25160): gralloc_extra_query:is_SW3D 0
+D/BLASTBufferQueue(25160): [bb026b3 SurfaceView[com.mk.life_pilot/com.mk.life_pilot.MainActivity]#1](f:0,a:1) acquireNextBufferLocked size=1080x2400 mFrameNumber=1 applyTransaction=true mTimestamp=59272523868147(auto) mPendingTransactions.size=0 graphicBufferId=108061377167370 transform=0
+D/SurfaceView(25160): 196093619 finishedDrawing
+D/SurfaceView(25160): 196093619 performDrawFinished mAttachedToWindow true
+D/LibMBrainProxy(25160): Init Paramters
+W/ServiceManagerCppClient(25160): Failed to get isDeclared for vendor.mediatek.hardware.mbrain.IMBrain/default: Status(-1, EX_SECURITY): 'SELinux denied for service.'
+I/m.mk.life_pilot(25160): AssetManager2(0xb4000070babec928) locale list changing from [] to [en-IN]
+I/m.mk.life_pilot(25160): AssetManager2(0xb4000070babecf28) locale list changing from [] to [en-IN]
+I/m.mk.life_pilot(25160): AssetManager2(0xb4000070babed528) locale list changing from [] to [en-IN]
+I/Quality (25160): GetResourcesInfo:60701154,/data/app/~~DoNZ1sGGxpnc3o2QYmxmsQ==/com.truecaller-DQmlMssc26QIo1iHHvMrLQ==/base.apk
+I/Choreographer(25160): Skipped 81 frames!  The application may be doing too much work on its main thread.
+D/ViewRootImplExtImpl(25160): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=360, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2400), relayoutAsync=false, flags=0, newFlags=1258302720, title=com.mk.life_pilot/com.mk.life_pilot.MainActivity
+D/VRI[MainActivity](25160): relayoutWindow result, sizeChanged:false, surfaceControlChanged:false, transformHintChanged:false, mSurfaceSize:Point(1080, 2400), mLastSurfaceSize:Point(1080, 2400), mWidth:1080, mHeight:2400, requestedWidth:1080, requestedHeight:2400, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:true, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][0,0]}, relayoutAsync:false, mSyncSeqId:0
+W/VRI[MainActivity](25160): updateBlastSurfaceIfNeeded, surfaceSize:Point(1080, 2400), lastSurfaceSize:Point(1080, 2400), format:-3, blastBufferQueue:android.graphics.BLASTBufferQueue@22a03e8
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+I/SurfaceControl(25160):  setExtendedRangeBrightness sc=Surface(name=com.mk.life_pilot/com.mk.life_pilot.MainActivity)/@0xa8f7694,currentBufferRatio=1.0,desiredRatio=1.0
+D/SurfaceView(25160): 196093619 dispatchDraw mDrawFinished true isAboveParent false (mPrivateFlags & PFLAG_SKIP_DRAW) 128
+D/SurfaceView(25160): 196093619 clearSurfaceViewPort mCornerRadius 0.0
+I/Quality (25160): GetResourcesInfo:108978001,total
+D/BLASTBufferQueue(25160): [VRI[MainActivity][com.mk.life_pilot/com.mk.life_pilot.MainActivity]#0](f:0,a:1) acquireNextBufferLocked size=1080x2400 mFrameNumber=1 applyTransaction=true mTimestamp=59273947627917(auto) mPendingTransactions.size=0 graphicBufferId=108061377167378 transform=0
+D/VRI[MainActivity](25160): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true syncBuffer=false
+D/ExtensionsLoader(25160): createInstance(64bit) : createExtendedFactory
+D/ExtensionsLoader(25160): Opened libSchedAssistExtImpl.so
+D/VRI[MainActivity](25160): draw finished. seqId=0
+I/HWUI    (25160): Davey! duration=1393ms; Flags=1, FrameTimelineVsyncId=13639323, IntendedVsync=59272556005247, Vsync=59273906005274, InputEventId=0, HandleInputStart=59273919303840, AnimationStart=59273919305070, PerformTraversalsStart=59273919342686, DrawStart=59273931901147, FrameDeadline=59272576005247, FrameStartTime=59273918638378, FrameInterval=16666667, WorkloadTarget=20000000, SyncQueued=59273933721070, SyncStart=59273933942609, IssueDrawCommandsStart=59273934190609, SwapBuffers=59273943986378, FrameCompleted=59273949453455, DequeueBufferDuration=7435692, QueueBufferDuration=501846, GpuCompleted=59273949453455, SwapBuffersCompleted=59273948289994, DisplayPresentTime=487671752376, CommandSubmissionCompleted=59273943986378,
+D/VRI[MainActivity](25160): onFocusEvent true
+D/ProfileInstaller(25160): Installing profile for com.mk.life_pilot
+D/InsetsController(25160): hide(ime(), fromIme=false)
+I/ImeTracker(25160): com.mk.life_pilot:a2708218: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/OplusScrollToTopManager(25160): com.mk.life_pilot/com.mk.life_pilot.MainActivity,This com.android.internal.policy.DecorView{500c2d3 V.E...... R....... 0,0-1080,2400 aid=0 alpha=1.0 viewInfo = }[MainActivity] change focus to true
+W/m.mk.life_pilot(25160): userfaultfd: MOVE ioctl seems unsupported: Connection timed out
+I/m.mk.life_pilot(25160): Background concurrent mark compact GC freed 7224KB AllocSpace bytes, 10(232KB) LOS objects, 66% free, 3118KB/9262KB, paused 360us,5.504ms total 67.401ms
+E/IJankManager(25160): slideSceneEnd unknown scene 1000 mScene:-1
+D/OplusSystemUINavigationGestureExtImpl(25160): regionString = null
+D/OplusSystemUINavigationGestureExtImpl(25160): regionString = null
+D/ViewExtract(25160): [OplusViewExtractManager] OplusViewExtractManager init com.mk.life_pilot
+D/OplusInputMethodManagerInternal(25160): get inputMethodManager extension: com.android.internal.view.IInputMethodManager$Stub$Proxy@4c7acc4
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/m.mk.life_pilot(25160): AssetManager2(0xb4000070ba821e28) locale list changing from [] to [en-IN]
+I/m.mk.life_pilot(25160): AssetManager2(0xb4000070ba822428) locale list changing from [] to [en-IN]
+I/m.mk.life_pilot(25160): AssetManager2(0xb4000070ba822728) locale list changing from [] to [en-IN]
+D/WindowOnBackDispatcher(25160):  predictive settings is disabled for com.mk.life_pilot
+W/WindowOnBackDispatcher(25160): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(25160): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/ImeTracker(25160): com.mk.life_pilot:7650eaab: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+D/InsetsController(25160): show(ime(), fromIme=false)
+D/InsetsController(25160): Setting requestedVisibleTypes to -1 (was -9)
+W/VRI[MainActivity](25160): handleResized abandoned!
+D/InputConnectionAdaptor(25160): The input method toggled cursor monitoring on
+W/VRI[MainActivity](25160): handleResized abandoned!
+W/VRI[MainActivity](25160): handleResized abandoned!
+D/ImfJankInfo(25160): reportImfJank: {"client":"com.mk.life_pilot","system_pressure":{"cpu":false,"mem":true,"thermal":false},"ime_package_name":"com.google.android.inputmethod.latin"}
+W/InteractionJankMonitor(25160): Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.mk.life_pilot
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+I/ImeTracker(25160): com.mk.life_pilot:7650eaab: onShown
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+I/PowerHalMgrImpl(25160): perfLockAcq is supported.
+I/PowerHalMgrImpl(25160): hdl:19612, pid:25160
+I/PowerHalMgrImpl(25160): hdl:19613, pid:25160
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+I/ScrollIdentify(25160): on fling
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/PowerHalMgrImpl(25160): hdl:19614, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+E/m.mk.life_pilot(25160): legacy_receive_flag: 0
+D/m.mk.life_pilot(25160): /proc/perfmgr_sbe/sbe_ioctl not exists: No such file or directory
+I/ImeTracker(25160): com.mk.life_pilot:76c42b37: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+D/InsetsController(25160): show(ime(), fromIme=false)
+I/ImeTracker(25160): com.mk.life_pilot:76c42b37: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/InputConnectionAdaptor(25160): The input method toggled cursor monitoring on
+I/AssistStructure(25160): Flattened final assist data: 476 bytes, containing 1 windows, 3 views
+D/InputConnectionAdaptor(25160): The input method toggled cursor monitoring off
+D/InputConnectionAdaptor(25160): The input method toggled cursor monitoring on
+I/PowerHalMgrImpl(25160): hdl:19631, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/ImeTracker(25160): com.mk.life_pilot:544d3639: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+D/InsetsController(25160): show(ime(), fromIme=false)
+I/ImeTracker(25160): com.mk.life_pilot:544d3639: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/InputConnectionAdaptor(25160): The input method toggled cursor monitoring on
+I/AssistStructure(25160): Flattened final assist data: 476 bytes, containing 1 windows, 3 views
+D/InputConnectionAdaptor(25160): The input method toggled cursor monitoring off
+D/InputConnectionAdaptor(25160): The input method toggled cursor monitoring on
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+I/PowerHalMgrImpl(25160): hdl:19648, pid:25160
+I/PowerHalMgrImpl(25160): hdl:19650, pid:25160
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+I/ScrollIdentify(25160): on fling
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/PowerHalMgrImpl(25160): hdl:19652, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+I/PowerHalMgrImpl(25160): hdl:19659, pid:25160
+I/PowerHalMgrImpl(25160): hdl:19661, pid:25160
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+I/ScrollIdentify(25160): on fling
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/PowerHalMgrImpl(25160): hdl:19664, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+I/PowerHalMgrImpl(25160): hdl:19668, pid:25160
+I/PowerHalMgrImpl(25160): hdl:19670, pid:25160
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+I/ScrollIdentify(25160): on fling
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/PowerHalMgrImpl(25160): hdl:19671, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/ImeTracker(25160): com.mk.life_pilot:fab9c738: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+D/InsetsController(25160): hide(ime(), fromIme=false)
+W/WindowOnBackDispatcher(25160): sendCancelIfRunning: isInProgress=false callback=ImeCallback=ImeOnBackInvokedCallback@104583564 hash=38990263 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@ea8bbd8
+D/InsetsController(25160): Setting requestedVisibleTypes to -9 (was -1)
+D/CompatChangeReporter(25160): Compat change id reported: 395521150; UID 10424; state: ENABLED
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+W/VRI[MainActivity](25160): handleResized abandoned!
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+I/ImeTracker(25160): com.mk.life_pilot:f2c85ead: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+I/Quality (25160): local:ime_anim_jank,pkgName:com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME,flag:2,jankCount:1,jankCountLocal:1,preCount:2
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+W/RemoteInputConnectionImpl(25160): requestCursorUpdates on inactive InputConnection
+W/VRI[MainActivity](25160): handleResized abandoned!
+W/VRI[MainActivity](25160): handleResized abandoned!
+I/PowerHalMgrImpl(25160): hdl:19677, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+D/Vibrator(25160): SystemVibrator Created
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+I/PowerHalMgrImpl(25160): hdl:19685, pid:25160
+I/PowerHalMgrImpl(25160): hdl:19687, pid:25160
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/PowerHalMgrImpl(25160): hdl:19688, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/ImeTracker(25160): com.mk.life_pilot:7b1c7090: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+D/InsetsController(25160): show(ime(), fromIme=false)
+D/InsetsController(25160): Setting requestedVisibleTypes to -1 (was -9)
+W/VRI[MainActivity](25160): handleResized abandoned!
+D/InputConnectionAdaptor(25160): The input method toggled cursor monitoring on
+W/VRI[MainActivity](25160): handleResized abandoned!
+W/VRI[MainActivity](25160): handleResized abandoned!
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+I/Quality (25160): local:ime_anim_jank,pkgName:com.google.android.inputmethod.latin/com.android.inputmethod.latin.LatinIME,flag:2,jankCount:1,jankCountLocal:1,preCount:1
+I/ImeTracker(25160): com.mk.life_pilot:7b1c7090: onShown
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+I/PowerHalMgrImpl(25160): hdl:19697, pid:25160
+I/PowerHalMgrImpl(25160): hdl:19698, pid:25160
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+I/ScrollIdentify(25160): on fling
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/PowerHalMgrImpl(25160): hdl:19699, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+I/PowerHalMgrImpl(25160): hdl:19704, pid:25160
+I/PowerHalMgrImpl(25160): hdl:19706, pid:25160
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+I/ScrollIdentify(25160): on fling
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/PowerHalMgrImpl(25160): hdl:19708, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+I/PowerHalMgrImpl(25160): hdl:19712, pid:25160
+I/PowerHalMgrImpl(25160): hdl:19714, pid:25160
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+I/ScrollIdentify(25160): on fling
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/PowerHalMgrImpl(25160): hdl:19716, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/PowerHalMgrImpl(25160): hdl:19727, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/AlarmService(25160): cancel: broadcast receiver not found
+I/flutter (25160): [ALARM] scheduleAlarm for "Test" isAlarm=true startTime=00:40 sound=android dueDates=1
+I/flutter (25160): [ALARM] Scheduling alarm at 2026-06-26 00:40:00.000 (id=2209305) via AndroidAlarmManager
+I/flutter (25160): [ALARM] Alarm scheduled via AndroidAlarmManager
+I/flutter (25160): [ALARM] Total pending notifications: 2
+I/flutter (25160): [ALARM] pending id=209305 title=Test
+I/flutter (25160): [ALARM] pending id=209306 title=Test
+I/ImeTracker(25160): com.mk.life_pilot:fe3a2dcc: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+D/InsetsController(25160): hide(ime(), fromIme=false)
+W/WindowOnBackDispatcher(25160): sendCancelIfRunning: isInProgress=false callback=ImeCallback=ImeOnBackInvokedCallback@104583564 hash=174852389 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@c21c228
+D/InsetsController(25160): Setting requestedVisibleTypes to -9 (was -1)
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+W/VRI[MainActivity](25160): handleResized abandoned!
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+I/ImeTracker(25160): system_server:9150873f: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+D/FlutterJNI(25160): Sending viewport metrics to the engine.
+W/VRI[MainActivity](25160): handleResized abandoned!
+W/VRI[MainActivity](25160): handleResized abandoned!
+W/VRI[MainActivity](25160): handleResized abandoned!
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+D/WindowOnBackDispatcher(25160):  predictive settings is disabled for com.mk.life_pilot
+W/WindowOnBackDispatcher(25160): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(25160): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/m.mk.life_pilot(25160): AssetManager2(0xb4000070ba3e2d28) locale list changing from [] to [en-IN]
+I/m.mk.life_pilot(25160): AssetManager2(0xb4000070ba820328) locale list changing from [] to [en-IN]
+I/m.mk.life_pilot(25160): AssetManager2(0xb4000070ba821228) locale list changing from [] to [en-IN]
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+I/PowerHalMgrImpl(25160): hdl:19744, pid:25160
+I/PowerHalMgrImpl(25160): hdl:19746, pid:25160
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+I/ScrollIdentify(25160): on fling
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/PowerHalMgrImpl(25160): hdl:19748, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+I/PowerHalMgrImpl(25160): hdl:19753, pid:25160
+I/PowerHalMgrImpl(25160): hdl:19754, pid:25160
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+I/ScrollIdentify(25160): on fling
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/PowerHalMgrImpl(25160): hdl:19755, pid:25160
+I/PowerHalMgrImpl(25160): hdl:19758, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+I/PowerHalMgrImpl(25160): hdl:19768, pid:25160
+I/PowerHalMgrImpl(25160): hdl:19769, pid:25160
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+I/ScrollIdentify(25160): on fling
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+I/PowerHalMgrImpl(25160): hdl:19770, pid:25160
+I/PowerHalMgrImpl(25160): hdl:19773, pid:25160
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+D/MediaPlayer(25160): MediaPlayer
+D/AudioSystem(25160): onNewServiceWithAdapter: media.audio_flinger service obtained 0xb4000070babc8700
+D/AudioSystem(25160): getService: IAudioFlingerService retrieved: 0xb4000070b90b5d00  IAudioFlinger cached: 0xb4000070babc8700
+V/MediaPlayer(25160): resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
+V/MediaPlayer(25160): cleanDrmObj: mDrmObj=null mDrmSessionId=null
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+V/MediaPlayer(25160): resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
+V/MediaPlayer(25160): cleanDrmObj: mDrmObj=null mDrmSessionId=null
+V/MediaPlayer(25160): resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
+V/MediaPlayer(25160): cleanDrmObj: mDrmObj=null mDrmSessionId=null
+D/MediaPlayer(25160): _release native called
+D/MediaPlayer(25160): _release native finished
+W/JobInfo (25160): Job 'com.mk.life_pilot/dev.fluttercommunity.plus.androidalarmmanager.AlarmService#1984' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+I/flutter (25160): [ALARM] Callback fired for id=2209305
+I/flutter (25160): [ALARM] title=Test sound=android taskId=fe73de7b-3917-4bdf-8446-40cdac34bf41 snoozeMin=5
+I/flutter (25160): [ALARM-BG] Notification show shown with Dismiss/Snooze actions
+E/IJankManager(25160): slideSceneEnd unknown scene 1003 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+D/VRI[MainActivity](25160): onFocusEvent false
+W/VRI[MainActivity](25160): handleResized abandoned!
+D/OplusGraphicsEvent(25160): FRTC type change to 1, rate: 30, info: false
+I/GuiUtils(25160): VRR [FRTC] s client update frtcType from 0 to 1
+I/GuiUtils(25160): VRR [FRTC] s client update frtcRate from 0 to 30
+I/GuiUtils(25160): VRR [FRTC] s client update frtcInfo from  to false
+D/OplusScrollToTopManager(25160): com.mk.life_pilot/com.mk.life_pilot.MainActivity,This com.android.internal.policy.DecorView{500c2d3 V.E...... R....... 0,0-1080,2400 aid=0 alpha=1.0 viewInfo = }[MainActivity] change focus to false
+D/ActivityThread(25160): ComponentInfo{com.mk.life_pilot/com.mk.life_pilot.MainActivity} checkFinished=false 4
+D/OplusGraphicsEvent(25160): FRTC type change to 0, rate: 0, info: false
+I/GuiUtils(25160): VRR [FRTC] s client update frtcType from 1 to 0
+I/GuiUtils(25160): VRR [FRTC] s client update frtcRate from 30 to 0
+D/ResourcesManagerExtImpl(25160): applyConfigurationToAppResourcesLocked app.getDisplayId() return callback.displayId:0
+D/ViewRootImplExtImpl(25160): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=360, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2400), relayoutAsync=true, flags=0, newFlags=1258302720, title=com.mk.life_pilot/com.mk.life_pilot.MainActivity
+D/VRI[MainActivity](25160): relayoutWindow result, sizeChanged:false, surfaceControlChanged:false, transformHintChanged:false, mSurfaceSize:Point(1080, 2400), mLastSurfaceSize:Point(1080, 2400), mWidth:1080, mHeight:2400, requestedWidth:1080, requestedHeight:2400, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:true, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2400] display=[0,0][1080,2400] parentFrame=[0,0][1080,2400]}, relayoutAsync:true, mSyncSeqId:0
+W/VRI[MainActivity](25160): updateBlastSurfaceIfNeeded, surfaceSize:Point(1080, 2400), lastSurfaceSize:Point(1080, 2400), format:-3, blastBufferQueue:android.graphics.BLASTBufferQueue@22a03e8
+D/VRI[MainActivity](25160): onFocusEvent true
+W/VRI[MainActivity](25160): handleResized abandoned!
+D/MediaPlayer(25160): MediaPlayer
+V/MediaPlayer(25160): resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
+V/MediaPlayer(25160): cleanDrmObj: mDrmObj=null mDrmSessionId=null
+D/InsetsController(25160): hide(ime(), fromIme=false)
+I/ImeTracker(25160): com.mk.life_pilot:7c6d1e42: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/OplusScrollToTopManager(25160): com.mk.life_pilot/com.mk.life_pilot.MainActivity,This com.android.internal.policy.DecorView{500c2d3 V.E...... R.....I. 0,0-1080,2400 aid=0 alpha=1.0 viewInfo = }[MainActivity] change focus to true
+E/IJankManager(25160): slideSceneEnd unknown scene 1000 mScene:-1
+D/OplusViewDragTouchViewHelper(25160): dispatchTouchView action = 1
+D/ViewRootImplExtImpl(25160): the up motion event handled by client, just return
+V/MediaPlayer(25160): resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
+V/MediaPlayer(25160): cleanDrmObj: mDrmObj=null mDrmSessionId=null
+V/MediaPlayer(25160): resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
+V/MediaPlayer(25160): cleanDrmObj: mDrmObj=null mDrmSessionId=null
+D/MediaPlayer(25160): _release native called
+D/MediaPlayer(25160): _release native finished
