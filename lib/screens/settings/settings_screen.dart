@@ -56,7 +56,7 @@ class SettingsScreen extends ConsumerWidget {
               await NotificationService().requestPermissions();
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Notifiaction permissions requested')),
+                  const SnackBar(content: Text('Notification permissions requested')),
                 );
               }
             },
@@ -82,7 +82,7 @@ class SettingsScreen extends ConsumerWidget {
             leading: Icon(Icons.restart_alt, color: theme.colorScheme.error),
             title: Text('Rest everything', style: TextStyle(color: theme.colorScheme.error)),
             subtitle: Text('Delete all tasks, logs & settings'),
-            onTap: () => _showResetConfiguration(context, ref),
+            onTap: () => _showResetConfirmation(context, ref),
           ),
 
           const Divider(),
@@ -144,7 +144,7 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
-  void _showResetConfiguration(BuildContext context, WidgetRef ref) {
+  void _showResetConfirmation(BuildContext context, WidgetRef ref) {
     showDialog(
         context: context,
         builder: (ctx) => AlertDialog(

@@ -2,6 +2,7 @@ import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:life_pilot/screens/alarm/alarm_screen.dart';
+import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz_data;
@@ -335,7 +336,7 @@ class NotificationService {
               presentSound: true,
             )
           ),
-          androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+          androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
           payload: task.id
         );
       }
@@ -381,28 +382,21 @@ class NotificationService {
 
       final currentId = notifId++;
 
-      // Store alarm metadata for the background callback
-      await prefs.setString('alarm_${currentId}_title', task.title);
+      // Store alarm metadata for snooze action handling
+      await prefs.setString('active_alarm_${currentId}_title', task.title);
       if (task.description != null) {
-        await prefs.setString('alarm_${currentId}_body', task.description!);
+        await prefs.setString('active_alarm_${currentId}_body', task.description!);
       }
       if (task.alarmSound != null) {
-        await prefs.setString('alarm_${currentId}_sound', task.alarmSound!);
+        await prefs.setString('active_alarm_${currentId}_sound', task.alarmSound!);
       }
-      await prefs.setString('alarm_${currentId}_taskId', task.id);
-      await prefs.setInt('alarm_${currentId}_snoozeMinutes', task.snoozeMinutes);
+      await prefs.setString('active_alarm_${currentId}_taskId', task.id);
+      await prefs.setInt('active_alarm_${currentId}_snoozeMinutes', task.snoozeMinutes);
 
-      debugPrint('[ALARM] Scheduling alarm at $alarmTime (id=$currentId) via AndroidAlarmManager');
       final tzTime = tz.TZDateTime.from(alarmTime, tz.local);
+      debugPrint('[ALARM] Scheduling alarm at $alarmTime (id=$currentId) via AndroidAlarmManager');
 
       try {
-        await AndroidAlarmManager.oneShotAt(alarmTime, currentId, alarmManagerCallback, exact: true, wakeup: true, allowWhileIdle: true, rescheduleOnReboot: true);
-        debugPrint('[ALARM] Alarm scheduled via AndroidAlarmManager');
-      }
-      catch (e){
-        debugPrint('[ALARM] AndroidAlarmManager failed: $e, failed back to zonedScheduled');
-        // Fallback: ise flutter_local_notifications zonedScheduled
-        final tzTime = tz.TZDateTime.from(alarmTime,  tz.local);
         await _plugin.zonedSchedule(
           id: currentId,
           title: '⏰ ${task.title}',
@@ -424,6 +418,18 @@ class NotificationService {
               enableVibration: true,
               ongoing: true,
               autoCancel: false,
+              actions: [
+                const AndroidNotificationAction(
+                  'dismiss', 'Dismiss',
+                  showsUserInterface: false,
+                  cancelNotification: true,
+                ),
+                AndroidNotificationAction(
+                  'snooze', 'Snooze (${task.snoozeMinutes} min)',
+                  showsUserInterface: false,
+                  cancelNotification: true,
+                ),
+             ],
             ),
             iOS: const DarwinNotificationDetails(
               presentAlert: true,
@@ -434,7 +440,26 @@ class NotificationService {
           androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
           payload: 'alarm_${task.id}',
         );
-        debugPrint('[ALARM] Alarm scheduled (exact fallback)');
+        debugPrint('[ALARM] Alarm scheduled via zonedSchule (exact)');
+      }
+      catch(e) {
+        debugPrint('[ALARM] zonedSchedule failed: $e, falling back to AndroidAlarmManager');
+        // Fallback: use AndroidAlarmManager (may have JobIntentService delay)
+        await prefs.setString('alarm_${current}_title', task.title);
+        if (task.description != null) {
+          await prefs.setString('alarm_${currentId}_body', task.description!);
+        }
+        if (task.alarmSound != null) {
+          await prefs.setString('alarm_${currentId}_sound', task.alarmSound!);
+        }
+        await prefs.setString('alarm_${currentId}_taskId', task.id);
+        await prefs.setInt('alarm_${currentId}_snoozeMinutes', task.snoozeMinutes);
+
+        await AndroidAlarmManager.oneShotAt(
+          alarmTime, currentId, alarmManagerCallback,
+          exact: true, wakeup: true, allowWhileIdle: true, rescheduleOnReboot: true,
+        );
+        debugPrint('[ALARM] Alarm scheduled via AndroidAlarmManager (fallback');
       }
     }
 
