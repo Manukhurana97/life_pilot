@@ -43,4 +43,13 @@ class SettingsNotifier extends ChangeNotifier {
     await prefs.setInt('snoozeMinutes', minutes);
     notifyListeners();
   }
+
+  Future<void> resetAll() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+    _themeMode = ThemeMode.system;
+    _showCompletedTasks = true;
+    _defaultSnoozeMinutes = 5;
+    notifyListeners();
+  }
 }

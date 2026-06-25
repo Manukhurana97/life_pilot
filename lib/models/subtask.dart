@@ -16,7 +16,7 @@ class Subtask {
       'id': id,
       'task_id': taskId,
       'title': title,
-      'sortOrder': sortOrder,
+      'sort_Order': sortOrder,
     };
   }
 

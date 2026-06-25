@@ -361,4 +361,18 @@ class AppDatabase{
       }
     });
   }
+
+  Future<void> resetAll() async {
+    final db = await database;
+    await db.transaction((txn) async {
+      await txn.delete('subtasks');
+      await txn.delete('task_logs');
+      await txn.delete('tasks');
+      await txn.delete('categories');
+
+      for (final cat in TaskCategory.defaults()) {
+        await txn.insert('categories', cat.toMap());
+      }
+    });
+  }
 }

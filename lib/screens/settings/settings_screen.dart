@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:life_pilot/database/app_database.dart';
+import 'package:life_pilot/providers/category_provider.dart';
 import 'package:life_pilot/providers/settings_provider.dart';
 import 'package:life_pilot/providers/task_provider.dart';
 import 'package:life_pilot/services/notification_service.dart';
@@ -75,6 +77,15 @@ class SettingsScreen extends ConsumerWidget {
           ),
 
           const Divider(),
+          _sectionHeader(theme, 'Data'),
+          ListTile(
+            leading: Icon(Icons.restart_alt, color: theme.colorScheme.error),
+            title: Text('Rest everything', style: TextStyle(color: theme.colorScheme.error)),
+            subtitle: Text('Delete all tasks, logs & settings'),
+            onTap: () => _showResetConfiguration(context, ref),
+          ),
+
+          const Divider(),
           _sectionHeader(theme, 'About'),
           ListTile(
             leading: const Icon(Icons.info_outline),
@@ -132,6 +143,44 @@ class SettingsScreen extends ConsumerWidget {
       )
     );
   }
+
+  void _showResetConfiguration(BuildContext context, WidgetRef ref) {
+    showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          icon: Icon(Icons.warning_amber_rounded, size: 8, color: Theme.of(ctx).colorScheme.error),
+          title: const Text('Reset Everything'),
+          content: const Text(
+            'This will permanently delete all your tasks, logs, categories '
+                'and settings. Default categories will be restored.\n\n'
+                'This action cannot be undone.',
+          ),
+          actions: [
+            TextButton(
+                onPressed: () => Navigator.pop(ctx), child: const Text('Cancel')
+            ),
+            FilledButton(
+              style: FilledButton.styleFrom(
+                backgroundColor: Theme.of(ctx).colorScheme.error,
+              ),
+              onPressed: () async {
+                Navigator.pop(ctx);
+                await AppDatabase().resetAll();
+                await NotificationService().cancelAll();
+                await ref.read(settingsProvider).resetAll();
+                await ref.read(taskProvider).loadTasks();
+                await ref.read(categoryProvider).loadCategories();
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('All data has been reset')));
+                }
+              },
+              child: const Text('Reset'),
+            )
+          ],
+        )
+    );
+  }
+
 
   void _showSnoozeDialog(BuildContext context, WidgetRef ref) {
     final current = ref.read(settingsProvider).defaultSnoozeMinutes;
