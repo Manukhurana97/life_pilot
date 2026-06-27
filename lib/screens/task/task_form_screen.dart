@@ -126,9 +126,9 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
       case RecurrenceType.specificDays:
         return {'days': _selectedDay};
       case RecurrenceType.weekly:
-        return {'weekdays': _weekday, 'interval': 1};
+        return {'weekday': _weekday, 'interval': 1};
       case RecurrenceType.biweekly:
-        return {'weekdays': _weekday};
+        return {'weekday': _weekday};
       case RecurrenceType.monthlyDate:
         return {'dayOfMonth': _dayOfMonth, 'interval': _intervalMonths};
       case RecurrenceType.monthlyOrdinal:
@@ -328,7 +328,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
             _sectionTitle('Recurrence'),
             const SizedBox(height: 8,),
             DropdownButtonFormField<RecurrenceType>(
-                initialValue: _recurrenceType,
+                value: _recurrenceType,
                 decoration: const InputDecoration(labelText: 'Repeat'),
                 items: RecurrenceType.values.map((r) => DropdownMenuItem(value: r, child: Text(r.label))).toList(),
                 onChanged: (v) => setState(() => _recurrenceType = v!),
@@ -400,7 +400,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
               _buildAlarmSoundPicker(),
               const SizedBox(height: 12,),
               DropdownButtonFormField<int>(
-                  initialValue: _snoozeMinutes,
+                  value: _snoozeMinutes,
                   decoration: const InputDecoration(labelText: 'Snooze duration'),
                   items: [5, 10, 15, 30].map((m) => DropdownMenuItem(value: m, child: Text('$m minutes'))).toList(),
                 onChanged: (v) => setState(() => _snoozeMinutes = v!),
@@ -426,7 +426,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DropdownButtonFormField<String>(
-            initialValue: selectedSound?.id ?? AlarmSoundService.defaultSoundId,
+            value: selectedSound?.id ?? AlarmSoundService.defaultSoundId,
             decoration: const InputDecoration(labelText: 'Alarm sound'),
         items: [
           ..._availableSounds.map((s) => DropdownMenuItem(
@@ -461,8 +461,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
                 },
             ),
             const SizedBox(width: 8,),
-            Row(
-              children: [
+
                 OutlinedButton.icon(
                     icon: const Icon(Icons.add, size: 18,),
                     label: const Text('Upload sound'),
@@ -493,8 +492,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
                         setState(() => _alarmSoundId = sound.id);
                       }
                     }),
-              ],
-            ),
+
           ],
         ),
         // Delete custom sound button
@@ -631,7 +629,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
       case RecurrenceType.weekly:
       case RecurrenceType.biweekly:
         return DropdownButtonFormField<int>(
-          initialValue: _weekday,
+          value: _weekday,
           decoration: const InputDecoration(labelText: 'Day of week'),
           items: List.generate(7, (i) {
             return DropdownMenuItem(
@@ -645,7 +643,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
       case RecurrenceType.monthlyDate:
       case RecurrenceType.quarterly:
         return DropdownButtonFormField<int>(
-          initialValue: _dayOfMonth.clamp(1, 31),
+          value: _dayOfMonth.clamp(1, 31),
           decoration: const InputDecoration(labelText: 'Day of month'),
           items: List.generate(31, (i) {
             return DropdownMenuItem(value: i+1, child: Text('${i + 1}'));
@@ -657,8 +655,8 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
         return Column(
           children: [
             DropdownButtonFormField<int>(
-              initialValue: _ordinal.clamp(1, 5),
-              decoration: const InputDecoration(labelText: 'which occurrence'),
+              value: _ordinal.clamp(1, 5),
+              decoration: const InputDecoration(labelText: 'Which occurrence'),
               items: const [
                 DropdownMenuItem(value: 1, child: Text('First')),
                 DropdownMenuItem(value: 2, child: Text('Second')),

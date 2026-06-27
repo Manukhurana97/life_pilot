@@ -80,8 +80,8 @@ class SettingsScreen extends ConsumerWidget {
           _sectionHeader(theme, 'Data'),
           ListTile(
             leading: Icon(Icons.restart_alt, color: theme.colorScheme.error),
-            title: Text('Rest everything', style: TextStyle(color: theme.colorScheme.error)),
-            subtitle: Text('Delete all tasks, logs & settings'),
+            title: Text('Reset everything', style: TextStyle(color: theme.colorScheme.error)),
+            subtitle: const Text('Delete all tasks, logs & settings'),
             onTap: () => _showResetConfirmation(context, ref),
           ),
 
@@ -148,8 +148,9 @@ class SettingsScreen extends ConsumerWidget {
     showDialog(
         context: context,
         builder: (ctx) => AlertDialog(
-          icon: Icon(Icons.warning_amber_rounded, size: 8, color: Theme.of(ctx).colorScheme.error),
-          title: const Text('Reset Everything'),
+          icon: Icon(Icons.warning_amber_rounded,
+              size: 48, color: Theme.of(ctx).colorScheme.error),
+          title: const Text('Reset everything?'),
           content: const Text(
             'This will permanently delete all your tasks, logs, categories '
                 'and settings. Default categories will be restored.\n\n'
@@ -157,7 +158,8 @@ class SettingsScreen extends ConsumerWidget {
           ),
           actions: [
             TextButton(
-                onPressed: () => Navigator.pop(ctx), child: const Text('Cancel')
+                onPressed: () => Navigator.pop(ctx),
+                child: const Text('Cancel'),
             ),
             FilledButton(
               style: FilledButton.styleFrom(
@@ -171,7 +173,9 @@ class SettingsScreen extends ConsumerWidget {
                 await ref.read(taskProvider).loadTasks();
                 await ref.read(categoryProvider).loadCategories();
                 if (context.mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('All data has been reset')));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('All data has been reset'))
+                  );
                 }
               },
               child: const Text('Reset'),
@@ -180,7 +184,6 @@ class SettingsScreen extends ConsumerWidget {
         )
     );
   }
-
 
   void _showSnoozeDialog(BuildContext context, WidgetRef ref) {
     final current = ref.read(settingsProvider).defaultSnoozeMinutes;

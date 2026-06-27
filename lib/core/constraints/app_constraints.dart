@@ -25,6 +25,6 @@ class AppConstants {
     if (minutes == 60) return '1 hour before';
     if (minutes == 1440) return '1 day before';
     if (minutes < 1440) return '${minutes ~/ 60} hours before';
-    return '$minutes ~/ 1440 days before'; 
+    return '${minutes ~/ 1440} days before';
   }
 }

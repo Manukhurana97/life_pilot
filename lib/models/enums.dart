@@ -39,7 +39,7 @@ extension RecurrenceTypeX on RecurrenceType {
       case RecurrenceType.monthlyDate:
         return 'Monthly (Date)';
       case RecurrenceType.monthlyOrdinal:
-        return 'monthly (Day)';
+        return 'Monthly (Day)';
       case RecurrenceType.quarterly:
         return 'Quarterly';
       case RecurrenceType.yearly:

@@ -6,14 +6,14 @@ import 'package:life_pilot/providers/task_provider.dart';
 import 'package:life_pilot/providers/category_provider.dart';
 import 'package:life_pilot/screens/task/task_detail_screen.dart';
 
-class CalenderScreen extends ConsumerStatefulWidget {
-  const CalenderScreen({super.key});
+class CalendarScreen extends ConsumerStatefulWidget {
+  const CalendarScreen({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _CalenderScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _CalendarScreenState();
 }
 
-class _CalenderScreenState extends ConsumerState<CalenderScreen> {
+class _CalendarScreenState extends ConsumerState<CalendarScreen> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   DateTime _selectedDay = DateTime.now();
@@ -34,7 +34,7 @@ class _CalenderScreenState extends ConsumerState<CalenderScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Calender'),
+        title: const Text('Calendar'),
         actions: [
           IconButton(onPressed: () {
             setState(() {
@@ -135,7 +135,7 @@ class _CalenderScreenState extends ConsumerState<CalenderScreen> {
                             )
                             : null,
                         title: Text(task.title),
-                        subtitle: task.startTime != null ? Text(task.endDate != null ? '${task.startTime} - ${task.endTime}' : task.startTime!) : null,
+                        subtitle: task.startTime != null ? Text(task.endTime != null ? '${task.startTime} - ${task.endTime}' : task.startTime!) : null,
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [

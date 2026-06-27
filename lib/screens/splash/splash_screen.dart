@@ -65,7 +65,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         FadeTransition(
           opacity: ReverseAnimation(_fadeAnimation),
           child: Container(
-            color: Colors.black,
+            color: isDark ? Colors.black : Colors.white,
             child: Image.asset(
               splashImage,
               fit: BoxFit.cover,

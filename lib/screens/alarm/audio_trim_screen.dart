@@ -49,7 +49,7 @@ class _AudioTrimScreenState extends State<AudioTrimScreen> {
       if (mounted) {
         setState(() => _currentPosition = pos);
         // Stop at end of selected range during preview
-        if(_isPlaying && pos.inMicroseconds >= (_endSec * 1000).round()) {
+        if(_isPlaying && pos.inMilliseconds >= (_endSec * 1000).round()) {
           _player.pause();
           setState(() => _isPlaying = false);
         }
@@ -298,7 +298,7 @@ class _AudioTrimScreenState extends State<AudioTrimScreen> {
               FilledButton.icon(
                 onPressed: _selectedDuration >= 1 && _selectedDuration <= 30 ? _confirm : null,
                 icon: const Icon(Icons.check), 
-                label: Text('Use this chip (${_formatDuration(_selectedDuration)})'),
+                label: Text('Use this clip (${_formatDuration(_selectedDuration)})'),
               ),
               const SizedBox(height: 8),
               OutlinedButton(

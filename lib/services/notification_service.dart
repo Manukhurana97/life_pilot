@@ -1,8 +1,9 @@
+import 'dart:io';
+
 import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:life_pilot/screens/alarm/alarm_screen.dart';
-import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz_data;
@@ -182,13 +183,39 @@ Future<void> onBackgroundNotificationAction(
     await prefs.setString('alarm_${snoozeId}_taskId', taskId);
     await prefs.setInt('alarm_${snoozeId}_snoozeMinutes', snoozeMin);
 
-    await AndroidAlarmManager.initialize();
-    await AndroidAlarmManager.oneShotAt(
-      snoozeTime,
-      snoozeId,
-      alarmManagerCallback,
-      alarmClock: true,
-    );
+    if (Platform.isAndroid) {
+      await AndroidAlarmManager.initialize();
+      await AndroidAlarmManager.oneShotAt(
+        snoozeTime,
+        snoozeId,
+        alarmManagerCallback,
+        alarmClock: true,
+      );
+    } else {
+      tz_data.initializeTimeZones();
+      final plugin = FlutterLocalNotificationsPlugin();
+      await plugin.initialize(
+        settings: const InitializationSettings(
+          iOS: DarwinInitializationSettings(),
+        ),
+      );
+      final scheduledDate = tz.TZDateTime.from(snoozeTime, tz.local);
+      await plugin.zonedSchedule(
+        id: snoozeId,
+        title: '⏰ title',
+        body: body,
+        scheduledDate: scheduledDate,
+        notificationDetails: const NotificationDetails(
+          iOS: DarwinNotificationDetails(
+            presentAlert: true,
+            presentSound: true,
+            interruptionLevel: InterruptionLevel.timeSensitive,
+          ),
+        ),
+        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        payload: 'alarm_$taskId',
+      );
+    }
 
     debugPrint(
       '[ALARM-ACTION] Snoozed: new alarm at $snoozeTime (id=$snoozeId)',
@@ -303,12 +330,31 @@ class NotificationService {
     await prefs.setString('alarm_${snoozeId}_taskId', taskId);
     await prefs.setInt('alarm_${snoozeId}_snoozeMinutes', snoozeMin);
 
-    await AndroidAlarmManager.oneShotAt(
-      snoozeTime,
-      snoozeId,
-      alarmManagerCallback,
-      alarmClock: true,
-    );
+    if (Platform.isAndroid) {
+      await AndroidAlarmManager.oneShotAt(
+        snoozeTime,
+        snoozeId,
+        alarmManagerCallback,
+        alarmClock: true,
+      );
+    } else {
+      final scheduledDate = tz.TZDateTime.from(snoozeTime, tz.local);
+      await _plugin.zonedSchedule(
+        id: snoozeId,
+        title: '⏰ $title',
+        body: body,
+        scheduledDate: scheduledDate,
+        notificationDetails: const NotificationDetails(
+          iOS: DarwinNotificationDetails(
+            presentAlert: true,
+            presentSound: true,
+            interruptionLevel: InterruptionLevel.timeSensitive,
+          ),
+        ),
+        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        payload: 'alarm_$title',
+      );
+    }
 
     debugPrint(
       '[ALARM] Snoozed ($snoozeMin min): new alarm at $snoozeTime (id=$snoozeId)',
@@ -408,17 +454,41 @@ class NotificationService {
 
         // store reminder metadata for the background callback
         await prefs.setString('reminder_${currentId}_title', task.title);
-        if(body.isNotEmpty) {
+        if (body.isNotEmpty) {
           await prefs.setString('reminder_${currentId}_body', body);
         }
         await prefs.setString('reminder_${currentId}_taskId', task.id);
 
-        debugPrint('[REMINDER] Scheduling reminder at $notifTime (id=$currentId, offset=${offsetMinutes}min)');
-
-        await AndroidAlarmManager.oneShotAt(
-          notifTime, currentId, reminderCallback,
-          alarmClock: true, rescheduleOnReboot: true,
+        debugPrint(
+          '[REMINDER] Scheduling reminder at $notifTime (id=$currentId, offset=${offsetMinutes}min)',
         );
+
+        if (Platform.isAndroid) {
+          await AndroidAlarmManager.oneShotAt(
+            notifTime,
+            currentId,
+            reminderCallback,
+            alarmClock: true,
+            rescheduleOnReboot: true,
+          );
+        } else {
+          final scheduledDate = tz.TZDateTime.from(notifTime, tz.local);
+          await _plugin.zonedSchedule(
+            id: currentId,
+            title: task.title,
+            body: body.isNotEmpty ? body : null,
+            scheduledDate: scheduledDate,
+            notificationDetails: const NotificationDetails(
+              iOS: DarwinNotificationDetails(
+                presentAlert: true,
+                presentBadge: true,
+                presentSound: true,
+              ),
+            ),
+            androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+            payload: task.id,
+          );
+        }
       }
     }
   }
@@ -482,37 +552,55 @@ class NotificationService {
         task.snoozeMinutes,
       );
 
-      debugPrint(
-        '[ALARM] Scheduling alarm at $alarmTime (id=$currentId) via AndroidAlarmManager (alarmClock)',
-      );
+      debugPrint('[ALARM] Scheduling alarm at $alarmTime (id=$currentId)');
 
-      try {
-        await AndroidAlarmManager.oneShotAt(
-          alarmTime,
-          currentId,
-          alarmManagerCallback,
-          alarmClock: true,
-          rescheduleOnReboot: true,
+      if (Platform.isAndroid) {
+        try {
+          await AndroidAlarmManager.oneShotAt(
+            alarmTime,
+            currentId,
+            alarmManagerCallback,
+            alarmClock: true,
+            rescheduleOnReboot: true,
+          );
+          debugPrint(
+            '[ALARM] Alarm scheduled via AndroidAlarmManager (alarmClock',
+          );
+        } catch (e) {
+          debugPrint(
+            '[ALARM] alarmClock failed: $e, failed back to exact+allowWhileIdle',
+          );
+          await AndroidAlarmManager.oneShotAt(
+            alarmTime,
+            currentId,
+            alarmManagerCallback,
+            exact: true,
+            wakeup: true,
+            allowWhileIdle: true,
+            rescheduleOnReboot: true,
+          );
+          debugPrint(
+            '[ALARM] Alarm scheduled via AndroidAlarmManager (exact fallback)',
+          );
+        }
+      } else {
+        final scheduledDate = tz.TZDateTime.from(alarmTime, tz.local);
+        await _plugin.zonedSchedule(
+          id: currentId,
+          title: '⏰ ${task.title}',
+          body: task.description,
+          scheduledDate: scheduledDate,
+          notificationDetails: const NotificationDetails(
+            iOS: DarwinNotificationDetails(
+              presentAlert: true,
+              presentSound: true,
+              interruptionLevel: InterruptionLevel.timeSensitive,
+            ),
+          ),
+          androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+          payload: 'alarm_${task.id}',
         );
-        debugPrint(
-          '[ALARM] Alarm scheduled via AndroidAlarmManager (alarmClock)',
-        );
-      } catch (e) {
-        debugPrint(
-          '[ALARM] alarmClock failed $e, falling backing to exact+allowWhileIdle',
-        );
-        await AndroidAlarmManager.oneShotAt(
-          alarmTime,
-          currentId,
-          alarmManagerCallback,
-          exact: true,
-          wakeup: true,
-          allowWhileIdle: true,
-          rescheduleOnReboot: true,
-        );
-        debugPrint(
-          '[ALARM] Alarm scheduled via AndroidAlarmManager (exact fallback',
-        );
+        debugPrint('[ALARM] Alarm scheduled via zonedSchedule (iOS)');
       }
     }
 
@@ -532,7 +620,9 @@ class NotificationService {
     }
     final alarmBase = baseId + 2000000;
     for (int i = 0; i < 20; i++) {
-      await AndroidAlarmManager.cancel(alarmBase + i);
+      if (Platform.isAndroid) {
+        await AndroidAlarmManager.cancel(alarmBase + i);
+      }
       await _plugin.cancel(id: alarmBase + i);
     }
   }

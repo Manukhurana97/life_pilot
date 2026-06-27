@@ -45,11 +45,16 @@ class AlarmSoundService {
   static const _customSoundsKey = 'custom_alarm_sounds';
   static const _customSoundsDir = 'alarm_sounds';
 
-  /// Build-in alarm sounds (blunder as assets)
-  static const List<AlarmSound> builtInSounds = [
+  /// All build-in alarm sounds
+  static const List<AlarmSound> _allBuiltInSounds = [
     AlarmSound(id: 'android', name: 'Android Alarm', isBuiltIn: true),
     AlarmSound(id: 'ios', name: 'iOS Alarm', isBuiltIn: true),
   ];
+
+  /// Platform-filtered build-in sounds (android.mp3 for Android, ios.mp3 for iOS)
+  static List<AlarmSound> get builtInSounds => _allBuiltInSounds
+      .where((s) => s.id == defaultSoundId)
+      .toList();
 
   /// Build-In  alarm sound (bundled as assets)
   static String get defaultSoundId => Platform.isIOS ? 'ios' : 'android';

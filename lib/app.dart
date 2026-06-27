@@ -42,7 +42,7 @@ class _AppShellState extends State<AppShell> {
 
   final _screens = const [
     HomeScreen(),
-    CalenderScreen(),
+    CalendarScreen(),
     AllTasksScreen(),
     StatsScreen(),
   ];
@@ -65,7 +65,7 @@ class _AppShellState extends State<AppShell> {
           NavigationDestination(
             icon: Icon(Icons.calendar_month_outlined),
             selectedIcon: Icon(Icons.calendar_month),
-            label: 'Calender',
+            label: 'Calendar',
           ),
           NavigationDestination(
             icon: Icon(Icons.list_alt_outlined),
