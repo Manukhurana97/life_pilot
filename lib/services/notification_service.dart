@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
@@ -88,7 +89,16 @@ Future<void> alarmManagerCallback(int id) async {
     payload: 'alarm_$taskId',
   );
 
-  debugPrint('[ALARM-BG] Notification show shown with Dismiss/Snooze actions');
+  debugPrint('[ALARM-BG] Notification shown with Dismiss/Snooze actions');
+
+  // start a pending alarm flag so the foreground app can detect it and show AlarmScreen
+  await prefs.setString('pending_alarm_title', title);
+  await prefs.setString('pending_alarm_body', body ?? '');
+  await prefs.setString('pending_alarm_sound', sound ?? '');
+  await prefs.setString('pending_alarm_taskId', taskId);
+  await prefs.setInt('pending_alarm_snoozeMinutes', snoozeMin);
+  await prefs.setInt('pending_alarm_notifId', id);
+  await prefs.setInt('pending_alarm_timestamp', DateTime.now().millisecondsSinceEpoch);
 
   // Cleanup scheduling metadata (active alarm metadata kept for snooze)
   await prefs.remove('alarm_${id}_title');
@@ -246,6 +256,12 @@ class NotificationService {
   /// Pending alarm payloads (received before navigator is ready)
   static String? _pendingAlarmPayload;
 
+  /// Time for polling pending alarm from background isolate
+  Timer? _alarmPollTimer;
+
+  /// Whether we are currently showing an alarm screen (prevent duplicate)
+  bool _isShowingAlarmScreen = false;
+
   Future<void> initialize() async {
     if (_initialized) return;
 
@@ -275,41 +291,125 @@ class NotificationService {
     _initialized = true;
   }
 
-  void _onNotificationTap(NotificationResponse response) {
+  void _onNotificationTap(NotificationResponse response) async{
     final actionId = response.actionId;
     final id = response.id;
-
     final payload = response.payload;
 
     // Handle action buttons is foreground
     if (actionId == 'dismiss') {
       if (id != null) _plugin.cancel(id: id);
+      await _clearPendingAlarm();
       return;
     }
     if (actionId == 'snooze') {
       if (id != null) _plugin.cancel(id: id);
       _handleSnooze(id);
+      await _clearPendingAlarm();
       return;
     }
 
     if (payload == null) return;
 
-    if (payload.startsWith("alarm_")) {
+    if (payload.startsWith('alarm_')) {
       if (id != null) {
         _plugin.cancel(id: id);
         _cleanupActiveAlarm(id);
       }
-      final navigator = navigatorKey.currentState;
-      if (navigator != null) {
-        navigator.push(
-          MaterialPageRoute(
-            builder: (_) => AlarmScreen(taskTitle: 'Alarm', alarmSoundId: null),
-          ),
-        );
-      } else {
-        _pendingAlarmPayload = payload;
-      }
+
+      // Read stored alarm metadata for the Alarm Screen
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.reload();
+      final title = prefs.getString('pending_alarm_title') ?? 'Alarm';
+      final description = prefs.getString('pending_alarm_body');
+      final sound = prefs.getString('pending_alarm_sound') ;
+      final snoozeMin = prefs.getInt('pending_alarm_snoozeMinutes') ?? 5;
+      final taskId = prefs.getString('pending_alarm_snoozeMinutes') ?? '';
+
+      await _clearPendingAlarm();
+      _showAlarmScreen(
+        title: title,
+        description: description,
+        soundId: sound,
+        snoozeMinutes: snoozeMin,
+        taskId: taskId,
+      );
     }
+  }
+
+  /// Show the full-screen Alarm Screen with sound + vibration
+  void _showAlarmScreen({
+    required String title,
+    String? description,
+    String? soundId,
+    int snoozeMinutes = 5,
+    String taskId = '',
+}) {
+    if (_isShowingAlarmScreen) return;
+    final navigator = navigatorKey.currentState;
+    if (navigator == null) {
+      _pendingAlarmPayload = 'alarm_$taskId';
+      return;
+    }
+    _isShowingAlarmScreen = true;
+    navigator.push(
+      MaterialPageRoute(
+          builder: (_) => AlarmScreen(
+            taskTitle: title,
+            taskDescription: description,
+            alarmSoundId: soundId?.isNotEmpty == true ? soundId : null,
+            snoozeMinutes: snoozeMinutes,
+          ),
+      ),
+    ).then((result) {
+      _isShowingAlarmScreen = false;
+      if (result == 'snooze') {
+        _handleSnoozeFromScreen(title, description, soundId, taskId, snoozeMinutes);
+      }
+    });
+  }
+
+  /// Handle snooze triggered from the AlarmScreen UI
+  Future<void> _handleSnoozeFromScreen(
+      String title, String? body, String? sound, String taskId, int snoozeMin
+      ) async {
+    final snoozeTime = DateTime.now().add(Duration(minutes: snoozeMin));
+    final snoozeId = (taskId.hashCode & 0x7FFFFFF) % 2000000 + 40000000;
+
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('alarm_${snoozeId}_title', title);
+    if (body != null && body.isNotEmpty) await prefs.setString('alarm_${snoozeId}_body', body);
+    if (sound != null && sound.isNotEmpty) await prefs.setString('alarm_${snoozeId}_sound', sound);
+    await prefs.setString('alarm_${snoozeId}_taskId', taskId);
+    await prefs.setInt('alarm_${snoozeId}_snoozeMinutes', snoozeMin);
+
+    await prefs.setString('active_alarm_${snoozeId}_title', title);
+    if( body != null && body.isNotEmpty) await prefs.setString('active_alarm_${snoozeId}_body', body);
+    if( sound != null && sound.isNotEmpty) await prefs.setString('active_alarm_${snoozeId}_sound', sound);
+    await prefs.setString('active_alarm_${snoozeId}_taskId', taskId);
+    await prefs.setInt('active_alarm_${snoozeId}_snoozeMinutes', snoozeMin);
+
+    if(Platform.isAndroid) {
+      await AndroidAlarmManager.oneShotAt(snoozeTime, snoozeId, alarmManagerCallback, alarmClock: true);
+    } else {
+      final scheduledDate = tz.TZDateTime.from(snoozeTime, tz.local);
+      await _plugin.zonedSchedule(
+          id: snoozeId,
+          title: '⏰ $title',
+          body: body,
+          scheduledDate: scheduledDate,
+          notificationDetails: const NotificationDetails(
+            iOS: DarwinNotificationDetails(
+              presentAlert: true,
+              presentSound: true,
+              interruptionLevel: InterruptionLevel.timeSensitive,
+            ),
+          ),
+          androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        payload: 'alarm_$taskId',
+      );
+    }
+    debugPrint('[ALARM] Snoozed from screen ($snoozeMin min)L new alarm at $snoozeTime (id=$snoozeId)');
   }
 
   Future<void> _handleSnooze(int? id) async {
@@ -370,6 +470,71 @@ class NotificationService {
     await prefs.remove('active_alarm_${id}_sound');
     await prefs.remove('active_alarm_${id}_taskId');
     await prefs.remove('active_alarm_${id}_snoozeMinutes');
+  }
+
+  /// Start polling for pending alarms from the background isolate
+  /// Call this when the app shell is ready (navigator available)
+  void startAlarmPolling() {
+    _alarmPollTimer?.cancel();
+    _alarmPollTimer = Timer.periodic(const Duration(seconds: 2), (_) => _checkPendingAlarm()
+    );
+    _checkPendingAlarm();
+  }
+
+  /// Stop polling (call in dispose)
+  void stopAlarmPolling() {
+    _alarmPollTimer?.cancel();
+    _alarmPollTimer = null;
+  }
+
+  /// Check SharedPreference for a pending alarm from the background isolate
+  Future<void> _checkPendingAlarm() async {
+    if (_isShowingAlarmScreen) return;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.reload();
+    final title = prefs.getString('pending_alarm_title');
+    if (title == null) return;
+
+    final timestamp = prefs.getInt('pending_alarm_timestamp') ?? 0;
+    final age = DateTime.now().millisecondsSinceEpoch - timestamp;
+    if (age > 5 * 60 * 1000) {
+      await _clearPendingAlarm();
+      return;
+    }
+
+    final description = prefs.getString('pending_alarm_body');
+    final sound = prefs.getString('pending_alarm_sound');
+    final snoozeMin = prefs.getInt('pending_alarm_snoozeMinutes') ?? 5;
+    final taskId = prefs.getString('pending_alarm_taskId') ?? '';
+    final notifId = prefs.getInt('pending_alarm_notifId');
+
+    debugPrint('[ALARM] Pending alarm detected: $title');
+
+    await _clearPendingAlarm();
+
+    if(notifId != null) {
+      await _plugin.cancel(id: notifId);
+    }
+
+    _showAlarmScreen(
+      title: title,
+      description: description?.isNotEmpty == true ? description : null,
+      soundId: sound,
+      snoozeMinutes: snoozeMin,
+      taskId: taskId,
+    );
+  }
+
+  /// Clear pending alarm data from SharedPreference
+  Future<void> _clearPendingAlarm() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('pending_alarm_title');
+    await prefs.remove('pending_alarm_body');
+    await prefs.remove('pending_alarm_sound');
+    await prefs.remove('pending_alarm_taskId');
+    await prefs.remove('pending_alarm_snoozeMinutes');
+    await prefs.remove('pending_alarm_notifId');
+    await prefs.remove('pending_alarm_timestamp');
   }
 
   /// Call this from app startup to handle any pending alarm
@@ -441,8 +606,6 @@ class NotificationService {
 
         final notifTime = taskTime.subtract(Duration(minutes: offsetMinutes));
         if (notifTime.isBefore(now)) continue;
-
-        final tzTime = tz.TZDateTime.from(notifTime, tz.local);
 
         String body = task.description ?? '';
         if (offsetMinutes > 0) {

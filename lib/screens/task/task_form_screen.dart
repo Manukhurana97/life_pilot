@@ -328,7 +328,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
             _sectionTitle('Recurrence'),
             const SizedBox(height: 8,),
             DropdownButtonFormField<RecurrenceType>(
-                value: _recurrenceType,
+                initialValue: _recurrenceType,
                 decoration: const InputDecoration(labelText: 'Repeat'),
                 items: RecurrenceType.values.map((r) => DropdownMenuItem(value: r, child: Text(r.label))).toList(),
                 onChanged: (v) => setState(() => _recurrenceType = v!),
@@ -426,7 +426,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DropdownButtonFormField<String>(
-            value: selectedSound?.id ?? AlarmSoundService.defaultSoundId,
+            initialValue: selectedSound?.id ?? AlarmSoundService.defaultSoundId,
             decoration: const InputDecoration(labelText: 'Alarm sound'),
         items: [
           ..._availableSounds.map((s) => DropdownMenuItem(
@@ -629,7 +629,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
       case RecurrenceType.weekly:
       case RecurrenceType.biweekly:
         return DropdownButtonFormField<int>(
-          value: _weekday,
+          initialValue: _weekday,
           decoration: const InputDecoration(labelText: 'Day of week'),
           items: List.generate(7, (i) {
             return DropdownMenuItem(
@@ -643,7 +643,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
       case RecurrenceType.monthlyDate:
       case RecurrenceType.quarterly:
         return DropdownButtonFormField<int>(
-          value: _dayOfMonth.clamp(1, 31),
+          initialValue: _dayOfMonth.clamp(1, 31),
           decoration: const InputDecoration(labelText: 'Day of month'),
           items: List.generate(31, (i) {
             return DropdownMenuItem(value: i+1, child: Text('${i + 1}'));
@@ -655,7 +655,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
         return Column(
           children: [
             DropdownButtonFormField<int>(
-              value: _ordinal.clamp(1, 5),
+              initialValue: _ordinal.clamp(1, 5),
               decoration: const InputDecoration(labelText: 'Which occurrence'),
               items: const [
                 DropdownMenuItem(value: 1, child: Text('First')),

@@ -37,8 +37,9 @@ class AppShell extends StatefulWidget {
   State<AppShell> createState() => _AppShellState();
 }
 
-class _AppShellState extends State<AppShell> {
+class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
   int _currentIndex = 0;
+  final _notificationService = NotificationService();
 
   final _screens = const [
     HomeScreen(),
@@ -46,6 +47,30 @@ class _AppShellState extends State<AppShell> {
     AllTasksScreen(),
     StatsScreen(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    _notificationService.startAlarmPolling();
+    _notificationService.handlePendingAlarm();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _notificationService.stopAlarmPolling();
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      _notificationService.startAlarmPolling();
+    } else if (state == AppLifecycleState.paused) {
+      _notificationService.stopAlarmPolling();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
