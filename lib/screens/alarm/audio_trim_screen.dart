@@ -540,18 +540,24 @@ class _WaveformPainter extends CustomPainter {
     final centerY = size.height / 2;
 
     final visibleStartFrac = scrollOffsetSec / totalDurationSec;
-    final visibleEndFrac = (scrollOffsetSec + visibleWindowSec) / totalDurationSec;
+    final visibleEndFrac =
+        (scrollOffsetSec + visibleWindowSec) / totalDurationSec;
 
     for (int i = 0; i < barsOnScreen; i++) {
-      final frac =  i / barsOnScreen;
-      final songFrac = visibleStartFrac + frac * (visibleEndFrac - visibleStartFrac);
-      final barIndex = (songFrac * bars.length).floor().clamp(0, bars.length - 1);
+      final frac = i / barsOnScreen;
+      final songFrac =
+          visibleStartFrac + frac * (visibleEndFrac - visibleStartFrac);
+      final barIndex = (songFrac * bars.length).floor().clamp(
+        0,
+        bars.length - 1,
+      );
 
       final x = i * barStep + barWidth / 2;
       final barHeight = bars[barIndex] * (size.height * 0.8);
 
       final barTimeSec = songFrac * totalDurationSec;
-      final isSelected = barTimeSec >= selectedStartSec && barTimeSec <= selectedEndSec;
+      final isSelected =
+          barTimeSec >= selectedStartSec && barTimeSec <= selectedEndSec;
 
       final paint = Paint()
         ..color = isSelected ? selectedBarColor : barColor

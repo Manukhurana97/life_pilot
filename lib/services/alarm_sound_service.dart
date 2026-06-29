@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:file_selector/file_selector.dart';
@@ -11,12 +12,16 @@ class AlarmSound {
   final String name;
   final bool isBuiltIn;
   final String? filePath; // null for build-in absolute path for custom
+  final double startSec;
+  final double endSec;
 
   const AlarmSound({
     required this.id,
     required this.name,
     this.isBuiltIn = false,
     this.filePath,
+    this.startSec = 0,
+    this.endSec = 0,
   });
 
   Map<String, String> toJoin() => {
@@ -24,6 +29,8 @@ class AlarmSound {
     'name': name,
     'isBuiltIn': isBuiltIn.toString(),
     'filePath': filePath ?? '',
+    'startSec': startSec.toString(),
+    'endSec': startSec.toString(),
   };
 
   factory AlarmSound.fromJson(Map<String, String> json) => AlarmSound(
@@ -31,6 +38,8 @@ class AlarmSound {
     name: json['name']!,
     isBuiltIn: json['isBuiltIn'] == 'true',
     filePath: json['filePath']?.isEmpty == true ? null : json['filePath'],
+    startSec: double.tryParse(json['startSec'] ?? '') ?? 0,
+    endSec: double.tryParse(json['endSec'] ?? '') ?? 0,
   );
 }
 
@@ -73,7 +82,7 @@ class AlarmSoundService {
 
     for (final entry in entries) {
       final parts = entry.split('|||');
-      if (parts.length == 3) {
+      if (parts.length >= 3) {
         final file = File(parts[2]);
         if (await file.exists()) {
           sounds.add(
@@ -82,6 +91,8 @@ class AlarmSoundService {
               name: parts[1],
               isBuiltIn: false,
               filePath: parts[2],
+              startSec: parts.length > 3 ? (double.tryParse(parts[3]) ?? 0) : 0,
+              endSec: parts.length > 4 ? (double.tryParse(parts[4]) ?? 0) : 0,
             ),
           );
         }
@@ -156,7 +167,7 @@ class AlarmSoundService {
   Future<void> _saveCustomSound(AlarmSound sound) async {
     final prefs = await SharedPreferences.getInstance();
     final entries = prefs.getStringList(_customSoundsKey) ?? [];
-    entries.add('${sound.id}|||${sound.name}|||${sound.filePath}');
+    entries.add('${sound.id}|||${sound.name}|||${sound.filePath}|||${sound.startSec}|||${sound.endSec}');
     await prefs.setStringList(_customSoundsKey, entries);
   }
 
@@ -210,15 +221,27 @@ class AlarmSoundService {
     }
 
     try {
+      final hasTrim = !sound.isBuiltIn && sound.endSec > sound.startSec;
+      debugPrint('[PREVIEW] sound=${sound.name} startSec=${sound.startSec} endSec=${sound.endSec} hasTrim=$hasTrim');
+
       if (sound.isBuiltIn) {
         await _player.play(AssetSource('sounds/${sound.id}.mp3'));
       } else if (sound.filePath != null) {
-        await _player.play(DeviceFileSource(sound.filePath!));
+        await _player.setSource(DeviceFileSource(sound.filePath!));
+        if (hasTrim) {
+          debugPrint('[PREVIEW] Seeking to ${sound.startSec}s');
+          await _player.seek(Duration(milliseconds: (sound.startSec * 1000).round()));
+        }
+        await _player.resume();
       }
       _isPlaying = true;
 
       // Auto-stop after 5 sec
-      Future.delayed(const Duration(seconds: 5), () {
+      final stopAfter = hasTrim
+      ? Duration(milliseconds: ((sound.endSec - sound.startSec) * 1000).round())
+      : const Duration(seconds: 5);
+
+      Future.delayed(stopAfter, () {
         if (_isPlaying) stopPreview();
       });
     } catch (e) {
@@ -234,20 +257,43 @@ class AlarmSoundService {
   }
 
   bool get isPlaying => _isPlaying;
+  StreamSubscription<Duration>? _positionSub;
 
-  /// Playing alarm sound (for alarm screen - loops untill stopped
+  /// Playing alarm sound (for alarm screen - loops untill stopped)
   Future<void> playAlarm(String? soundId) async {
     final sound = await getSoundById(soundId);
     if (sound == null) return;
 
     try {
-      await _player.setReleaseMode(ReleaseMode.loop);
+      // For custom sounds with trim range, we manually loop within startSec-endSec
+      final hasTrim = !sound.isBuiltIn && sound.endSec > sound.startSec;
+
+      if (hasTrim) {
+        await _player.setReleaseMode(ReleaseMode.release);
+      } else {
+        await _player.setReleaseMode(ReleaseMode.loop);
+      }
+
       if (sound.isBuiltIn) {
         await _player.play(AssetSource('sounds/${sound.id}.mp3'));
       } else if (sound.filePath != null) {
-        await _player.play(DeviceFileSource(sound.filePath!));
+        await _player.setSource(DeviceFileSource(sound.filePath!));
+        if (hasTrim) {
+          await _player.seek(Duration(milliseconds: (sound.startSec * 1000).round()));
+        }
+        await _player.resume();
       }
       _isPlaying = true;
+
+      // Monitor position to loop within trim range
+      if (hasTrim) {
+        _positionSub?.cancel();
+        _positionSub = _player.onPositionChanged.listen((pos) {
+          if (pos.inMilliseconds >= (sound.endSec * 1000).round()) {
+            _player.seek(Duration(milliseconds: (sound.startSec * 1000).round()));
+          }
+        });
+      }
     } catch (e) {
       debugPrint("Error playing alarm: $e");
     }
@@ -255,6 +301,8 @@ class AlarmSoundService {
 
   /// Stop alarm sound
   Future<void> stopAlarm() async {
+    _positionSub?.cancel();
+    _positionSub = null;
     await _player.stop();
     await _player.setReleaseMode(ReleaseMode.release);
     _isPlaying = false;
