@@ -96,7 +96,8 @@ class AlarmSoundService {
     try {
       const audioTypeGroup = XTypeGroup(
         label: 'Audio',
-        extensions: ['mp3', 'wav', 'aac', 'm4a'],
+        mimeTypes: ['audio/*'],
+        uniformTypeIdentifiers: ['public.audio'],
       );
 
       final XFile? file = await openFile(
