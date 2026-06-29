@@ -400,7 +400,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
               _buildAlarmSoundPicker(),
               const SizedBox(height: 12,),
               DropdownButtonFormField<int>(
-                  value: _snoozeMinutes,
+                  initialValue: _snoozeMinutes,
                   decoration: const InputDecoration(labelText: 'Snooze duration'),
                   items: [5, 10, 15, 30].map((m) => DropdownMenuItem(value: m, child: Text('$m minutes'))).toList(),
                 onChanged: (v) => setState(() => _snoozeMinutes = v!),

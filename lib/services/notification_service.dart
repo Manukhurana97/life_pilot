@@ -19,6 +19,7 @@ Future<void> alarmManagerCallback(int id) async {
   debugPrint('[ALARM] Callback fired for id=$id');
 
   final prefs = await SharedPreferences.getInstance();
+  await prefs.reload();
   final title = prefs.getString('alarm_${id}_title') ?? 'Alarm';
   final body = prefs.getString('alarm_${id}_body');
   final sound = prefs.getString('alarm_${id}_sound');
@@ -116,6 +117,7 @@ Future<void> reminderCallback(int id) async {
   debugPrint('[REMINDER] Callback fired for id=$id');
 
   final prefs = await SharedPreferences.getInstance();
+  prefs.reload();
   final title = prefs.getString('reminder_${id}_title') ?? 'Reminder';
   final body = prefs.getString('reminder_${id}_body');
   final taskId = prefs.getString('reminder_${id}_taskId');
@@ -324,7 +326,7 @@ class NotificationService {
       final description = prefs.getString('pending_alarm_body');
       final sound = prefs.getString('pending_alarm_sound') ;
       final snoozeMin = prefs.getInt('pending_alarm_snoozeMinutes') ?? 5;
-      final taskId = prefs.getString('pending_alarm_snoozeMinutes') ?? '';
+      final taskId = prefs.getString('pending_alarm_taskId') ?? '';
 
       await _clearPendingAlarm();
       _showAlarmScreen(
