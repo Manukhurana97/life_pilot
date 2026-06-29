@@ -154,6 +154,8 @@ class AlarmSoundService {
         name: baseName,
         isBuiltIn: false,
         filePath: destPath,
+        startSec: startSec,
+        endSec: endSec
       );
 
       await _saveCustomSound(sound);
@@ -222,14 +224,12 @@ class AlarmSoundService {
 
     try {
       final hasTrim = !sound.isBuiltIn && sound.endSec > sound.startSec;
-      debugPrint('[PREVIEW] sound=${sound.name} startSec=${sound.startSec} endSec=${sound.endSec} hasTrim=$hasTrim');
 
       if (sound.isBuiltIn) {
         await _player.play(AssetSource('sounds/${sound.id}.mp3'));
       } else if (sound.filePath != null) {
         await _player.setSource(DeviceFileSource(sound.filePath!));
         if (hasTrim) {
-          debugPrint('[PREVIEW] Seeking to ${sound.startSec}s');
           await _player.seek(Duration(milliseconds: (sound.startSec * 1000).round()));
         }
         await _player.resume();
