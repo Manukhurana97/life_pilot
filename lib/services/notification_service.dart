@@ -117,7 +117,7 @@ Future<void> reminderCallback(int id) async {
   debugPrint('[REMINDER] Callback fired for id=$id');
 
   final prefs = await SharedPreferences.getInstance();
-  prefs.reload();
+  await prefs.reload();
   final title = prefs.getString('reminder_${id}_title') ?? 'Reminder';
   final body = prefs.getString('reminder_${id}_body');
   final taskId = prefs.getString('reminder_${id}_taskId');

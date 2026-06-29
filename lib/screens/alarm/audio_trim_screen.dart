@@ -37,7 +37,8 @@ class _AudioTrimScreenState extends State<AudioTrimScreen> {
 
   static const double _visibleWindowSec = 90;
   List<double> _waveformBars = [];
-  static const int _barsPerSeconds = 5;
+  static const double _barWidth = 3.0;
+  static const double _barGap = 2.0;
 
   StreamSubscription<Duration>? _positionSub;
   StreamSubscription<PlayerState>? _stateSub;
@@ -108,10 +109,11 @@ class _AudioTrimScreenState extends State<AudioTrimScreen> {
   double get _endSec => (_startSec + _clipsDurationSec).clamp(0, _maxDuration);
 
   void _generateWaveform() {
-    final totalBar = (_maxDuration + _barsPerSeconds).ceil();
+    final barsPerSec = 0.8;
+    final totalBars = max(1, (_maxDuration * barsPerSec).ceil());
     final rng = Random(widget.filePath.hashCode);
     _waveformBars = List.generate(
-      totalBar,
+      totalBars,
       (_) => 0.15 + rng.nextDouble() * 0.85,
     );
   }
@@ -315,7 +317,7 @@ class _AudioTrimScreenState extends State<AudioTrimScreen> {
               painter: _PositionIndicatorPainter(
                 startFraction: totalFraction,
                 endFraction: endFraction,
-                activeColor: theme.colorScheme.primary,
+                activeColor: Colors.red,
                 dotColor: theme.colorScheme.tertiary,
                 trackColor: theme.colorScheme.surfaceContainerHighest,
               ),
@@ -395,7 +397,7 @@ class _AudioTrimScreenState extends State<AudioTrimScreen> {
         final selectionLeft = _selectionOffsetSec * pixelsPerSec;
 
         return SizedBox(
-          height: 120,
+          height: 40,
           child: GestureDetector(
             onHorizontalDragUpdate: (details) {
               final secDelta = -details.delta.dx / pixelsPerSec;
@@ -424,19 +426,20 @@ class _AudioTrimScreenState extends State<AudioTrimScreen> {
               children: [
                 ClipRect(
                   child: CustomPaint(
-                    size: Size(availableWidth, 120),
+                    size: Size(availableWidth, 40),
                     painter: _WaveformPainter(
                       bars: _waveformBars,
-                      scrollOffsetSec: _effectiveVisibleSec,
-                      visibleWindowSec: _maxDuration,
+                      scrollOffsetSec: _scrollOffSetSec,
+                      visibleWindowSec: _effectiveVisibleSec,
                       totalDurationSec: _maxDuration,
                       barColor: theme.colorScheme.onSurface.withValues(
                         alpha: 0.4,
                       ),
-                      selectedBarColor: theme.colorScheme.onSurface,
+                      selectedBarColor: Colors.red,
                       selectedStartSec: _startSec,
                       selectedEndSec: _endSec,
-                      barsPerSeconds: _barsPerSeconds,
+                      barWidth: _barWidth,
+                      barGap: _barGap,
                     ),
                   ),
                 ),
@@ -512,7 +515,8 @@ class _WaveformPainter extends CustomPainter {
   final Color selectedBarColor;
   final double selectedStartSec;
   final double selectedEndSec;
-  final int barsPerSeconds;
+  final double barWidth;
+  final double barGap;
 
   _WaveformPainter({
     required this.bars,
@@ -523,31 +527,31 @@ class _WaveformPainter extends CustomPainter {
     required this.selectedBarColor,
     required this.selectedStartSec,
     required this.selectedEndSec,
-    required this.barsPerSeconds,
+    this.barWidth = 3.0,
+    this.barGap = 2.0,
   });
 
   @override
   void paint(Canvas canvas, Size size) {
     if (bars.isEmpty || totalDurationSec <= 0) return;
 
-    final barWidth = 3.0;
-    final pixelsPerSec = size.width / visibleWindowSec;
+    final barStep = barWidth + barGap;
+    final barsOnScreen = (size.width / barStep).floor();
     final centerY = size.height / 2;
 
-    final startBar = (scrollOffsetSec * barsPerSeconds).floor();
-    final barsVisible = (visibleWindowSec * barsPerSeconds).ceil() + 1;
+    final visibleStartFrac = scrollOffsetSec / totalDurationSec;
+    final visibleEndFrac = (scrollOffsetSec + visibleWindowSec) / totalDurationSec;
 
-    for (int i = 0; i < barsVisible; i++) {
-      final barIndex = startBar + i;
-      if (barIndex < 0 || barIndex >= bars.length) continue;
+    for (int i = 0; i < barsOnScreen; i++) {
+      final frac =  i / barsOnScreen;
+      final songFrac = visibleStartFrac + frac * (visibleEndFrac - visibleStartFrac);
+      final barIndex = (songFrac * bars.length).floor().clamp(0, bars.length - 1);
 
-      final barTimeSec = barIndex / barsPerSeconds;
-      final x = (barTimeSec - scrollOffsetSec) * pixelsPerSec;
-      if (x < -barWidth || x > size.width + barWidth) continue;
+      final x = i * barStep + barWidth / 2;
+      final barHeight = bars[barIndex] * (size.height * 0.8);
 
-      final height = bars[barIndex] * (size.width * 0.8);
-      final isSelected =
-          barTimeSec >= selectedStartSec && barTimeSec <= selectedEndSec;
+      final barTimeSec = songFrac * totalDurationSec;
+      final isSelected = barTimeSec >= selectedStartSec && barTimeSec <= selectedEndSec;
 
       final paint = Paint()
         ..color = isSelected ? selectedBarColor : barColor
@@ -555,8 +559,8 @@ class _WaveformPainter extends CustomPainter {
         ..strokeWidth = barWidth;
 
       canvas.drawLine(
-        Offset(x, centerY - height / 2),
-        Offset(x, centerY + height / 2),
+        Offset(x, centerY - barHeight / 2),
+        Offset(x, centerY + barHeight / 2),
         paint,
       );
     }
