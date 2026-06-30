@@ -156,6 +156,10 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
   }
 
   Future<void> _save() async {
+    if (_titleController.text.trim().isEmpty) {
+      _formKey.currentState!.validate();
+      return;
+    }
     if (!_formKey.currentState!.validate()) return;
 
     final now = DateTime.now().toIso8601String();
