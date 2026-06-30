@@ -77,7 +77,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           child: CustomScrollView(
             slivers: [
               SliverAppBar(
-                expandedHeight: 140,
+                expandedHeight: 100,
                 floating: true,
                 pinned: true,
                 actions: [
@@ -92,7 +92,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ],
                 flexibleSpace: FlexibleSpaceBar(
                   background: Container(
-                    padding: const EdgeInsets.fromLTRB(20, 60, 20, 0),
+                    padding: const EdgeInsets.fromLTRB(20, 54, 20, 0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -102,7 +102,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        const SizedBox(height: 4),
+                        const SizedBox(height: 2),
                         Text(
                           DateFormat('EEEE, d MMMM').format(DateTime.now()),
                           style: theme.textTheme.bodyLarge?.copyWith(
@@ -230,14 +230,38 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             ], 
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const TaskFormScreen()),
-            );
-          },
-          child: const Icon(Icons.add),
-        ),
+        floatingActionButton:Container(
+          width: 58,
+          height: 58,
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color(0xFFFF6B35), Color(0xFFFF8F5E)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(18),
+            boxShadow: [
+              BoxShadow(
+                color: const Color(0xFFFF6B35).withValues(alpha: 0.35),
+                blurRadius: 16,
+                offset: const Offset(0, 6),
+              ),
+            ],
+          ),
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(18),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const TaskFormScreen(),
+                  )
+                );
+              },
+              child: const Icon(Icons.add_rounded, color: Colors.white, size: 30),
+            ),
+          ),
+        )
     );
   }
 
