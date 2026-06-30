@@ -30,6 +30,21 @@ Future<void> alarmManagerCallback(int id) async {
     '[ALARM] title=$title sound=$sound taskId=$taskId snoozeMin=$snoozeMin',
   );
 
+  // Check if this task was already completed today - skip if so
+  if (taskId.isNotEmpty) {
+    final completedFlag = prefs.getBool('task_completed_today_$taskId') ?? false;
+    if (completedFlag) {
+      debugPrint('[ALARM] Task $taskId already completed today -skipped alarm');
+
+      await prefs.remove('alarm_${id}_title');
+      await prefs.remove('alarm_${id}_body');
+      await prefs.remove('alarm_${id}_sound');
+      await prefs.remove('alarm_${id}_taskId');
+      await prefs.remove('alarm_${id}_snoozeMinutes');
+      return;
+    }
+  }
+
   // Store active alarm date so snooze handler can re-use it
   await prefs.setString('active_alarm_${id}_title', title);
   if (body != null) await prefs.setString('active_alarm_${id}_body', body);
@@ -790,6 +805,35 @@ class NotificationService {
       }
       await _plugin.cancel(id: alarmBase + i);
     }
+
+    // Cancel snooze alarms (from _handleSnoozeFromScreen)
+    final snoozeFromScreenId = (taskId.hashCode * 0x7FFFFF) % 2000000 + 4000000;
+    if (Platform.isAndroid) {
+      await AndroidAlarmManager.cancel(snoozeFromScreenId);
+    }
+    await _plugin.cancel(id: snoozeFromScreenId);
+
+    // Cancel snooze alarms (from _handleSnooze - id + 100000)
+    for (int i=0; i<20; i++) {
+      final snoozeId = alarmBase + i + 100000;
+      if (Platform.isAndroid) {
+        await AndroidAlarmManager.cancel(snoozeId);
+      }
+      await _plugin.cancel(id: snoozeId);
+    }
+  }
+
+  /// Mark a task as completed today so snoozed alarms won't fire
+  Future<void> markTaskCompletedToday(String taskId) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('task_completed_today_$taskId', true);
+    await cancelForTask(taskId);
+    debugPrint('[ALARM] task $taskId marked completed - cancelled pending snooze alarms');
+  }
+
+  Future<void> clearTaskCompletedToday(String taskId) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('task_completed_today_$taskId');
   }
 
   Future<void> cancelAll() async {

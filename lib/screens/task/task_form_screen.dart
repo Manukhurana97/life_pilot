@@ -45,6 +45,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
   List<AlarmSound> _availableSounds = [];
   final AlarmSoundService _soundService = AlarmSoundService();
   final List<TextEditingController> _subtaskControllers = [];
+  final List<FocusNode> _subtaskFocusNodes = [];
 
   bool get _isEditing => widget.existingTask != null;
 
@@ -60,7 +61,22 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
 
   Future<void> _loadAvailableSounds() async {
     _availableSounds = await _soundService.getAllSounds();
+    debugPrint('[SOUND] Loaded ${_availableSounds.length} sounds: ${_availableSounds.map((s) => '${s.name}(${s.id})').join(', ')}');
     if (mounted) setState(() {});
+  }
+
+  @override
+  void dispose() {
+    _soundService.stopPreview();
+    _titleController.dispose();
+    _descriptionController.dispose();
+    for (final c in _subtaskControllers) {
+      c.dispose();
+    }
+    for (final f in _subtaskFocusNodes) {
+      f.dispose();
+    }
+    super.dispose();
   }
 
   void _populateFromTask(Task task) {
@@ -105,17 +121,6 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
         }
       });
     }
-  }
-
-  @override
-  void dispose() {
-    _soundService.stopPreview();
-    _titleController.dispose();
-    _descriptionController.dispose();
-    for (final c in _subtaskControllers) {
-      c.dispose();
-    }
-    super.dispose();
   }
 
   Map<String, dynamic> _buildRecurrenceData() {
@@ -222,6 +227,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
       ),
       body: Form(
         key: _formKey,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         child: ListView(
           padding: const EdgeInsets.all(20),
           children: [
@@ -256,6 +262,12 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
                 onPressed: () {
                   setState(() {
                     _subtaskControllers.add(TextEditingController());
+                    _subtaskFocusNodes.add(FocusNode());
+                  });
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    if (_subtaskFocusNodes.isNotEmpty) {
+                      _subtaskFocusNodes.last.requestFocus();
+                    }
                   });
                 }, 
                 icon: const Icon(Icons.add, size: 18,),
@@ -281,6 +293,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
                       ],
                     ),
                     selected: _categoryId == cat.id,
+                    showCheckmark: false,
                     onSelected: (selected) {
                       setState(() => _categoryId = selected ? cat.id : null);
                     },
@@ -708,8 +721,9 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
               Expanded(
                   child: TextField(
                     controller: _subtaskControllers[index],
+                    focusNode: index < _subtaskFocusNodes.length ? _subtaskFocusNodes[index] : null,
                     decoration: InputDecoration(
-                      hintText: 'Stop ${index + 1}',
+                      hintText: 'Step ${index + 1}',
                       isDense: true,
                       contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                     ),
@@ -722,6 +736,10 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
                     setState(() {
                       _subtaskControllers[index].dispose();
                       _subtaskControllers.removeAt(index);
+                      if (index < _subtaskFocusNodes.length) {
+                        _subtaskFocusNodes[index].dispose();
+                        _subtaskFocusNodes.removeAt(index);
+                      }
                     });
                   },
                 padding: EdgeInsets.zero,

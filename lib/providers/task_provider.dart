@@ -165,6 +165,7 @@ class TaskNotifier extends ChangeNotifier {
     _todayLogs[taskId] = log;
 
     _streaks[taskId] = await _db.getStreakForTask(taskId);
+    await _notifService.markTaskCompletedToday(taskId);
     notifyListeners();
   }
 
@@ -182,6 +183,7 @@ class TaskNotifier extends ChangeNotifier {
     await _db.deleteLogsForTaskOnDate(taskId, today);
     await _db.insertLog(log);
     _todayLogs[taskId] = log;
+    await _notifService.markTaskCompletedToday(taskId);
     notifyListeners();
   }
 
@@ -190,6 +192,7 @@ class TaskNotifier extends ChangeNotifier {
     await _db.deleteLogsForTaskOnDate(taskId, today);
     _todayLogs.remove(taskId);
     _streaks[taskId] = await _db.getStreakForTask(taskId);
+    await _notifService.markTaskCompletedToday(taskId);
     notifyListeners();
   }
 
