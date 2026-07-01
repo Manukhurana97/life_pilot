@@ -1,0 +1,14 @@
+Proposed changes for v1.5.0
+
+Home Screen Widget - Native iOS/Android widget showing today at a glance.
+Quick-add from home - Long-press the FAB or inline text filed to create a task without opening the full form.
+
+Time tracker : Start/Stop timer of tasks, compare actual vs panned time.
+Completion note - add a short note when marking done.
+Data backup / restore : Export db to JSON, restore on new device.
+
+Focus/Promodoro mode - Build-in timer with break intervals for deep work tasks.
+Batch operation: Multi select to bulk complete, skip and reschedule.
+
+
+Proposed changes for v2.0.0
