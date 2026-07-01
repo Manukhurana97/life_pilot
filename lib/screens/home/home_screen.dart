@@ -10,6 +10,8 @@ import 'package:life_pilot/screens/home/widgets/task_card.dart';
 import 'package:life_pilot/screens/settings/settings_screen.dart';
 import 'package:life_pilot/screens/task/task_form_screen.dart';
 
+enum _TaskTimeState {past, current, upcoming}
+
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
@@ -32,6 +34,46 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     if (hour < 12) return 'Good Morning';
     if (hour < 17) return 'Good Afternoon';
     return 'Good Evening';
+  }
+
+  int _getNowMarkerIndex(List<Task> timedTasks) {
+    final now = TimeOfDay.now();
+    final nowMinutes = now.hour * 60 + now.minute;
+    for (int i = 0; i < timedTasks.length; i++) {
+      if (timedTasks[i].startTime != null) {
+        final parts = timedTasks[i].startTime!.split(':');
+        final taskMinutes = int.parse(parts[0]) * 60 + int.parse(parts[1]);
+        if (taskMinutes > nowMinutes) return i;
+      }
+    }
+    return timedTasks.length;
+  }
+
+  _TaskTimeState _getTaskTimeState(Task task) {
+    final now = TimeOfDay.now();
+    final nowMinutes = now.hour * 60  + now.minute;
+
+    int? startMinutes;
+    int? endMinutes;
+
+    if (task.startTime != null) {
+      final parts = task.startTime!.split(':');
+      startMinutes = int.parse(parts[0]) * 60 + int.parse(parts[1]);
+    }
+    if (task.endTime != null) {
+      final parts = task.endTime!.split(':');
+      endMinutes = int.parse(parts[0]) * 60 + int.parse(parts[1]);
+    }
+
+    if (startMinutes == null) return _TaskTimeState.upcoming;
+    if (endMinutes != null) {
+      if (nowMinutes >= endMinutes) return _TaskTimeState.past;
+      if (nowMinutes >= startMinutes) return _TaskTimeState.current;
+      return _TaskTimeState.upcoming;
+    } else {
+      if (nowMinutes > startMinutes) return _TaskTimeState.past;
+      return _TaskTimeState.upcoming;
+    }
   }
 
   @override
@@ -66,6 +108,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
     final timedPending = pending.where((t) => t.startTime != null).toList();
     final untimedPending = pending.where((t) => t.startTime == null).toList();
+    final nowMarkerIndex = _getNowMarkerIndex(timedPending);
+    final showNowMarker = timedPending.isNotEmpty;
+    final totalTimelineItems = timedPending.length + (showNowMarker ? 1 : 0);
 
     final totalTasks = todayTasks.length;
     final doneCount = completed.length;
@@ -162,14 +207,25 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     _sectionHeader(context, 'Schedule', timedPending.length),
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
-                        (context, index) => _buildTimelineItem(
-                          context,
-                          task: timedPending[index],
-                          isFirst: index == 0,
-                          isLast: index == timedPending.length - 1,
-                          taskNotifier: taskNotifier,
-                        ),
-                        childCount: timedPending.length,
+                          (context, index) {
+                            if (showNowMarker && index == nowMarkerIndex) {
+                              return _buildNowMarker(
+                                context,
+                                isFirst: index == 0,
+                                isLast: index == totalTimelineItems - 1,
+                              );
+                            }
+                            final taskIndex = showNowMarker && index > nowMarkerIndex ? index -1 : index;
+                            return _buildTimelineItem(
+                                context,
+                                task: timedPending[taskIndex],
+                                isFirst: index == 0,
+                                isLast: index == 0,
+                                taskNotifier: taskNotifier,
+                                timeState: _getTaskTimeState(timedPending[taskIndex]),
+                            );
+                          },
+                          childCount: totalTimelineItems,
                       ),
                     ),
                   ],
@@ -310,6 +366,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     required bool isFirst,
     required bool isLast,
     required TaskNotifier taskNotifier,
+    required _TaskTimeState timeState,
   }) {
     final theme = Theme.of(context);
 
@@ -331,6 +388,26 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       );
     }
 
+    final isPart = timeState == _TaskTimeState.past;
+    final isCurrent = timeState == _TaskTimeState.current;
+
+    final dotColor = isPart
+    ? theme.colorScheme.outline
+        : theme.colorScheme.primary;
+    final timeLabelColor = isPart
+    ? theme.colorScheme.outline
+        : isCurrent
+    ? theme.colorScheme.primary
+        : theme.colorScheme.onSurface;
+
+    final taskCard = TaskCard(
+      task: task,
+      onCompleted: () => taskNotifier.markDone(task.id),
+      onSkipped: () => taskNotifier.markSkipped(task.id),
+      subtaskCount: taskNotifier.getSubtaskCount(task.id),
+      checkedCount: taskNotifier.getCheckedCount(task.id),
+    );
+
     return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -345,8 +422,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   Text(
                     startTod?.format(context) ?? '',
                     style: theme.textTheme.labelSmall?.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: theme.colorScheme.onSurface,
+                      fontWeight: isCurrent ? FontWeight.w700 : FontWeight.w600,
+                      color: timeLabelColor,
                     ),
                   ),
                   if (endTod != null)
@@ -373,11 +450,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       : theme.colorScheme.outlineVariant,
                 ),
                 Container(
-                  width: 12,
-                  height: 12,
+                  width: isCurrent ? 14 : 12,
+                  height: isCurrent ? 14 : 12,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: theme.colorScheme.primary,
+                    color: isCurrent ? theme.colorScheme.surface : dotColor,
+                    border: isCurrent
+                      ? Border.all(color: theme.colorScheme.primary, width: 3)
+                    : null
                   ),
                 ),
                 Expanded(
@@ -392,13 +472,71 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             ),
           ),
           Expanded(
-            child: TaskCard(
-              task: task,
-              onCompleted: () => taskNotifier.markDone(task.id),
-              onSkipped: () => taskNotifier.markSkipped(task.id),
-              subtaskCount: taskNotifier.getSubtaskCount(task.id),
-              checkedCount: taskNotifier.getCheckedCount(task.id),
+            child: isPart
+                ? Opacity(opacity: 0.45, child: taskCard)
+            : taskCard,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildNowMarker(BuildContext context, {required bool isFirst, required bool isLast}) {
+    final theme = Theme.of(context);
+    final now = TimeOfDay.now();
+    return SizedBox(
+      height: 32,
+      child: Row(
+        children: [
+          SizedBox(
+            width: 56,
+            child: Text(
+              now.format(context),
+              textAlign: TextAlign.center,
+              style: theme.textTheme.labelSmall?.copyWith(
+                fontWeight: FontWeight.w700,
+                color: theme.colorScheme.error,
+                fontSize: 10,
+              ),
             ),
+          ),
+          SizedBox(
+            width: 24,
+            child: Column(
+              children: [
+                Expanded(
+                    child: Container(
+                      width: 2,
+                      color: isFirst
+                      ? Colors.transparent
+                          : theme.colorScheme.outlineVariant,
+                    ),
+                ),
+                Container(
+                  width: 10,
+                    height: 10,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: theme.colorScheme.error
+                    ),
+                ),
+                Expanded(
+                    child: Container(
+                      width: 2,
+                      color: isLast
+                      ? Colors.transparent
+                      : theme.colorScheme.outlineVariant,
+                    ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+              child: Container(
+                height: 2,
+                margin: const EdgeInsets.only(right: 16),
+                color: theme.colorScheme.error.withValues(alpha: 0.4),
+              ),
           ),
         ],
       ),
