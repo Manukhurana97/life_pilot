@@ -1,5 +1,6 @@
 class AppConstants {
-  static const String appName = 'LifePilot';
+  static const String appName = 'DayPilot';
+  static const String appTagline = 'Pilot your perfect day';
   static const String appVersion = '1.0.0';
 
   static const List<String> weekdayNames = [

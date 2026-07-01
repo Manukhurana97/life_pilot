@@ -28,7 +28,7 @@ Future<void> main() async {
   runApp(
     UncontrolledProviderScope(
       container: container,
-      child: const LifePilotApp(),
+      child: const DayPilotApp(),
     )
   );
 }

@@ -1,1 +1,3 @@
-# life_pilot
+# DayPilot
+DayPilot - Pilot your perfect day
+

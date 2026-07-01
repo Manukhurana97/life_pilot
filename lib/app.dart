@@ -11,8 +11,8 @@ import 'package:life_pilot/screens/stats/stats_screen.dart';
 import 'package:life_pilot/services/notification_service.dart';
 
 
-class LifePilotApp extends ConsumerWidget {
-  const LifePilotApp({super.key});
+class DayPilotApp extends ConsumerWidget {
+  const DayPilotApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
