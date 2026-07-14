@@ -36,7 +36,7 @@ class BackupService {
     Directory dir;
     try {
       final extDir = await getExternalStorageDirectories();
-      dir = extDir ?? await getApplicationDocumentsDirectory()
+      dir = extDir ?? await getApplicationDocumentsDirectory();
     } catch (_) {
       dir = await getApplicationDocumentsDirectory();
     }
