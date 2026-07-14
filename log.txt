@@ -56,3 +56,4 @@ Execution failed for task ':app:compileFlutterBuildRelease'.
 BUILD FAILED in 2s
 Running Gradle task 'assembleRelease'...                         2,420ms
 Gradle task assembleRelease failed with exit code 1
+
