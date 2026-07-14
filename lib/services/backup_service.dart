@@ -35,7 +35,7 @@ class BackupService {
     // Use external storage (user-accessible via file-manager)
     Directory dir;
     try {
-      final extDir = await getExternalStorageDirectories();
+      final Directory? extDir = await getExternalStorageDirectory();
       dir = extDir ?? await getApplicationDocumentsDirectory();
     } catch (_) {
       dir = await getApplicationDocumentsDirectory();
