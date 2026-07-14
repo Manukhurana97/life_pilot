@@ -3,11 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:life_pilot/core/theme/app_theme.dart';
 import 'package:life_pilot/core/constraints/app_constraints.dart';
 import 'package:life_pilot/providers/settings_provider.dart';
+import 'package:life_pilot/providers/task_provider.dart';
 import 'package:life_pilot/screens/home/home_screen.dart';
 import 'package:life_pilot/screens/calendar/calendar_screen.dart';
 import 'package:life_pilot/screens/splash/splash_screen.dart';
 import 'package:life_pilot/screens/tasks/all_tasks_screen.dart';
 import 'package:life_pilot/screens/stats/stats_screen.dart';
+import 'package:life_pilot/services/battery_optimization_service.dart';
 import 'package:life_pilot/services/notification_service.dart';
 
 
@@ -30,14 +32,14 @@ class DayPilotApp extends ConsumerWidget {
   }
 }
 
-class AppShell extends StatefulWidget {
+class AppShell extends ConsumerStatefulWidget {
   const AppShell({super.key});
 
   @override
-  State<AppShell> createState() => _AppShellState();
+  ConsumerState<AppShell> createState() => _AppShellState();
 }
 
-class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
+class _AppShellState extends ConsumerState<AppShell> with WidgetsBindingObserver {
   int _currentIndex = 0;
   final _notificationService = NotificationService();
 
@@ -57,6 +59,12 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
     WidgetsBinding.instance.addObserver(this);
     _notificationService.startAlarmPolling();
     _notificationService.handlePendingAlarm();
+    // Prompt battery optimization optimization after first frame
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        BatteryOptimizationService.checkAndPrompt(context);
+      }
+    });
   }
 
   @override
@@ -70,6 +78,9 @@ class _AppShellState extends State<AppShell> with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
       _notificationService.startAlarmPolling();
+      // Reload tasks on resume + triggers rescheduleAllTask
+      // Critical for iOS: reference today's 1-day notifications window
+      ref.read(taskProvider).loadTasks();
     } else if (state == AppLifecycleState.paused) {
       _notificationService.stopAlarmPolling();
     }

@@ -49,7 +49,16 @@ class _AllTasksScreenState extends ConsumerState<AllTasksScreen> {
           IconButton(
             icon: Icon(_showPaused ? Icons.visibility : Icons.visibility_off, size: 22),
             tooltip: _showPaused ? 'Hide paused' : 'Show paused',
-            onPressed: () => setState(() => _showPaused = !_showPaused),
+            onPressed: () {
+              setState(() => _showPaused = !_showPaused);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                    content: Text(_showPaused ? 'Showing paused tasks' : 'Hiding paused tasks'),
+                    duration: const Duration(seconds: 1),
+                  behavior: SnackBarBehavior.floating,
+                ),
+              );
+            }
           ),
         ],
       ),

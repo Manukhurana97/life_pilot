@@ -36,29 +36,52 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
       appBar: AppBar(
         title: const Text('Calendar'),
         actions: [
-          IconButton(onPressed: () {
-            setState(() {
+          IconButton(
+            icon: Icon(
+              _calendarFormat == CalendarFormat.month
+                  ? Icons.calendar_view_month
+                  : _calendarFormat == CalendarFormat.twoWeeks
+                  ? Icons.calendar_view_week
+                  : Icons.view_week_outlined,
+            ),
+            tooltip: _calendarFormat == CalendarFormat.month
+                ? 'Month'
+                : _calendarFormat == CalendarFormat.twoWeeks
+                ? '2 Weeks'
+                : 'Week',
+            onPressed: () => setState(() {
+              _calendarFormat = switch (_calendarFormat) {
+                CalendarFormat.month => CalendarFormat.twoWeeks,
+                CalendarFormat.twoWeeks => CalendarFormat.week,
+                CalendarFormat.week => CalendarFormat.month,
+              };
+            }),
+          ),
+          IconButton(
+            icon: const Icon(Icons.today),
+            tooltip: 'Today',
+            onPressed: () => setState(() {
               _focusedDay = DateTime.now();
               _selectedDay = DateTime.now();
-            });
-          }, icon: const Icon(Icons.today))
+            }),
+          ),
         ],
       ),
       body: Column(
         children: [
           TableCalendar(
-            firstDay: DateTime(2020), 
-            lastDay: DateTime(2099), 
-            focusedDay: _focusedDay, 
-            calendarFormat: _calendarFormat, 
-            selectedDayPredicate: (day) => isSameDay(_selectedDay, day), 
+            firstDay: DateTime(2020),
+            lastDay: DateTime(2099),
+            focusedDay: _focusedDay,
+            calendarFormat: _calendarFormat,
+            selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
             onDaySelected: (selectedDay, focusedDay) {
               setState(() {
-                _selectedDay  = selectedDay;
+                _selectedDay = selectedDay;
                 _focusedDay = focusedDay;
               });
             },
-            onFormatChanged : (format) {
+            onFormatChanged: (format) {
               setState(() => _calendarFormat = format);
             },
             onPageChanged: (focusedDay) {
@@ -72,8 +95,10 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
                 color: theme.colorScheme.primary,
                 shape: BoxShape.circle,
               ),
-            
-              todayTextStyle: TextStyle(color: theme.colorScheme.onPrimaryContainer),
+
+              todayTextStyle: TextStyle(
+                color: theme.colorScheme.onPrimaryContainer,
+              ),
               selectedDecoration: BoxDecoration(
                 color: theme.colorScheme.tertiary,
                 shape: BoxShape.circle,
@@ -81,13 +106,9 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
               markerSize: 4,
               markersMaxCount: 3,
             ),
-            headerStyle: HeaderStyle(
+            headerStyle: const HeaderStyle(
               formatButtonVisible: true,
               titleCentered: true,
-              formatButtonDecoration: BoxDecoration(
-                border: Border.all(color: theme.colorScheme.outline),
-                borderRadius: BorderRadius.circular(8),
-              ),
             ),
           ),
           const Divider(height: 1),
@@ -114,47 +135,67 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
           Expanded(
             child: selectedTasks.isEmpty
                 ? Center(
-                  child: Text(
-                    "No Task on this day",
-                    style: TextStyle(color: theme.colorScheme.outline),
-                  ),
-                )
+                    child: Text(
+                      "No Task on this day",
+                      style: TextStyle(color: theme.colorScheme.outline),
+                    ),
+                  )
                 : ListView.builder(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  itemCount: selectedTasks.length,
-                  itemBuilder: (context, index) {
-                    final task = selectedTasks[index];
-                    final category = ref.watch(categoryProvider).getById(task.categoryId); 
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    itemCount: selectedTasks.length,
+                    itemBuilder: (context, index) {
+                      final task = selectedTasks[index];
+                      final category = ref
+                          .watch(categoryProvider)
+                          .getById(task.categoryId);
 
-                    return Card(
-                      child: ListTile(
-                        leading: category != null 
-                            ? CircleAvatar(
-                              backgroundColor: category.color.withValues(alpha: 0.15),
-                              child: Icon(category.icon, color: category.color, size: 20),
-                            )
-                            : null,
-                        title: Text(task.title),
-                        subtitle: task.startTime != null ? Text(task.endTime != null ? '${task.startTime} - ${task.endTime}' : task.startTime!) : null,
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            if(task.isAlarm) 
-                              Icon(Icons.alarm, size: 16, color: theme.colorScheme.error),
-                            const SizedBox(width: 4),
-                            const Icon(Icons.chevron_right, size: 20),
-                          ],
+                      return Card(
+                        child: ListTile(
+                          leading: category != null
+                              ? CircleAvatar(
+                                  backgroundColor: category.color.withValues(
+                                    alpha: 0.15,
+                                  ),
+                                  child: Icon(
+                                    category.icon,
+                                    color: category.color,
+                                    size: 20,
+                                  ),
+                                )
+                              : null,
+                          title: Text(task.title),
+                          subtitle: task.startTime != null
+                              ? Text(
+                                  task.endTime != null
+                                      ? '${task.startTime} - ${task.endTime}'
+                                      : task.startTime!,
+                                )
+                              : null,
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              if (task.isAlarm)
+                                Icon(
+                                  Icons.alarm,
+                                  size: 16,
+                                  color: theme.colorScheme.error,
+                                ),
+                              const SizedBox(width: 4),
+                              const Icon(Icons.chevron_right, size: 20),
+                            ],
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) =>
+                                    TaskDetailScreen(taskId: task.id),
+                              ),
+                            );
+                          },
                         ),
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => TaskDetailScreen(taskId: task.id)
-                            ),
-                          );
-                        },
-                      ),
-                    );
-                  },
-                ),
+                      );
+                    },
+                  ),
           ),
         ],
       ),

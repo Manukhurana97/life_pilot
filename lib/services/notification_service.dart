@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:life_pilot/screens/alarm/alarm_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -229,7 +230,7 @@ Future<void> onBackgroundNotificationAction(
       final scheduledDate = tz.TZDateTime.from(snoozeTime, tz.local);
       await plugin.zonedSchedule(
         id: snoozeId,
-        title: '⏰ title',
+        title: '⏰ $title',
         body: body,
         scheduledDate: scheduledDate,
         notificationDetails: const NotificationDetails(
@@ -589,24 +590,44 @@ class NotificationService {
     }
   }
 
-  /// Schedule notifications for a task for the next 7 days
+  /// iOS pending notification hard limit
+  static const int _iosMaxPending = 64;
+  static const int _iosSafeLimit = 58;
+
+  /// Public API: cancel +  reschedule reminders for a single task (used by add / update)
   Future<void> scheduleForTask(Task task) async {
     if (task.reminderOffsets.isEmpty || !task.isActive) return;
-
-    // Cancel existing notifications for a task for the next 7 days
     await cancelForTask(task.id);
-
+    final days = Platform.isIOS ? 2 : 7;
     final now = DateTime.now();
-    final end = now.add(const Duration(days: 7));
-    final dueDates = RecurrenceService.getDueDatesInRange(task, now, end);
+    await _scheduleAlarmInRange(task, now, now.add(Duration(days: days)));
+  }
 
-    // use a better spread to reduce collision risk between tasks
+  /// Public API: cancel +  reschedule reminders for a single task (used by add / update)
+  Future<void> scheduleAlarm(Task task) async {
+    if (!task.isAlarm || !task.isActive) return;
+    final days = Platform.isIOS ? 2 : 7;
+    final now = DateTime.now();
+    await _scheduleAlarmInRange(task, now, now.add(Duration(days: days)));
+  }
+
+    // Internal range based scheduling (no cancel - caller handler that)
+
+  Future<int> _scheduleReminderInRange(Task task, DateTime rangeStart,DateTime rangeEnd ) async {
+    if (task.reminderOffsets.isEmpty || !task.isActive) return 0;
+    final dueDates = RecurrenceService.getDueDatesInRange(task, rangeStart, rangeEnd);
+
+    // On iOS, only schedule the closest reminder offset to conserve slots
+    final offsets = Platform.isIOS && task.reminderOffsets.length > 1
+      ? [task.reminderOffsets.reduce((a, b) => a<b ? a : b)]
+      : task.reminderOffsets;
     int notifId = (task.id.hashCode & 0x7FFFFFFF) % 2000000;
-
+    int scheduled = 0;
+    final now = DateTime.now();
     final prefs = await SharedPreferences.getInstance();
 
     for (final dueDate in dueDates) {
-      for (final offsetMinutes in task.reminderOffsets) {
+      for (final offsetMinutes in offsets) {
         DateTime taskTime;
         if (task.startTime != null) {
           final parts = task.startTime!.split(':');
@@ -632,7 +653,6 @@ class NotificationService {
 
         final currentId = notifId++;
 
-        // store reminder metadata for the background callback
         await prefs.setString('reminder_${currentId}_title', task.title);
         if (body.isNotEmpty) {
           await prefs.setString('reminder_${currentId}_body', body);
@@ -669,23 +689,26 @@ class NotificationService {
             payload: task.id,
           );
         }
+        scheduled++;
       }
     }
+
+    return scheduled;
   }
 
-  /// Schedule alarm notification
-  Future<void> scheduleAlarm(Task task) async {
-    if (!task.isAlarm || !task.isActive) return;
+  /// Schedule alarm notification for [task] between [rangeStart] and [rangeEnd]
+  /// Return the number of alarm_actually scheduled
+  Future<int> _scheduleAlarmInRange(Task task, DateTime rangeStart, DateTime rangeEnd) async {
+    if (!task.isAlarm || !task.isActive) return 0;
 
-    final now = DateTime.now();
-    final end = now.add(const Duration(days: 7));
-    final dueDates = RecurrenceService.getDueDatesInRange(task, now, end);
+    final dueDates = RecurrenceService.getDueDatesInRange(task, rangeStart, rangeEnd);
 
     debugPrint(
       '[ALARM] scheduleAlarm for "${task.title}" isAlarm=${task.isAlarm} startTime=${task.startTime} sound=${task.alarmSound} dueDates=${dueDates.length}',
     );
     int notifId = ((task.id.hashCode & 0x7FFFFFFF) % 2000000) + 2000000;
-
+    int scheduled = 0;
+    final now = DateTime.now();
     final prefs = await SharedPreferences.getInstance();
 
     for (final dueDate in dueDates) {
@@ -744,11 +767,11 @@ class NotificationService {
             rescheduleOnReboot: true,
           );
           debugPrint(
-            '[ALARM] Alarm scheduled via AndroidAlarmManager (alarmClock',
+            '[ALARM] Alarm scheduled via AndroidAlarmManager (alarmClock)',
           );
         } catch (e) {
           debugPrint(
-            '[ALARM] alarmClock failed: $e, failed back to exact+allowWhileIdle',
+            '[ALARM] alarmClock failed: $e, falling back to exact+allowWhileIdle',
           );
           await AndroidAlarmManager.oneShotAt(
             alarmTime,
@@ -782,14 +805,13 @@ class NotificationService {
         );
         debugPrint('[ALARM] Alarm scheduled via zonedSchedule (iOS)');
       }
+      scheduled++;
     }
 
     // Verify alarms are actually pending
     final pending = await _plugin.pendingNotificationRequests();
     debugPrint('[ALARM] Total pending notifications: ${pending.length}');
-    for (final p in pending) {
-      debugPrint('[ALARM] pending id=${p.id} title=${p.title}');
-    }
+    return scheduled;
   }
 
   Future<void> cancelForTask(String taskId) async {
@@ -840,18 +862,86 @@ class NotificationService {
     await _plugin.cancelAll();
   }
 
-  /// Re-schedule all active task (call on app start or task change)
+  /// Re-schedule all active tasks (call on app start or task resume)
   Future<void> rescheduleAllTasks(List<Task> tasks) async {
     await cancelAll();
     for (final task in tasks) {
-      if (!task.isActive) continue;
+        await cancelAll();
+    }
+
+    final activeTasks = tasks.where((t) => t.isActive).toList();
+
+    if(Platform.isAndroid) {
+      // Android: Scheduled 7 days ahead in one pass (no limit)
+      await _ScheduleAllInRange(activeTasks, 7);
+    } else {
+      await _scheduledIOSDynamic(activeTasks);
+    }
+    
+    final pending = await _plugin.pendingNotificationRequests();
+    debugPrint(
+      '[ALARM] rescheduleALLTasks complete: ${activeTasks.length} active tasks, '
+          '${pending.length} pending notifications '
+          '(platform=${Platform.isIOS ? 'iOS' : 'Android'}',
+    );
+  }
+  
+  Future<void>_ScheduleAllInRange(List<Task> tasks, int day) async {
+    final now = DateTime.now();
+    final end = now.add(Duration(days: day));
+    for (final task in tasks) {
       if (task.reminderOffsets.isNotEmpty) {
-        await scheduleForTask(task);
+        await _scheduleReminderInRange(task, now, end);
+      }
+      if (task.isAlarm) {
+        await _scheduleAlarmInRange(task, now, end);
+      }
+    }
+  }
+  
+  Future<void> _scheduledIOSDynamic(List<Task> tasks) async {
+    final now = DateTime.now();
+    int totalScheduled = 0;
+    
+    for (int day = 0; day < 7; day++) {
+      final dayStart = DateTime(now.year, now.month, now.day).add(
+          Duration(days: day));
+      final dayEnd = dayStart.add(const Duration(days: 1));
+
+      for (final task in tasks) {
+        if (task.reminderOffsets.isNotEmpty) {
+          totalScheduled +=
+          await _scheduleReminderInRange(task, dayStart, dayEnd);
+        }
+        if (task.isAlarm) {
+          totalScheduled += await _scheduleAlarmInRange(task, dayStart, dayEnd);
+        }
       }
 
-      if (task.isAlarm) {
-        await scheduleAlarm(task);
+      // Check against the ios safe limit after each day
+      final pending = await _plugin.pendingNotificationRequests();
+      debugPrint(
+        '[ALARM] iOS day $day: scheduled $totalScheduled total, '
+        '${pending.length} pending (limit=$_iosMaxPending, safe=$_iosSafeLimit)',
+      );
+
+      if (pending.length >= _iosSafeLimit) {
+        debugPrint('[ALARM] iOS: stopping at day $day - approaching 64 limit');
+        break;
       }
+
+    }
+    _requestBGTaskReschedule();
+  }
+
+  static void _requestBGTaskReschedule() {
+    if (!Platform.isIOS) return;
+    try {
+      const channel = MethodChannel('com.mk.life_pilot/bg_tasks');
+      channel.invokeMethod('scheduleBGTask');
+      debugPrint('[ALARM] iOS BGTask re-scheduled');
+    } catch (e) {
+      debugPrint('[ALARM] iOS BGTask re-scheduled failed: $e');
     }
   }
 }

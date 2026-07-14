@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
     <application
         android:label="DayPilot"
         android:name="${applicationName}"
@@ -44,7 +45,7 @@
                 android:exported="false" />
         <receiver
                 android:name="dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver"
-                android:enabled="false"
+                android:enabled="true"
                 android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

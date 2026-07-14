@@ -4,6 +4,8 @@ import 'package:life_pilot/database/app_database.dart';
 import 'package:life_pilot/providers/category_provider.dart';
 import 'package:life_pilot/providers/settings_provider.dart';
 import 'package:life_pilot/providers/task_provider.dart';
+import 'package:life_pilot/services/backup_service.dart';
+import 'package:life_pilot/services/battery_optimization_service.dart';
 import 'package:life_pilot/services/notification_service.dart';
 import 'package:life_pilot/core/constraints/app_constraints.dart';
 
@@ -75,9 +77,27 @@ class SettingsScreen extends ConsumerWidget {
               }
             }
           ),
+          ListTile(
+            leading: const Icon(Icons.battery_saver),
+            title: const Text('Battery optimization'),
+            subtitle: const Text('Ensure alarms work when app is closed'),
+            onTap: () => BatteryOptimizationService.checkAndPrompt(context, force: true),
+          ),
 
           const Divider(),
           _sectionHeader(theme, 'Data'),
+          ListTile(
+            leading: const Icon(Icons.upload_file),
+            title: const Text('Export Data'),
+            subtitle: const Text('Save all tasks and logs to a backup file'),
+            onTap: () => _handleExport(context),
+          ),
+          ListTile(
+            leading: const Icon(Icons.download),
+            title: const Text('Export data'),
+            subtitle: const Text('Restore from a backup file'),
+            onTap: () => _handleImport(context, ref),
+          ),
           ListTile(
             leading: Icon(Icons.restart_alt, color: theme.colorScheme.error),
             title: Text('Reset everything', style: TextStyle(color: theme.colorScheme.error)),
@@ -183,6 +203,97 @@ class SettingsScreen extends ConsumerWidget {
           ],
         )
     );
+  }
+
+  void _handleExport(BuildContext context) async {
+    try {
+      final path = await BackupService().exportDate();
+      if (!context.mounted) return;
+
+      showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            icon: const Icon(Icons.check_circle, color: Colors.green, size: 48),
+            title: const Text('Backup Saved!'),
+            content: SelectableText(
+              'File saved to:\n\n$path\n\nYou can find this file using your file manager app.',
+            ),
+            actions: [
+              FilledButton(
+                  onPressed: () => Navigator.pop(ctx),
+                  child: const Text('OK'),
+              )
+            ]
+          )
+      );
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Export failed: $e')),
+        );
+      }
+    }
+  }
+
+  void _handleImport(BuildContext context, WidgetRef ref) async {
+    try {
+      final backupService = BackupService();
+      final data = await backupService.pickBackupFile();
+      if (data == null) return;
+
+      final summary = backupService.getBackupSummary(data);
+      final exportAt = data['exportAt'] as String?;
+
+      if (!context.mounted) return;
+
+      final confirmed = await showDialog<bool>(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            icon: const Icon(Icons.download, size: 48),
+            title: const Text('Import backup?'),
+            content: Text(
+              '${exportAt != null ? 'Backup from ${_formatDate(exportAt)}\n\n': ''}'
+                  'This file contains: \n'
+                  '• ${summary['tasks']} tasks\n'
+                  '• ${summary['categories']} categories\n'
+                  '• ${summary['logs']} task logs\n'
+                  '• ${summary['subtasks']} subtasks logs\n'
+                  'This will replace all your current data'
+            ),
+            actions: [
+              TextButton(onPressed: () => Navigator.pop(ctx, false), child: const Text('Import')),
+              FilledButton(onPressed: () => Navigator.pop(ctx, true), child: const Text('Import')),
+            ],
+          )
+      );
+
+      if (confirmed != true || !context.mounted)  return;
+
+      await backupService.importData(data);
+      await ref.read(taskProvider).loadTasks();
+      await ref.read(categoryProvider).loadCategories();
+
+      if(context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Imported ${summary['tasks']} tasks successfully'))
+        );
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Import Failed: $e'))
+        );
+      }
+    }
+  }
+
+  String _formatDate(String isoDate) {
+    try {
+      final date = DateTime.parse(isoDate);
+      return '${date.day}/${date.month}/${date.year} ${date.hour}:${date.minute.toString().padLeft(2, '0')}';
+    } catch (_) {
+      return isoDate;
+    }
   }
 
   void _showSnoozeDialog(BuildContext context, WidgetRef ref) {
