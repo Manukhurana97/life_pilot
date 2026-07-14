@@ -94,7 +94,7 @@ class SettingsScreen extends ConsumerWidget {
           ),
           ListTile(
             leading: const Icon(Icons.download),
-            title: const Text('Export data'),
+            title: const Text('Import data'),
             subtitle: const Text('Restore from a backup file'),
             onTap: () => _handleImport(context, ref),
           ),
