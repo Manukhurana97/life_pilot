@@ -8,7 +8,7 @@ import android.os.PowerManager
 import android.provider.Settings
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
-import io.flutter.plugins.common.MethodChannel
+import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
     private val CHANNEL = "com.mk.life_pilot/battery"
@@ -16,12 +16,12 @@ class MainActivity : FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
 
-        MethodChannel(flutterEngine.dartExecutor.binaryMessager, CHANNEL)
-            .setMethodCallhandler { call, result ->
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
+            .setMethodCallHandler { call, result ->
                 when (call.method) {
                     "isIgnoringBatteryOptimizations" -> {
                         val pm = getSystemService(POWER_SERVICE) as PowerManager
-                        result.success(pm.isIgnoringBatteryOPtimizations(packageName))
+                        result.success(pm.isIgnoringBatteryOptimizations(packageName))
                     }
                     "requestIgnoreBatteryOptimizations" -> {
                         try {
@@ -45,7 +45,7 @@ class MainActivity : FlutterActivity() {
                     "getManufacturer" -> {
                         result.success(Build.MANUFACTURER.lowercase())
                     }
-                    else -> result.notImplementated()
+                    else -> result.notImplemented()
                 }
             }
     }
