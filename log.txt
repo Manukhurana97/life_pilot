@@ -1,15 +1,4 @@
-manu@Manus-MacBook-Air life_pilot % flutter clean
-flutter pub get
-flutter run
-Deleting build...                                                    7ms
-Deleting .dart_tool...                                               2ms
-Deleting ephemeral...                                                0ms
-Deleting Generated.xcconfig...                                       0ms
-Deleting flutter_export_environment.sh...                            0ms
-Deleting ephemeral...                                                0ms
-Deleting ephemeral...                                                0ms
-Deleting ephemeral...                                                0ms
-Deleting .flutter-plugins-dependencies...                            0ms
+manu@Manus-MacBook-Air life_pilot % flutter run --release
 Resolving dependencies...
 Downloading packages...
   android_alarm_manager_plus 5.0.0 (5.1.0 available)
@@ -43,40 +32,7 @@ Downloading packages...
 Got dependencies!
 28 packages have newer versions incompatible with dependency constraints.
 Try `flutter pub outdated` for more information.
-Resolving dependencies...
-Downloading packages...
-  android_alarm_manager_plus 5.0.0 (5.1.0 available)
-  audioplayers 6.7.1 (6.8.1 available)
-  audioplayers_android 5.2.1 (5.3.0 available)
-  audioplayers_darwin 6.4.0 (6.5.0 available)
-  audioplayers_linux 4.2.1 (4.3.0 available)
-  audioplayers_platform_interface 7.1.1 (7.2.0 available)
-  audioplayers_web 5.2.1 (5.3.0 available)
-  audioplayers_windows 4.3.1 (4.4.1 available)
-  cli_util 0.4.2 (0.5.1 available)
-  code_assets 1.1.0 (1.2.1 available)
-  cross_file 0.3.5+2 (0.3.5+4 available)
-  dbus 0.7.13 (0.7.14 available)
-  equatable 2.0.8 (2.1.0 available)
-  flutter_riverpod 2.6.1 (3.3.2 available)
-  hooks 2.0.0 (2.1.0 available)
-  intl 0.20.2 (0.20.3 available)
-  matcher 0.12.19 (0.12.20 available)
-  meta 1.18.0 (1.19.0 available)
-  package_config 2.2.0 (3.0.0 available)
-  path_provider_linux 2.2.1 (2.2.2 available)
-  path_provider_platform_interface 2.1.2 (2.1.3 available)
-  record_use 0.6.0 (1.0.0 available)
-  riverpod 2.6.1 (3.3.2 available)
-  shared_preferences_android 2.4.23 (2.4.27 available)
-  sqflite_darwin 2.4.3 (2.4.3+1 available)
-  test_api 0.7.11 (0.7.13 available)
-  timezone 0.11.0 (0.11.1 available)
-  vector_math 2.2.0 (2.4.0 available)
-Got dependencies!
-28 packages have newer versions incompatible with dependency constraints.
-Try `flutter pub outdated` for more information.
-Launching lib/main.dart on RMX3944 in debug mode...
+Launching lib/main.dart on RMX3944 in release mode...
 WARNING: Your app uses the following plugins that apply Kotlin Gradle Plugin (KGP): android_alarm_manager_plus, audioplayers_android, shared_preferences_android
 Future versions of Flutter will fail to build if your app uses plugins that apply KGP.
 
@@ -85,210 +41,39 @@ If no such version exists, report the issue to the plugin. If necessary, here is
 an issue against a plugin: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers#report-incompatible-kotlin-gradle-plugin-usage-to-plugin-authors
 
 If you are a plugin author, please migrate your plugin to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors
-Note: /Users/manu/.pub-cache/hosted/pub.dev/android_alarm_manager_plus-5.0.0/android/src/main/java/dev/fluttercommunity/plus/androidalarmmanager/AlarmService.java uses or overrides a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:11:27 Unresolved reference 'common'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:19:9 Unresolved reference 'MethodChannel'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:19:50 Unresolved reference 'binaryMessager'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:20:37 Cannot infer type for value parameter 'call'. Specify it explicitly.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:20:43 Cannot infer type for value parameter 'result'. Specify it explicitly.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:21:28 Unresolved reference 'method'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:24:32 Unresolved reference 'success'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:24:43 Unresolved reference 'isIgnoringBatteryOPtimizations'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:31:36 Unresolved reference 'success'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:33:36 Unresolved reference 'success'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:40:36 Unresolved reference 'success'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:42:36 Unresolved reference 'success'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:46:32 Unresolved reference 'success'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:48:36 Unresolved reference 'notImplementated'.
+Running Gradle task 'assembleRelease'...                           23.6s
+✓ Built build/app/outputs/flutter-apk/app-release.apk (30.3MB)
+Installing build/app/outputs/flutter-apk/app-release.apk...         9.9s
 
-FAILURE: Build failed with an exception.
+Flutter run key commands.
+h List all available interactive commands.
+c Clear the screen
+q Quit (terminate the application on the device).
 
-* What went wrong:
-Execution failed for task ':app:compileDebugKotlin'.
-> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.btapi.BuildToolsApiCompilationWork
-   > Compilation error. See log for more details
-
-* Try:
-> Run with --stacktrace option to get the stack trace.
-> Run with --info or --debug option to get more log output.
-> Run with --scan to generate a Build Scan (Powered by Develocity).
-> Get more help at https://help.gradle.org.
-
-BUILD FAILED in 20s
-Running Gradle task 'assembleDebug'...                             20.3s
-Error: Gradle task assembleDebug failed with exit code 1
-manu@Manus-MacBook-Air life_pilot % git add log.txt
-manu@Manus-MacBook-Air life_pilot % git commit -m "log"
-On branch main
-Your branch is ahead of 'github/main' by 1 commit.
-  (use "git push" to publish your local commits)
-
-nothing to commit, working tree clean
-manu@Manus-MacBook-Air life_pilot % git check-ignore -v log.txt
-manu@Manus-MacBook-Air life_pilot % blutter build apk --release --no-tree-shake-icons
-zsh: command not found: blutter
-manu@Manus-MacBook-Air life_pilot % flutter build apk --release --no-tree-shake-icons
-Resolving dependencies...
-Downloading packages...
-  android_alarm_manager_plus 5.0.0 (5.1.0 available)
-  audioplayers 6.7.1 (6.8.1 available)
-  audioplayers_android 5.2.1 (5.3.0 available)
-  audioplayers_darwin 6.4.0 (6.5.0 available)
-  audioplayers_linux 4.2.1 (4.3.0 available)
-  audioplayers_platform_interface 7.1.1 (7.2.0 available)
-  audioplayers_web 5.2.1 (5.3.0 available)
-  audioplayers_windows 4.3.1 (4.4.1 available)
-  cli_util 0.4.2 (0.5.1 available)
-  code_assets 1.1.0 (1.2.1 available)
-  cross_file 0.3.5+2 (0.3.5+4 available)
-  dbus 0.7.13 (0.7.14 available)
-  equatable 2.0.8 (2.1.0 available)
-  flutter_riverpod 2.6.1 (3.3.2 available)
-  hooks 2.0.0 (2.1.0 available)
-  intl 0.20.2 (0.20.3 available)
-  matcher 0.12.19 (0.12.20 available)
-  meta 1.18.0 (1.19.0 available)
-  package_config 2.2.0 (3.0.0 available)
-  path_provider_linux 2.2.1 (2.2.2 available)
-  path_provider_platform_interface 2.1.2 (2.1.3 available)
-  record_use 0.6.0 (1.0.0 available)
-  riverpod 2.6.1 (3.3.2 available)
-  shared_preferences_android 2.4.23 (2.4.27 available)
-  sqflite_darwin 2.4.3 (2.4.3+1 available)
-  test_api 0.7.11 (0.7.13 available)
-  timezone 0.11.0 (0.11.1 available)
-  vector_math 2.2.0 (2.4.0 available)
-Got dependencies!
-28 packages have newer versions incompatible with dependency constraints.
-Try `flutter pub outdated` for more information.
-WARNING: Your app uses the following plugins that apply Kotlin Gradle Plugin (KGP): android_alarm_manager_plus, audioplayers_android, shared_preferences_android
-Future versions of Flutter will fail to build if your app uses plugins that apply KGP.
-
-Please check the changelogs of these plugins and upgrade to a version that supports Built-in Kotlin.
-If no such version exists, report the issue to the plugin. If necessary, here is a guide on filing
-an issue against a plugin: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers#report-incompatible-kotlin-gradle-plugin-usage-to-plugin-authors
-
-If you are a plugin author, please migrate your plugin to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors
-Note: /Users/manu/.pub-cache/hosted/pub.dev/android_alarm_manager_plus-5.0.0/android/src/main/java/dev/fluttercommunity/plus/androidalarmmanager/AlarmService.java uses or overrides a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:11:27 Unresolved reference 'common'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:19:9 Unresolved reference 'MethodChannel'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:19:50 Unresolved reference 'binaryMessager'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:20:37 Cannot infer type for value parameter 'call'. Specify it explicitly.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:20:43 Cannot infer type for value parameter 'result'. Specify it explicitly.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:21:28 Unresolved reference 'method'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:24:32 Unresolved reference 'success'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:24:43 Unresolved reference 'isIgnoringBatteryOPtimizations'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:31:36 Unresolved reference 'success'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:33:36 Unresolved reference 'success'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:40:36 Unresolved reference 'success'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:42:36 Unresolved reference 'success'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:46:32 Unresolved reference 'success'.
-e: file:///Users/manu/Desktop/code/Projects/life_pilot/android/app/src/main/kotlin/com/mk/life_pilot/MainActivity.kt:48:36 Unresolved reference 'notImplementated'.
-
-FAILURE: Build failed with an exception.
-
-* What went wrong:
-Execution failed for task ':app:compileReleaseKotlin'.
-> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.btapi.BuildToolsApiCompilationWork
-   > Compilation error. See log for more details
-
-* Try:
-> Run with --stacktrace option to get the stack trace.
-> Run with --info or --debug option to get more log output.
-> Run with --scan to generate a Build Scan (Powered by Develocity).
-> Get more help at https://help.gradle.org.
-
-BUILD FAILED in 41s
-Running Gradle task 'assembleRelease'...                           42.1s
-Gradle task assembleRelease failed with exit code 1
-manu@Manus-MacBook-Air life_pilot % flutter build apk --release --no-tree-shake-icons
-Resolving dependencies...
-Downloading packages...
-  android_alarm_manager_plus 5.0.0 (5.1.0 available)
-  audioplayers 6.7.1 (6.8.1 available)
-  audioplayers_android 5.2.1 (5.3.0 available)
-  audioplayers_darwin 6.4.0 (6.5.0 available)
-  audioplayers_linux 4.2.1 (4.3.0 available)
-  audioplayers_platform_interface 7.1.1 (7.2.0 available)
-  audioplayers_web 5.2.1 (5.3.0 available)
-  audioplayers_windows 4.3.1 (4.4.1 available)
-  cli_util 0.4.2 (0.5.1 available)
-  code_assets 1.1.0 (1.2.1 available)
-  cross_file 0.3.5+2 (0.3.5+4 available)
-  dbus 0.7.13 (0.7.14 available)
-  equatable 2.0.8 (2.1.0 available)
-  flutter_riverpod 2.6.1 (3.3.2 available)
-  hooks 2.0.0 (2.1.0 available)
-  intl 0.20.2 (0.20.3 available)
-  matcher 0.12.19 (0.12.20 available)
-  meta 1.18.0 (1.19.0 available)
-  package_config 2.2.0 (3.0.0 available)
-  path_provider_linux 2.2.1 (2.2.2 available)
-  path_provider_platform_interface 2.1.2 (2.1.3 available)
-  record_use 0.6.0 (1.0.0 available)
-  riverpod 2.6.1 (3.3.2 available)
-  shared_preferences_android 2.4.23 (2.4.27 available)
-  sqflite_darwin 2.4.3 (2.4.3+1 available)
-  test_api 0.7.11 (0.7.13 available)
-  timezone 0.11.0 (0.11.1 available)
-  vector_math 2.2.0 (2.4.0 available)
-Got dependencies!
-28 packages have newer versions incompatible with dependency constraints.
-Try `flutter pub outdated` for more information.
-WARNING: Your app uses the following plugins that apply Kotlin Gradle Plugin (KGP): android_alarm_manager_plus, audioplayers_android, shared_preferences_android
-Future versions of Flutter will fail to build if your app uses plugins that apply KGP.
-
-Please check the changelogs of these plugins and upgrade to a version that supports Built-in Kotlin.
-If no such version exists, report the issue to the plugin. If necessary, here is a guide on filing
-an issue against a plugin: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers#report-incompatible-kotlin-gradle-plugin-usage-to-plugin-authors
-
-If you are a plugin author, please migrate your plugin to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors
-Running Gradle task 'assembleRelease'...                           24.9s
-✓ Built build/app/outputs/flutter-apk/app-release.apk (68.0MB)
-manu@Manus-MacBook-Air life_pilot % flutter build apk --release --no-tree-shake-icons
-Resolving dependencies...
-Downloading packages...
-  android_alarm_manager_plus 5.0.0 (5.1.0 available)
-  audioplayers 6.7.1 (6.8.1 available)
-  audioplayers_android 5.2.1 (5.3.0 available)
-  audioplayers_darwin 6.4.0 (6.5.0 available)
-  audioplayers_linux 4.2.1 (4.3.0 available)
-  audioplayers_platform_interface 7.1.1 (7.2.0 available)
-  audioplayers_web 5.2.1 (5.3.0 available)
-  audioplayers_windows 4.3.1 (4.4.1 available)
-  cli_util 0.4.2 (0.5.1 available)
-  code_assets 1.1.0 (1.2.1 available)
-  cross_file 0.3.5+2 (0.3.5+4 available)
-  dbus 0.7.13 (0.7.14 available)
-  equatable 2.0.8 (2.1.0 available)
-  flutter_riverpod 2.6.1 (3.3.2 available)
-  hooks 2.0.0 (2.1.0 available)
-  intl 0.20.2 (0.20.3 available)
-  matcher 0.12.19 (0.12.20 available)
-  meta 1.18.0 (1.19.0 available)
-  package_config 2.2.0 (3.0.0 available)
-  path_provider_linux 2.2.1 (2.2.2 available)
-  path_provider_platform_interface 2.1.2 (2.1.3 available)
-  record_use 0.6.0 (1.0.0 available)
-  riverpod 2.6.1 (3.3.2 available)
-  shared_preferences_android 2.4.23 (2.4.27 available)
-  sqflite_darwin 2.4.3 (2.4.3+1 available)
-  test_api 0.7.11 (0.7.13 available)
-  timezone 0.11.0 (0.11.1 available)
-  vector_math 2.2.0 (2.4.0 available)
-Got dependencies!
-28 packages have newer versions incompatible with dependency constraints.
-Try `flutter pub outdated` for more information.
-WARNING: Your app uses the following plugins that apply Kotlin Gradle Plugin (KGP): android_alarm_manager_plus, audioplayers_android, shared_preferences_android
-Future versions of Flutter will fail to build if your app uses plugins that apply KGP.
-
-Please check the changelogs of these plugins and upgrade to a version that supports Built-in Kotlin.
-If no such version exists, report the issue to the plugin. If necessary, here is a guide on filing
-an issue against a plugin: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers#report-incompatible-kotlin-gradle-plugin-usage-to-plugin-authors
-
-If you are a plugin author, please migrate your plugin to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors
-Running Gradle task 'assembleRelease'...                         2,227ms
-✓ Built build/app/outputs/flutter-apk/app-release.apk (68.0MB)
-manu@Manus-MacBook-Air life_pilot %
+I/flutter (26127): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+I/FlutterBackgroundExecutor(26127): Starting AlarmService...
+I/flutter (26127): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+I/flutter (26127): [ALARM] canScheduleExactNotifications=true
+I/flutter (26127): [SPLASH] Flutter splash screen initState
+I/flutter (26127): [SPLASH] showing splash: assets/image/original/splash/light.png (isDark=false)
+I/flutter (26127): Error: google_fonts was unable to load font Inter-Regular because the following exception occurred:
+I/flutter (26127): Exception: Failed to load font with url https://fonts.gstatic.com/s/a/15b294b67f2f8bbc04d990023ef4aec66502b87dc9040d84abe5f896ccb693de.ttf: ClientException with SocketException: Failed host lookup: 'fonts.gstatic.com' (OS Error: No address associated with hostname, errno = 7), uri=https://fonts.gstatic.com/s/a/15b294b67f2f8bbc04d990023ef4aec66502b87dc9040d84abe5f896ccb693de.ttf
+I/flutter (26127):
+I/flutter (26127): See https://docs.flutter.dev/development/data-and-backend/networking#platform-notes.
+I/flutter (26127): If troubleshooting doesn't solve the problem, please file an issue at https://github.com/flutter/flutter/issues/new/choose.
+I/flutter (26127):
+E/flutter (26127): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: Exception: Failed to load font with url https://fonts.gstatic.com/s/a/15b294b67f2f8bbc04d990023ef4aec66502b87dc9040d84abe5f896ccb693de.ttf: ClientException with SocketException: Failed host lookup: 'fonts.gstatic.com' (OS Error: No address associated with hostname, errno = 7), uri=https://fonts.gstatic.com/s/a/15b294b67f2f8bbc04d990023ef4aec66502b87dc9040d84abe5f896ccb693de.ttf
+E/flutter (26127): #0      _httpFetchFontAndSaveToDevice (package:google_fonts/src/google_fonts_base.dart:266)
+E/flutter (26127): <asynchronous suspension>
+E/flutter (26127): #1      loadFontIfNecessary (package:google_fonts/src/google_fonts_base.dart:172)
+E/flutter (26127): <asynchronous suspension>
+E/flutter (26127): #2      googleFontsTextStyle.<anonymous closure> (package:google_fonts/src/google_fonts_base.dart:109)
+E/flutter (26127): <asynchronous suspension>
+E/flutter (26127):
+I/flutter (26127): [SPLASH] Flutter out splash screen
+I/flutter (26127): [ALARM] task 8d136363-58dc-4ea7-8061-b0b084fadc13 marked completed - cancelled pending snooze alarms
+I/flutter (26127): [ALARM] task e1d0f4f9-faa1-4ed8-bbe7-f5f3483d8f68 marked completed - cancelled pending snooze alarms
+I/flutter (26127): [ALARM] task 98998e63-3e8d-4bb4-af80-69ce573adf81 marked completed - cancelled pending snooze alarms
+I/flutter (26127): [ALARM] task 714e4fce-da48-4ba3-b58c-00fcc90a55ec marked completed - cancelled pending snooze alarms
+I/flutter (26127): [ALARM] task 046fa35c-7a43-4bc3-b257-dbe9a98d947a marked completed - cancelled pending snooze alarms
+I/flutter (26127): [ALARM] task 919332cc-b5dc-4d22-a232-a159f285d84b marked completed - cancelled pending snooze alarms
