@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 class BatteryOptimizationService {
-  static const _channel = MethodChannel('com.mk_life_pilot/battery');
+  static const _channel = MethodChannel('com.mk.life_pilot/battery');
 
   /// check if battery is already disable for this app
   static Future<bool> isIgnoringBatteryOptimization() async {
@@ -41,7 +41,7 @@ class BatteryOptimizationService {
   static Future<String> getManufacture() async {
     if(!Platform.isAndroid) return '';
     try {
-      return await _channel.invokeMethod('getManufacture') ?? '';
+      return await _channel.invokeMethod('getManufacturer') ?? '';
     } catch (_) {
       return '';
     }

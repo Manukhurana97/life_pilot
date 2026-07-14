@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:life_pilot/database/app_database.dart';
 import 'package:life_pilot/providers/category_provider.dart';
@@ -219,6 +222,15 @@ class SettingsScreen extends ConsumerWidget {
               'File saved to:\n\n$path\n\nYou can find this file using your file manager app.',
             ),
             actions: [
+              if (Platform.isAndroid) 
+                TextButton.icon(
+                    onPressed: () {
+                      Navigator.pop(ctx);
+                      _openFileLocation(path);
+                    },
+                    icon: const Icon(Icons.folder_open),
+                    label: const Text("Open Folder")
+                ),
               FilledButton(
                   onPressed: () => Navigator.pop(ctx),
                   child: const Text('OK'),
@@ -232,6 +244,15 @@ class SettingsScreen extends ConsumerWidget {
           SnackBar(content: Text('Export failed: $e')),
         );
       }
+    }
+  }
+  
+  void _openFileLocation(String filePath) {
+    try {
+      const channel = MethodChannel("com.mk.life_pilot/file");
+      channel.invokeMethod('openFileLocation', {'path': filePath});
+    } catch (e) {
+      debugPrint('[BACKUP] Failed to open file location: $e');
     }
   }
 
