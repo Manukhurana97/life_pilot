@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.os.PowerManager
 import android.provider.Settings
 import io.flutter.embedding.android.FlutterActivity
@@ -53,6 +54,18 @@ class MainActivity : FlutterActivity() {
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, FILE_CHANNEL)
             .setMethodCallHandler { call, result ->
                 when (call.method) {
+                    "getDownloadPath" -> {
+                        try {
+                            val dir = Environment.getExternalStoragePublicDirectory(
+                                Environment.DIRECTORY_DOWNLOADS
+                            )
+                            dir.mkdirs()
+                            result.success(dir.absolutePath)
+                        } catch (e: Exception) {
+                            result.error("UNAVAILABLE", "Download folder not available", null)
+                        }
+                    }
+
                     "openFileLocation" -> {
                         try {
                             val intent = Intent(Intent.ACTION_VIEW)

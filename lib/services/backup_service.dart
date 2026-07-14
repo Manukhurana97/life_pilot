@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:file_selector/file_selector.dart';
+import 'package:flutter/services.dart';
 import 'package:life_pilot/database/app_database.dart';
 import 'package:sqflite/sqlite_api.dart';
 
@@ -31,28 +32,14 @@ class BackupService {
 
     final jsonStr = const JsonEncoder.withIndent('  ').convert(data);
 
-    // Use external storage (user-accessible via file-manager)
-
     final timestamp = DateTime.now().millisecondsSinceEpoch;
     final fileName = 'daypilot_backup_$timestamp.json';
 
-    // use system sabe dialog - lets user choose location (default to Download)
-    final savedLocation = await getSaveLocation(
-      suggestedName: fileName,
-      acceptedTypeGroups: [
-        const XTypeGroup(
-          label: 'JSON backup',
-          extensions: ['json'],
-          mimeTypes: ['application/json'],
-        ),
-      ]
-    );
+    // Get the public Downloads folder via platform channel
+    const channel =MethodChannel('com.mk.life_pilot/file');
+    final String downloadsPath = await channel.invokeMethod('getDownloadsPath');
 
-    if (savedLocation == null) {
-      throw Exception("Export cancelled by user");
-    }
-
-    final file = File(savedLocation.path);
+    final file = File('$downloadsPath/$fileName');
     await file.writeAsString(jsonStr);
 
     debugPrint('[BACKUP] Exported to ${file.path}');
