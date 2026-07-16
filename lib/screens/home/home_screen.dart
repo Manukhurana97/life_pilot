@@ -40,10 +40,18 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final now = TimeOfDay.now();
     final nowMinutes = now.hour * 60 + now.minute;
     for (int i = 0; i < timedTasks.length; i++) {
-      if (timedTasks[i].startTime != null) {
-        final parts = timedTasks[i].startTime!.split(':');
-        final taskMinutes = int.parse(parts[0]) * 60 + int.parse(parts[1]);
-        if (taskMinutes > nowMinutes) return i;
+      final task = timedTasks[i];
+      if (task.startTime != null) {
+        final startPart = task.startTime!.split(':');
+        final startMinutes = int.parse(startPart[0]) * 60 + int.parse(startPart[1]);
+
+        if(startMinutes > nowMinutes) return i;
+
+        if (task.endTime != null) {
+          final endParts = task.endTime!.split(':');
+          final endMinutes = int.parse(endParts[0]) * 60 + int.parse(endParts[1]);
+          if (nowMinutes >= startMinutes && nowMinutes < endMinutes) return i;
+        }
       }
     }
     return timedTasks.length;
